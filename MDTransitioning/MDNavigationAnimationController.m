@@ -63,12 +63,12 @@
     [[transitionContext containerView] addSubview:[toViewController view]];
     
     [UIView animateWithDuration:duration
-                          delay:0.0
+                          delay:0.f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         fromViewController.snapshot.alpha = 0.0;
-                         fromViewController.snapshot.frame = CGRectInset(fromViewController.view.frame, 20, 20);
-                         toViewController.view.frame = CGRectOffset(toViewController.view.frame, -CGRectGetWidth(toViewController.view.frame), 0);
+                         fromViewController.snapshot.alpha = 0.f;
+                         fromViewController.snapshot.frame = CGRectInset([[fromViewController view] frame], 20, 20);
+                         toViewController.view.frame = CGRectOffset([[toViewController view] frame], -CGRectGetWidth([[toViewController view] frame]), 0);
                      }
                      completion:^(BOOL finished) {
                          fromViewController.view.hidden = NO;

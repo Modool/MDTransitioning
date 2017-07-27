@@ -10,6 +10,6 @@
 
 @interface MDImageDismissInteractionController : MDSwipeInteractionController
 
-@property (nonatomic, assign) CGFloat translation; // Default is 100.f.
+@property (nonatomic, assign) CGFloat translation; // Default is controller.view.width / 3.f.
 
 @end

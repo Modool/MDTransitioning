@@ -35,8 +35,12 @@ typedef NS_ENUM(NSInteger, MDInteractionOperation) {
 @property (nonatomic, assign, readonly) BOOL interactionInProgress;
 @property (nonatomic, assign) BOOL enable;
 
-@property (nonatomic, copy) CGFloat (^enableSwipeTransform)(CGPoint location, CGPoint velocity);
-@property (nonatomic, copy) CGFloat (^progressTransform)(CGPoint location, CGPoint translation, CGPoint velocity);
+@property (nonatomic, copy) CGFloat (^allowSwipe)(CGPoint location, CGPoint velocity);
+@property (nonatomic, copy) CGFloat (^progress)(CGPoint location, CGPoint translation, CGPoint velocity);
+
+@property (nonatomic, copy) void (^begin)(); // Default is called requireInteractiveTransition.
+@property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransition> interactiveTransition, BOOL finished);
+@property (nonatomic, copy) void (^update)(id<MDPercentDrivenInteractiveTransition> interactiveTransition, CGFloat progress);
 
 - (id<MDPercentDrivenInteractiveTransition>)requireInteractiveTransition;
 

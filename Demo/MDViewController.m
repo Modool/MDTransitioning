@@ -26,9 +26,9 @@
 #pragma mark - actions
 
 - (IBAction)didClickImageButton:(id)sender {
-    
     MDImageViewController *imageViewController = [[MDImageViewController alloc] initWithImage:[[self imageView] image]];
     imageViewController.transitioningDelegate = self;
+    
     [self presentViewController:imageViewController animated:YES completion:nil];
 }
 

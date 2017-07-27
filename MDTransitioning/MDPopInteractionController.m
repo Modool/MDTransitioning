@@ -14,13 +14,13 @@
     if (self = [super initWithViewController:viewController]) {
         __block __weak id weak_self = self;
         self.horizontalOffset = 20.f;
-        self.begin = ^{
+        self.begin = ^(id<MDPercentDrivenInteractiveTransition> interactiveTransition){
             [[viewController navigationController] popViewControllerAnimated:YES];
         };
-        self.enableSwipeTransform = ^CGFloat(CGPoint location, CGPoint velocity) {
+        self.allowSwipe = ^CGFloat(CGPoint location, CGPoint velocity) {
             return velocity.x > 0 && location.x < [weak_self horizontalOffset];
         };
-        self.progressTransform = ^CGFloat(CGPoint location, CGPoint translation, CGPoint velocity) {
+        self.progress = ^CGFloat(CGPoint location, CGPoint translation, CGPoint velocity) {
             return translation.x / CGRectGetWidth([[viewController view] frame]);
         };
     }

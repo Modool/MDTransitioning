@@ -8,8 +8,11 @@
 #import <objc/runtime.h>
 #import "MDImageViewController.h"
 #import "MDImageDismissInteractionController.h"
+#import "MDImageDraggingDismissInteractionController.h"
 
 @interface MDImageViewController ()<UIScrollViewDelegate, MDPresentionInteractiveTransitioning>
+
+@property (nonatomic, strong) IBOutlet UIView *backgroundView;
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 
@@ -35,6 +38,7 @@
     if (self = [super init]) {
         self.imageURL = imageURL;
         self.image = placeholderImage;
+        self.modalPresentationStyle = UIModalPresentationCustom;
     }
     return self;
 }
@@ -42,9 +46,10 @@
 - (void)loadView{
     [super loadView];
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor clearColor];
     self.scrollView.contentSize = self.view.bounds.size;
     
+    [[self view] addSubview:[self backgroundView]];
     [[self view] addSubview:[self scrollView]];
     [[self scrollView] addSubview:[self imageView]];
     
@@ -55,12 +60,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.presentionInteractiveController = [MDImageDismissInteractionController interactionControllerWithViewController:self];
+//    self.presentionInteractiveController = [MDImageDismissInteractionController interactionControllerWithViewController:self];
+    self.presentionInteractiveController = [MDImageDraggingDismissInteractionController interactionControllerWithViewController:self];
     
     [[self singleTapGestureRecognizer] requireGestureRecognizerToFail:[self doubleTapGestureRecognizer]];
 }
 
 #pragma mark - accessor
+
+- (UIView *)backgroundView{
+    if (!_backgroundView) {
+        _backgroundView = [[UIView alloc] initWithFrame:[[self view] bounds]];
+        _backgroundView.backgroundColor = [UIColor blackColor];
+    }
+    return _backgroundView;
+}
 
 - (UIScrollView *)scrollView{
     if (!_scrollView) {

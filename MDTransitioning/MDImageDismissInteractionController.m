@@ -19,10 +19,10 @@
         self.begin = ^{
             [viewController dismissViewControllerAnimated:YES completion:nil];
         };
-        self.enableSwipeTransform = ^CGFloat(CGPoint location, CGPoint velocity) {
+        self.allowSwipe = ^CGFloat(CGPoint location, CGPoint velocity) {
             return [[viewController scrollView] zoomScale] <= [[viewController scrollView] minimumZoomScale] && velocity.y > 0;
         };
-        self.progressTransform = ^CGFloat(CGPoint location, CGPoint translation, CGPoint velocity) {
+        self.progress = ^CGFloat(CGPoint location, CGPoint translation, CGPoint velocity) {
             CGFloat distance = sqrt(pow(translation.x, 2) + pow(translation.y, 2));
             return  distance / [weak_self translation];
         };

@@ -15,6 +15,8 @@
 // (zoom out) of the transition.
 @property (nonatomic, weak, readonly) UIImageView *referenceImageView;
 
+@property (nonatomic, assign) BOOL hideReferenceImageViewWhenZoomIn; // Default is YES.
+
 // Initializes the receiver with the specified reference image view to other image view.
 - (id)initWithReferenceImageView:(UIImageView *)referenceImageView;
 
@@ -29,6 +31,7 @@
 
 @protocol MDImageContainerViewControllerDelegate <MDImageZoomViewControllerDelegate>
 
+@property (nonatomic, weak, readonly) UIView *backgroundView;
 @property (nonatomic, weak, readonly) UIScrollView *scrollView;
 
 @end

@@ -45,6 +45,7 @@
     if (self = [super init]) {
         NSAssert([referenceImageView contentMode] == UIViewContentModeScaleAspectFill, @"*** referenceImageView must have a UIViewContentModeScaleAspectFill contentMode!");
         _referenceImageView = referenceImageView;
+        _hideReferenceImageViewWhenZoomIn = YES;
     }
     return self;
 }
@@ -85,7 +86,9 @@
     CGRect finalFrame = [transitionContext finalFrameForViewController:toViewController];
     CGRect transitionViewFinalFrame = [[[self referenceImageView] image] aspectFitRectForSize:finalFrame.size];
     
-    self.referenceImageView.hidden = YES;
+    if ([self hideReferenceImageViewWhenZoomIn]) {
+        self.referenceImageView.hidden = YES;
+    }
     // Perform the transition using a spring motion effect
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -99,14 +102,15 @@
                          transitionView.frame = transitionViewFinalFrame;
                      }
                      completion:^(BOOL finished) {
-                         self.referenceImageView.hidden = NO;
-                         
                          window.backgroundColor = windowBackgroundColor;
                          fromViewController.view.alpha = 1;
                          
+                         if ([transitionContext transitionWasCancelled] && [self hideReferenceImageViewWhenZoomIn]) {
+                             self.referenceImageView.hidden = NO;
+                         }
+                         
                          [transitionView removeFromSuperview];
                          [[transitionContext containerView] addSubview:[toViewController view]];
-                         
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                      }];
 }
@@ -116,17 +120,18 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIViewController<MDImageZoomViewControllerDelegate> *fromViewController = (id)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     NSAssert([fromViewController conformsToProtocol:@protocol(MDImageZoomViewControllerDelegate)], @"*** fromViewController must conforms to protocol for YRImageViewController!");
-    
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     UIColor *windowBackgroundColor = [window backgroundColor];
     
-    window.backgroundColor = [UIColor blackColor];
     // The toViewController view will fade in during the transition
     toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
-    toViewController.view.alpha = 0;
-    [transitionContext.containerView addSubview:[toViewController view]];
-    [transitionContext.containerView sendSubviewToBack:[toViewController view]];
-    
+    if ([fromViewController modalPresentationStyle] == UIModalPresentationNone) {
+        toViewController.view.alpha = 0;
+        window.backgroundColor = [UIColor blackColor];
+        
+        [[transitionContext containerView] addSubview:[toViewController view]];
+        [[transitionContext containerView] sendSubviewToBack:[toViewController view]];
+    }
     // Compute the initial frame for the temporary view based on the image view
     // of the YRImageViewController
     CGRect transitionViewInitialFrame = [[[fromViewController imageView] image] aspectFitRectForSize:[[fromViewController imageView] bounds].size];
@@ -143,15 +148,17 @@
     UIImageView *transitionView = [[UIImageView alloc] initWithImage:[[fromViewController imageView] image]];
     transitionView.contentMode = UIViewContentModeScaleAspectFill;
     transitionView.layer.cornerRadius = [[[self referenceImageView] layer] cornerRadius];
-    transitionView.layer.borderWidth = self.referenceImageView.layer.borderWidth;
-    transitionView.layer.borderColor = self.referenceImageView.layer.borderColor;
+    transitionView.layer.borderWidth = [[[self referenceImageView] layer] borderWidth];
+    transitionView.layer.borderColor = [[[self referenceImageView] layer] borderColor];
     transitionView.clipsToBounds = YES;
     transitionView.frame = transitionViewInitialFrame;
     
     [[transitionContext containerView] addSubview:transitionView];
     
-    fromViewController.view.alpha = 0.f;
-    self.referenceImageView.hidden = YES;
+    fromViewController.imageView.hidden = YES;
+    if ([self hideReferenceImageViewWhenZoomIn]) {
+        self.referenceImageView.hidden = YES;
+    }
     // Perform the transition
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
@@ -159,12 +166,16 @@
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         toViewController.view.alpha = 1;
+                         toViewController.view.alpha = 1.f;
+                         fromViewController.view.alpha = 0.f;
                          transitionView.frame = transitionViewFinalFrame;
                      } completion:^(BOOL finished) {
-                         self.referenceImageView.hidden = NO;
+                         if ([self hideReferenceImageViewWhenZoomIn]) {
+                             self.referenceImageView.hidden = NO;
+                         }
                          window.backgroundColor = windowBackgroundColor;
                          if ([transitionContext transitionWasCancelled]) {
+                             fromViewController.imageView.hidden = NO;
                              fromViewController.view.alpha = 1.f;
                          }
                          [transitionView removeFromSuperview];
@@ -187,6 +198,7 @@
     controller.operation = operation;
     controller.fromViewController = fromViewController;
     controller.toViewController = toViewController;
+    controller.hideReferenceImageViewWhenZoomIn = NO;
     
     return controller;
 }

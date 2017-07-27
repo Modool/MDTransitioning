@@ -8,7 +8,7 @@
 
 #import "MDSwipeInteractionController.h"
 
-@interface MDSwipeInteractionController ()<UIGestureRecognizerDelegate>
+@interface MDSwipeInteractionController ()
 
 @property (nonatomic, assign) BOOL interactionInProgress;
 
@@ -68,25 +68,32 @@
     CGPoint translation = [recognizer translationInView:[[self viewController] view]];
     CGPoint velocity = [recognizer velocityInView:[[self viewController] view]];
     
-    CGFloat progress = [self progressTransform] ? self.progressTransform(location, translation, velocity) : 1.f;
-    progress = MIN(1.0, MAX(0.0, progress));
-    
     if ([recognizer state] == UIGestureRecognizerStateBegan) {
         self.interactionInProgress = YES;
         // Create a interactive transition and pop the view controller
         self.interactiveTransition = [self requireInteractiveTransition];
         if ([self begin]) {
-            self.begin();
+            self.begin([self interactiveTransition]);
         }
     } else if ([recognizer state] == UIGestureRecognizerStateChanged) {
+        CGFloat progress = [self progress] ? self.progress(location, translation, velocity) : 1.f;
+        progress = MIN(1.0, MAX(0.0, progress));
         // Update the interactive transition's progress
+        if ([self update]) {
+            self.update([self interactiveTransition], progress);
+        }
         [[self interactiveTransition] updateInteractiveTransition:progress];
     } else if ([recognizer state] == UIGestureRecognizerStateEnded || [recognizer state] == UIGestureRecognizerStateCancelled) {
+        CGFloat progress = [self progress] ? self.progress(location, translation, velocity) : 1.f;
+        progress = MIN(1.0, MAX(0.0, progress));
         // Finish or cancel the interactive transition
         if (progress > 0.25) {
             [[self interactiveTransition] finishInteractiveTransition];
         } else {
             [[self interactiveTransition] cancelInteractiveTransition];
+        }
+        if ([self end]) {
+            self.end([self interactiveTransition], progress > 0.25);
         }
         self.interactiveTransition = nil;
         self.interactionInProgress = NO;
@@ -99,7 +106,7 @@
     CGPoint location = [recognizer locationInView:[[self viewController] view]];
     CGPoint velocety = [recognizer velocityInView:[[self viewController] view]];
     
-    return recognizer == [self panGestureRecognizer] && [self enableSwipeTransform] && self.enableSwipeTransform(location, velocety);
+    return recognizer == [self panGestureRecognizer] && [self allowSwipe] && self.allowSwipe(location, velocety);
 }
 
 @end

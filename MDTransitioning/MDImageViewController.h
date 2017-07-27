@@ -13,6 +13,9 @@
 // The view controller can be dismissed with a single tap.
 @interface MDImageViewController : UIViewController<MDImageContainerViewControllerDelegate>
 
+// The background view.
+@property (nonatomic, strong, readonly) IBOutlet UIView *backgroundView;
+
 // The scroll view used for zooming.
 @property (nonatomic, strong, readonly) IBOutlet UIScrollView *scrollView;
 

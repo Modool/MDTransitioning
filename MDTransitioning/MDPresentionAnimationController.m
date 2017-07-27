@@ -63,7 +63,7 @@
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         toViewController.view.frame = CGRectOffset(toViewController.view.frame, 0, -CGRectGetHeight(frame));
+                         toViewController.view.frame = CGRectOffset([[toViewController view] frame], 0, -CGRectGetHeight(frame));
                      }
                      completion:^(BOOL finished) {
                          [transitionContext completeTransition:YES];

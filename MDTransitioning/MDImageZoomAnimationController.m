@@ -163,13 +163,12 @@
                          transitionView.frame = transitionViewFinalFrame;
                      } completion:^(BOOL finished) {
                          self.referenceImageView.hidden = NO;
-                         
                          window.backgroundColor = windowBackgroundColor;
+                         if ([transitionContext transitionWasCancelled]) {
+                             fromViewController.view.alpha = 1.f;
+                         }
                          [transitionView removeFromSuperview];
-                         
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-                         
-                         UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor whiteColor];
                      }];
 }
 

@@ -40,8 +40,8 @@
 - (void)swizzle_viewDidLoad{
     [self swizzle_viewDidLoad];
     
-    if ([self allowPopInteractive] && !
-        [self allowCustomePopInteractive] &&
+    if ([self allowPopInteractive] &&
+        ![self allowCustomePopInteractive] &&
         [self navigationController] != nil &&
         [self navigationController] == [self parentViewController] &&
         [[[self navigationController] viewControllers] firstObject] != self) {

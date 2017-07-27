@@ -33,10 +33,6 @@
 - (void)swizzle_pushViewController:(UIViewController*)viewController animated:(BOOL)animated{
     self.view.userInteractionEnabled = NO;
     
-    if ([[self childViewControllers] count]) {
-        viewController.hidesBottomBarWhenPushed = YES;
-    }
-    
     if ([self topViewController] && ![[self topViewController] snapshot]) {
         self.topViewController.snapshot = [[self view] snapshotViewAfterScreenUpdates:NO];
     }

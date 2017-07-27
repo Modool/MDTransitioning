@@ -198,7 +198,7 @@
     controller.operation = operation;
     controller.fromViewController = fromViewController;
     controller.toViewController = toViewController;
-    controller.hideReferenceImageViewWhenZoomIn = NO;
+    controller.hideReferenceImageViewWhenZoomIn = YES;
     
     return controller;
 }

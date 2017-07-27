@@ -35,18 +35,10 @@
 		082E67DC1F275B17003775A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DA1F275B17003775A7 /* Main.storyboard */; };
 		082E67DE1F275B17003775A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DD1F275B17003775A7 /* Assets.xcassets */; };
 		082E67E11F275B17003775A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DF1F275B17003775A7 /* LaunchScreen.storyboard */; };
-		082E67EC1F275B17003775A7 /* DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 082E67EB1F275B17003775A7 /* DemoUITests.m */; };
 		082E67FB1F2830FB003775A7 /* MDTransitioning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082E67B31F275AF4003775A7 /* MDTransitioning.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		082E67E81F275B17003775A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 082E67AA1F275AF4003775A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 082E67CE1F275B17003775A7;
-			remoteInfo = Demo;
-		};
 		082E67F91F2830F6003775A7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 082E67AA1F275AF4003775A7 /* Project object */;
@@ -93,9 +85,6 @@
 		082E67DD1F275B17003775A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082E67E01F275B17003775A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		082E67E21F275B17003775A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		082E67E71F275B17003775A7 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		082E67EB1F275B17003775A7 /* DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUITests.m; sourceTree = "<group>"; };
-		082E67ED1F275B18003775A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +100,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				082E67FB1F2830FB003775A7 /* MDTransitioning.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		082E67E41F275B17003775A7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +137,6 @@
 			children = (
 				082B3A431F2989AC0046F6C6 /* MDTransitioning */,
 				082E67D01F275B17003775A7 /* Demo */,
-				082E67EA1F275B17003775A7 /* DemoUITests */,
 				082E67B41F275AF4003775A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,7 +146,6 @@
 			children = (
 				082E67B31F275AF4003775A7 /* MDTransitioning.framework */,
 				082E67CF1F275B17003775A7 /* Demo.app */,
-				082E67E71F275B17003775A7 /* DemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,15 +178,6 @@
 				082E67D21F275B17003775A7 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		082E67EA1F275B17003775A7 /* DemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				082E67EB1F275B17003775A7 /* DemoUITests.m */,
-				082E67ED1F275B18003775A7 /* Info.plist */,
-			);
-			path = DemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,24 +240,6 @@
 			productReference = 082E67CF1F275B17003775A7 /* Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		082E67E61F275B17003775A7 /* DemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 082E67F11F275B18003775A7 /* Build configuration list for PBXNativeTarget "DemoUITests" */;
-			buildPhases = (
-				082E67E31F275B17003775A7 /* Sources */,
-				082E67E41F275B17003775A7 /* Frameworks */,
-				082E67E51F275B17003775A7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				082E67E91F275B17003775A7 /* PBXTargetDependency */,
-			);
-			name = DemoUITests;
-			productName = DemoUITests;
-			productReference = 082E67E71F275B17003775A7 /* DemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,11 +256,6 @@
 					082E67CE1F275B17003775A7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
-					};
-					082E67E61F275B17003775A7 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 082E67CE1F275B17003775A7;
 					};
 				};
 			};
@@ -326,7 +274,6 @@
 			targets = (
 				082E67B21F275AF4003775A7 /* MDTransitioning */,
 				082E67CE1F275B17003775A7 /* Demo */,
-				082E67E61F275B17003775A7 /* DemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -346,13 +293,6 @@
 				082E67E11F275B17003775A7 /* LaunchScreen.storyboard in Resources */,
 				082E67DE1F275B17003775A7 /* Assets.xcassets in Resources */,
 				082E67DC1F275B17003775A7 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		082E67E51F275B17003775A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,22 +327,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		082E67E31F275B17003775A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				082E67EC1F275B17003775A7 /* DemoUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		082E67E91F275B17003775A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 082E67CE1F275B17003775A7 /* Demo */;
-			targetProxy = 082E67E81F275B17003775A7 /* PBXContainerItemProxy */;
-		};
 		082E67FA1F2830F6003775A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 082E67B21F275AF4003775A7 /* MDTransitioning */;
@@ -584,28 +511,6 @@
 			};
 			name = Release;
 		};
-		082E67F21F275B18003775A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = DemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.DemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Demo;
-			};
-			name = Debug;
-		};
-		082E67F31F275B18003775A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = DemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.DemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Demo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -632,15 +537,6 @@
 			buildConfigurations = (
 				082E67EF1F275B18003775A7 /* Debug */,
 				082E67F01F275B18003775A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		082E67F11F275B18003775A7 /* Build configuration list for PBXNativeTarget "DemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				082E67F21F275B18003775A7 /* Debug */,
-				082E67F31F275B18003775A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

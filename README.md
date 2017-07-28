@@ -1,13 +1,9 @@
 # MDTransitExtension
 
 [![](https://img.shields.io/travis/rust-lang/rust.svg?style=flat)](https://github.com/Modool)
-
 [![](https://img.shields.io/badge/language-Object--C-1eafeb.svg?style=flat)](https://developer.apple.com/Objective-C)
-
 [![](https://img.shields.io/badge/license-MIT-353535.svg?style=flat)](https://developer.apple.com/iphone/index.action)
-
 [![](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://github.com/Modool)
-
 [![](https://img.shields.io/badge/QQ群-662988771-red.svg)](http://wpa.qq.com/msgrd?v=3&uin=662988771&site=qq&menu=yes)
 
 ## Introduction

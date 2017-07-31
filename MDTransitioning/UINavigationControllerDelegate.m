@@ -10,8 +10,8 @@
 
 #import "UINavigationControllerDelegate.h"
 #import "MDNavigationAnimationController.h"
-#import "MDInteractionControllerDelegate.h"
-#import "UIViewController+MDNavigationAnimatedTransitioning.h"
+#import "MDInteractionController.h"
+#import "UIViewController+MDNavigationTransitioning.h"
 
 @implementation UINavigationController (MDNavigationAnimationController)
 

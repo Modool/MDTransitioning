@@ -15,7 +15,7 @@
 		08283FCD1F299D0D0089F6B3 /* MDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08283FC71F299D0D0089F6B3 /* MDImageViewController.m */; };
 		082B3A571F2989AC0046F6C6 /* MDImageZoomAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A441F2989AC0046F6C6 /* MDImageZoomAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A581F2989AC0046F6C6 /* MDImageZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A451F2989AC0046F6C6 /* MDImageZoomAnimationController.m */; };
-		082B3A591F2989AC0046F6C6 /* MDInteractionControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A461F2989AC0046F6C6 /* MDInteractionControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		082B3A591F2989AC0046F6C6 /* MDInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A461F2989AC0046F6C6 /* MDInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A5A1F2989AC0046F6C6 /* MDNavigationAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A471F2989AC0046F6C6 /* MDNavigationAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A5B1F2989AC0046F6C6 /* MDNavigationAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A481F2989AC0046F6C6 /* MDNavigationAnimationController.m */; };
 		082B3A5C1F2989AC0046F6C6 /* MDPopInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A491F2989AC0046F6C6 /* MDPopInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,14 +24,14 @@
 		082B3A5F1F2989AC0046F6C6 /* MDPresentionAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A4C1F2989AC0046F6C6 /* MDPresentionAnimationController.m */; };
 		082B3A601F2989AC0046F6C6 /* MDSwipeInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A4D1F2989AC0046F6C6 /* MDSwipeInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A611F2989AC0046F6C6 /* MDSwipeInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A4E1F2989AC0046F6C6 /* MDSwipeInteractionController.m */; };
-		082B3A621F2989AC0046F6C6 /* MDTransationingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A4F1F2989AC0046F6C6 /* MDTransationingDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		082B3A621F2989AC0046F6C6 /* MDAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A4F1F2989AC0046F6C6 /* MDAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A631F2989AC0046F6C6 /* MDTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A501F2989AC0046F6C6 /* MDTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A641F2989AC0046F6C6 /* UINavigationControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A511F2989AC0046F6C6 /* UINavigationControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A651F2989AC0046F6C6 /* UINavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A521F2989AC0046F6C6 /* UINavigationControllerDelegate.m */; };
-		082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.m */; };
-		082B3A681F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A551F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		082B3A691F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A561F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.m */; };
+		082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */; };
+		082B3A681F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		082B3A691F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */; };
 		082DA8AF1F28475700DD4BA3 /* MDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082DA8AE1F28475700DD4BA3 /* MDViewController.m */; };
 		082DA8CD1F28764D00DD4BA3 /* MDPresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082DA8CC1F28764D00DD4BA3 /* MDPresentedViewController.m */; };
 		082E67D31F275B17003775A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 082E67D21F275B17003775A7 /* main.m */; };
@@ -40,6 +40,7 @@
 		082E67DE1F275B17003775A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DD1F275B17003775A7 /* Assets.xcassets */; };
 		082E67E11F275B17003775A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DF1F275B17003775A7 /* LaunchScreen.storyboard */; };
 		082E67FB1F2830FB003775A7 /* MDTransitioning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082E67B31F275AF4003775A7 /* MDTransitioning.framework */; };
+		2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,7 @@
 		08283FC71F299D0D0089F6B3 /* MDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageViewController.m; sourceTree = "<group>"; };
 		082B3A441F2989AC0046F6C6 /* MDImageZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageZoomAnimationController.h; sourceTree = "<group>"; };
 		082B3A451F2989AC0046F6C6 /* MDImageZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageZoomAnimationController.m; sourceTree = "<group>"; };
-		082B3A461F2989AC0046F6C6 /* MDInteractionControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractionControllerDelegate.h; sourceTree = "<group>"; };
+		082B3A461F2989AC0046F6C6 /* MDInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractionController.h; sourceTree = "<group>"; };
 		082B3A471F2989AC0046F6C6 /* MDNavigationAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationAnimationController.h; sourceTree = "<group>"; };
 		082B3A481F2989AC0046F6C6 /* MDNavigationAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationAnimationController.m; sourceTree = "<group>"; };
 		082B3A491F2989AC0046F6C6 /* MDPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPopInteractionController.h; sourceTree = "<group>"; };
@@ -70,14 +71,14 @@
 		082B3A4C1F2989AC0046F6C6 /* MDPresentionAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPresentionAnimationController.m; sourceTree = "<group>"; };
 		082B3A4D1F2989AC0046F6C6 /* MDSwipeInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSwipeInteractionController.h; sourceTree = "<group>"; };
 		082B3A4E1F2989AC0046F6C6 /* MDSwipeInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSwipeInteractionController.m; sourceTree = "<group>"; };
-		082B3A4F1F2989AC0046F6C6 /* MDTransationingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTransationingDelegate.h; sourceTree = "<group>"; };
+		082B3A4F1F2989AC0046F6C6 /* MDAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAnimatedTransitioning.h; sourceTree = "<group>"; };
 		082B3A501F2989AC0046F6C6 /* MDTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTransitioning.h; sourceTree = "<group>"; };
 		082B3A511F2989AC0046F6C6 /* UINavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerDelegate.h; sourceTree = "<group>"; };
 		082B3A521F2989AC0046F6C6 /* UINavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerDelegate.m; sourceTree = "<group>"; };
-		082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDNavigationAnimatedTransitioning.h"; sourceTree = "<group>"; };
-		082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDNavigationAnimatedTransitioning.m"; sourceTree = "<group>"; };
-		082B3A551F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MPresentionAnimatedTransitioning.h"; sourceTree = "<group>"; };
-		082B3A561F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MPresentionAnimatedTransitioning.m"; sourceTree = "<group>"; };
+		082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDNavigationTransitioning.h"; sourceTree = "<group>"; };
+		082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDNavigationTransitioning.m"; sourceTree = "<group>"; };
+		082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDPresentionTransitioning.h"; sourceTree = "<group>"; };
+		082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDPresentionTransitioning.m"; sourceTree = "<group>"; };
 		082DA8AD1F28475700DD4BA3 /* MDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDViewController.h; sourceTree = "<group>"; };
 		082DA8AE1F28475700DD4BA3 /* MDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDViewController.m; sourceTree = "<group>"; };
 		082DA8CB1F28764D00DD4BA3 /* MDPresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPresentedViewController.h; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		082E67DD1F275B17003775A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082E67E01F275B17003775A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		082E67E21F275B17003775A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractiveTransitioning.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				082B3A501F2989AC0046F6C6 /* MDTransitioning.h */,
-				082B3A4F1F2989AC0046F6C6 /* MDTransationingDelegate.h */,
-				082B3A461F2989AC0046F6C6 /* MDInteractionControllerDelegate.h */,
+				082B3A4F1F2989AC0046F6C6 /* MDAnimatedTransitioning.h */,
+				082B3A461F2989AC0046F6C6 /* MDInteractionController.h */,
+				2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */,
 				082B3A471F2989AC0046F6C6 /* MDNavigationAnimationController.h */,
 				082B3A481F2989AC0046F6C6 /* MDNavigationAnimationController.m */,
 				082B3A4B1F2989AC0046F6C6 /* MDPresentionAnimationController.h */,
@@ -128,10 +131,10 @@
 				082B3A4A1F2989AC0046F6C6 /* MDPopInteractionController.m */,
 				082B3A511F2989AC0046F6C6 /* UINavigationControllerDelegate.h */,
 				082B3A521F2989AC0046F6C6 /* UINavigationControllerDelegate.m */,
-				082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.h */,
-				082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.m */,
-				082B3A551F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.h */,
-				082B3A561F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.m */,
+				082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h */,
+				082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */,
+				082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */,
+				082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */,
 				082B3A441F2989AC0046F6C6 /* MDImageZoomAnimationController.h */,
 				082B3A451F2989AC0046F6C6 /* MDImageZoomAnimationController.m */,
 				08283FC21F299D0D0089F6B3 /* MDImageDismissInteractionController.h */,
@@ -195,20 +198,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				082B3A681F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.h in Headers */,
+				082B3A681F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h in Headers */,
 				082B3A5A1F2989AC0046F6C6 /* MDNavigationAnimationController.h in Headers */,
 				082B3A631F2989AC0046F6C6 /* MDTransitioning.h in Headers */,
 				082B3A601F2989AC0046F6C6 /* MDSwipeInteractionController.h in Headers */,
 				082B3A571F2989AC0046F6C6 /* MDImageZoomAnimationController.h in Headers */,
 				082B3A641F2989AC0046F6C6 /* UINavigationControllerDelegate.h in Headers */,
+				2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */,
 				082B3A5C1F2989AC0046F6C6 /* MDPopInteractionController.h in Headers */,
-				082B3A591F2989AC0046F6C6 /* MDInteractionControllerDelegate.h in Headers */,
+				082B3A591F2989AC0046F6C6 /* MDInteractionController.h in Headers */,
 				08283FCA1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h in Headers */,
 				08283FCC1F299D0D0089F6B3 /* MDImageViewController.h in Headers */,
 				08283FC81F299D0D0089F6B3 /* MDImageDismissInteractionController.h in Headers */,
-				082B3A621F2989AC0046F6C6 /* MDTransationingDelegate.h in Headers */,
+				082B3A621F2989AC0046F6C6 /* MDAnimatedTransitioning.h in Headers */,
 				082B3A5E1F2989AC0046F6C6 /* MDPresentionAnimationController.h in Headers */,
-				082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.h in Headers */,
+				082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,10 +324,10 @@
 				08283FCD1F299D0D0089F6B3 /* MDImageViewController.m in Sources */,
 				08283FCB1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m in Sources */,
 				082B3A651F2989AC0046F6C6 /* UINavigationControllerDelegate.m in Sources */,
-				082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationAnimatedTransitioning.m in Sources */,
+				082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m in Sources */,
 				082B3A581F2989AC0046F6C6 /* MDImageZoomAnimationController.m in Sources */,
 				082B3A5B1F2989AC0046F6C6 /* MDNavigationAnimationController.m in Sources */,
-				082B3A691F2989AC0046F6C6 /* UIViewController+MPresentionAnimatedTransitioning.m in Sources */,
+				082B3A691F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m in Sources */,
 				082B3A5D1F2989AC0046F6C6 /* MDPopInteractionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

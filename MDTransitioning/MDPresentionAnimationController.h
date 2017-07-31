@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDTransationingDelegate.h"
+#import "MDAnimatedTransitioning.h"
 
 @interface MDPresentionAnimationController : NSObject<MPresentionAnimatedTransitioning>
 

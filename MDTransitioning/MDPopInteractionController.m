@@ -14,7 +14,7 @@
     if (self = [super initWithViewController:viewController]) {
         __block __weak id weak_self = self;
         self.horizontalOffset = 20.f;
-        self.begin = ^(id<MDPercentDrivenInteractiveTransition> interactiveTransition){
+        self.begin = ^(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition){
             [[viewController navigationController] popViewControllerAnimated:YES];
         };
         self.allowSwipe = ^CGFloat(CGPoint location, CGPoint velocity) {

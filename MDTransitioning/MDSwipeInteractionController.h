@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MDInteractionControllerDelegate.h"
+#import "MDInteractionController.h"
 
-@interface MDSwipeInteractionController : NSObject<MDInteractionControllerDelegate, UIGestureRecognizerDelegate>
+@interface MDSwipeInteractionController : NSObject<MDInteractionController, UIGestureRecognizerDelegate>
 
 @property (nonatomic, copy) CGFloat (^allowSwipe)(CGPoint location, CGPoint velocity);
 @property (nonatomic, copy) CGFloat (^progress)(CGPoint location, CGPoint translation, CGPoint velocity);
 
 @property (nonatomic, copy) void (^begin)(); 
-@property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransition> interactiveTransition, BOOL finished);
-@property (nonatomic, copy) void (^update)(id<MDPercentDrivenInteractiveTransition> interactiveTransition, CGFloat progress);
+@property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, BOOL finished);
+@property (nonatomic, copy) void (^update)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, CGFloat progress);
 
 @property (nonatomic, assign) BOOL enable;
 

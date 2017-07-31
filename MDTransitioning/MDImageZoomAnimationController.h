@@ -5,7 +5,7 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
-#import "MDTransationingDelegate.h"
+#import "MDAnimatedTransitioning.h"
 #import "MDSwipeInteractionController.h"
 
 // Image zoom custom transition.

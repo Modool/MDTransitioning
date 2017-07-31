@@ -6,8 +6,8 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
+#import <MDTransitioning/MDTransitioning.h>
 #import "MDViewController.h"
-#import "MDImageViewController.h"
 #import "MDPresentedViewController.h"
 
 @interface MDViewController () <MDImageZoomViewControllerDelegate, UIViewControllerTransitioningDelegate>
@@ -27,7 +27,7 @@
 
 - (IBAction)didClickImageButton:(id)sender {
     MDImageViewController *imageViewController = [[MDImageViewController alloc] initWithImage:[[self imageView] image]];
-//    imageViewController.transitioningDelegate = self;
+    imageViewController.transitioningDelegate = self;
     
     [self presentViewController:imageViewController animated:YES completion:nil];
 }

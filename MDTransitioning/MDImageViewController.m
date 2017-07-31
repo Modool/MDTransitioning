@@ -10,7 +10,7 @@
 #import "MDImageDismissInteractionController.h"
 #import "MDImageDraggingDismissInteractionController.h"
 
-@interface MDImageViewController ()<UIScrollViewDelegate, MDPresentionInteractiveTransitioning>
+@interface MDImageViewController ()<UIScrollViewDelegate, MDPresentionController>
 
 @property (nonatomic, strong) IBOutlet UIView *backgroundView;
 
@@ -38,7 +38,7 @@
     if (self = [super init]) {
         self.imageURL = imageURL;
         self.image = placeholderImage;
-        self.modalPresentationStyle = UIModalPresentationCustom;
+        //self.modalPresentationStyle = UIModalPresentationCustom;
     }
     return self;
 }
@@ -122,7 +122,7 @@
     return [self imageView];
 }
 
-#pragma mark - MDPresentionInteractiveTransitioning
+#pragma mark - MDPresentionController
 
 - (id<MPresentionAnimatedTransitioning>)animationForPresentionOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)fromViewController toViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)toViewController;{
     return [MDImageZoomAnimationController animationForPresentOperation:operation fromViewController:fromViewController toViewController:toViewController];

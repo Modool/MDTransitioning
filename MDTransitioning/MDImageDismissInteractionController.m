@@ -7,6 +7,7 @@
 //
 
 #import "MDImageDismissInteractionController.h"
+#import "MDImageZoomAnimationController.h"
 
 @implementation MDImageDismissInteractionController
 

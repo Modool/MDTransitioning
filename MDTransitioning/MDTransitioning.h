@@ -16,14 +16,14 @@ FOUNDATION_EXPORT const unsigned char MDTransitioningVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <MDTransitioning/PublicHeader.h>
 
-#import <MDTransitioning/MDInteractionControllerDelegate.h>
-#import <MDTransitioning/MDTransationingDelegate.h>
-#import <MDTransitioning/MDPopInteractionController.h>
+#import <MDTransitioning/MDInteractionController.h>
+#import <MDTransitioning/MDAnimatedTransitioning.h>
+#import <MDTransitioning/MDInteractionController.h>
 #import <MDTransitioning/MDNavigationAnimationController.h>
 #import <MDTransitioning/MDPresentionAnimationController.h>
 #import <MDTransitioning/UINavigationControllerDelegate.h>
-#import <MDTransitioning/UIViewController+MDNavigationAnimatedTransitioning.h>
-#import <MDTransitioning/UIViewController+MPresentionAnimatedTransitioning.h>
+#import <MDTransitioning/UIViewController+MDNavigationTransitioning.h>
+#import <MDTransitioning/UIViewController+MDPresentionTransitioning.h>
 #import <MDTransitioning/MDImageZoomAnimationController.h>
 #import <MDTransitioning/MDImageDismissInteractionController.h>
 #import <MDTransitioning/MDImageDraggingDismissInteractionController.h>

@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 
-@property (nonatomic, strong) id<MDPercentDrivenInteractiveTransition> interactiveTransition;
+@property (nonatomic, strong) id<MDPercentDrivenInteractiveTransitioning> interactiveTransition;
 
 @end
 
@@ -51,7 +51,7 @@
 
 #pragma mark - protected
 
-- (id<MDPercentDrivenInteractiveTransition>)requireInteractiveTransition;{
+- (id<MDPercentDrivenInteractiveTransitioning>)requireInteractiveTransition;{
     return [UIPercentDrivenInteractiveTransition new];
 }
 

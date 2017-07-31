@@ -8,7 +8,7 @@
 
 #import "MDNavigationAnimationController.h"
 #import "MDPopInteractionController.h"
-#import "UIViewController+MDNavigationAnimatedTransitioning.h"
+#import "UIViewController+MDNavigationTransitioning.h"
 
 @interface MDNavigationAnimationController ()
 

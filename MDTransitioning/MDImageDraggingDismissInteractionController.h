@@ -6,7 +6,7 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
-#import <MDTransitioning/MDTransitioning.h>
+#import "MDSwipeInteractionController.h"
 
 @interface MDImageDraggingDismissInteractionController : MDSwipeInteractionController
 

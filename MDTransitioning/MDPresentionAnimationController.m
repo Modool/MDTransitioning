@@ -7,7 +7,7 @@
 //
 
 #import "MDPresentionAnimationController.h"
-#import "UIViewController+MPresentionAnimatedTransitioning.h"
+#import "UIViewController+MDPresentionTransitioning.h"
 
 @interface MDPresentionAnimationController ()
 

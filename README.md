@@ -56,7 +56,38 @@ drag “MDTransitioning” directory into your project
 
 ## Architecture
 
-* 暂无
+### AnimatedTransitioning
+
+* `<UIViewControllerAnimatedTransitioning>`
+	* `<MDViewControllerAnimatedTransitioning>`
+		* `<MDNavigationAnimatedTransitioning>`
+		* `<MPresentionAnimatedTransitioning>`
+
+
+
+	* MDNavigationAnimationController
+	* MDPresentionAnimationController
+
+### InteractiveTransition
+
+* `<MDInteractionControllerDelegate>`
+	* MDSwipeInteractionController
+	* MDPopInteractionController
+
+### Transitioning
+
+* UIViewController+MDNavigationTransitioning.h
+* UIViewController+MDPresentionTransitioning.h
+
+### ImageViewController
+	
+* AnimatedTransitioning
+	* MDImageZoomAnimationController
+* InteractiveTransition
+	* MDImageDismissInteractionController
+	* MDImageDraggingDismissInteractionController
+* MDImageViewController
+	
 
 ## Usage
 

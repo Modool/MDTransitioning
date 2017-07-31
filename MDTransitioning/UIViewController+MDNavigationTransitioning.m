@@ -1,5 +1,5 @@
 //
-//  UIViewController+MDNavigationAnimatedTransitioning.m
+//  UIViewController+MDNavigationTransitioning.m
 //  MDTransitioning
 //
 //  Created by Jave on 2017/7/26.
@@ -7,11 +7,11 @@
 //
 
 #import <objc/runtime.h>
-#import "UIViewController+MDNavigationAnimatedTransitioning.h"
+#import "UIViewController+MDNavigationTransitioning.h"
 #import "MDPopInteractionController.h"
 #import "MDNavigationAnimationController.h"
 
-@implementation UIViewController (MDNavigationAnimationController)
+@implementation UIViewController (MDNavigationTransitioning)
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -89,17 +89,17 @@
     return [objc_getAssociatedObject(self, @selector(allowCustomePopInteractive)) boolValue];
 }
 
-- (id<MDInteractionControllerDelegate>)interactiveController{
+- (id<MDInteractionController>)interactiveController{
     return objc_getAssociatedObject(self, @selector(interactiveController));
 }
 
-- (void)setInteractiveController:(id<MDInteractionControllerDelegate>)interactiveController{
+- (void)setInteractiveController:(id<MDInteractionController>)interactiveController{
     if ([self interactiveController] != interactiveController) {
         objc_setAssociatedObject(self, @selector(interactiveController), interactiveController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 
-- (id<MDInteractionControllerDelegate>)requirePopInteractionController;{
+- (id<MDInteractionController>)requirePopInteractionController;{
     return [MDPopInteractionController interactionControllerWithViewController:self];
 }
 

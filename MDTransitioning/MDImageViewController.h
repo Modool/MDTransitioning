@@ -5,7 +5,7 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
-#import <MDTransitioning/MDTransitioning.h>
+#import "MDImageZoomAnimationController.h"
 
 // Simple full screen image viewer.
 //

@@ -18,7 +18,7 @@
 ## Communication
 
 * QQ群：<img src="./images/qq.png" width=200>
-* 微信群：<img src="./images/weichat.jpeg" width=200>
+* 微信群：<img src="./images/wechat.jpeg" width=200>
 * Github：<img src="./images/github.png" width=200>
 
 ## Installation
@@ -31,7 +31,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'MDTransitioning', '~> 3.0'
+pod 'MDTransitioning', '~> 1.0'
 end
 
 ```
@@ -85,7 +85,7 @@ drag “MDTransitioning” directory into your project
 	
 ## Usage
 
-* Demo RYI 
+* Demo FYI 
 
 ## Update History
 

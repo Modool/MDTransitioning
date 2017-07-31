@@ -73,7 +73,8 @@
                      completion:^(BOOL finished) {
                          fromViewController.view.hidden = NO;
                          [[fromViewController snapshot] removeFromSuperview];
-                         [transitionContext completeTransition:YES];
+                         
+                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                      }];
 }
 
@@ -112,7 +113,6 @@
                          toSnapshot.transform = CGAffineTransformIdentity;
                      }
                      completion:^(BOOL finished) {
-                         
                          toViewController.view.hidden = NO;
                          fromViewController.view.transform = CGAffineTransformIdentity;
                          fromSnapshot.transform = CGAffineTransformIdentity;
@@ -121,12 +121,10 @@
                          [fromSnapshot removeFromSuperview];
                          [toSnapshot removeFromSuperview];
                          [toOverlayerView removeFromSuperview];
-                         
                          // Reset toViewController's `snapshot` to nil
                          if (![transitionContext transitionWasCancelled]) {
                              toViewController.snapshot = nil;
                          }
-                         
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                      }];
 }

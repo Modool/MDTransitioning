@@ -38,7 +38,7 @@
     if (self = [super init]) {
         self.imageURL = imageURL;
         self.image = placeholderImage;
-        //self.modalPresentationStyle = UIModalPresentationCustom;
+        self.modalPresentationStyle = UIModalPresentationCustom;
     }
     return self;
 }
@@ -61,7 +61,10 @@
     [super viewDidLoad];
     
 //    self.presentionInteractiveController = [MDImageDismissInteractionController interactionControllerWithViewController:self];
-    self.presentionInteractiveController = [MDImageDraggingDismissInteractionController interactionControllerWithViewController:self];
+    MDImageDraggingDismissInteractionController *interactionController = [MDImageDraggingDismissInteractionController interactionControllerWithViewController:self];
+    interactionController.translation = 200.f;
+    
+    self.presentionInteractiveController = interactionController;
     
     [[self singleTapGestureRecognizer] requireGestureRecognizerToFail:[self doubleTapGestureRecognizer]];
 }

@@ -12,21 +12,14 @@
 #import "MDNavigationAnimationController.h"
 #import "MDInteractionController.h"
 #import "UIViewController+MDNavigationTransitioning.h"
+#import "MDTransitioning+Private.h"
 
 @implementation UINavigationController (MDNavigationAnimationController)
 
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        SEL origSel = @selector(pushViewController:animated:);
-        SEL altSel = @selector(swizzle_pushViewController:animated:);
-        Method origMethod = class_getInstanceMethod(class, origSel);
-        Method altMethod = class_getInstanceMethod(class, altSel);
-        IMP origIMP = class_getMethodImplementation(class, origSel);
-        if (origIMP != NULL) {
-            method_exchangeImplementations(origMethod, altMethod);
-        }
+        MDTransitioningMethodSwizzle([self class], @selector(pushViewController:animated:), @selector(swizzle_pushViewController:animated:));
     });
 }
 

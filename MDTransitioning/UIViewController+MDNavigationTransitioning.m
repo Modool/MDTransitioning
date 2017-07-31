@@ -6,8 +6,8 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
-#import <objc/runtime.h>
 #import "UIViewController+MDNavigationTransitioning.h"
+#import "MDTransitioning+Private.h"
 #import "MDPopInteractionController.h"
 #import "MDNavigationAnimationController.h"
 
@@ -16,24 +16,8 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        SEL origSel = @selector(viewWillDisappear:);
-        SEL altSel = @selector(swizzle_viewWillDisappear:);
-        Method origMethod = class_getInstanceMethod(class, origSel);
-        Method altMethod = class_getInstanceMethod(class, altSel);
-        IMP origIMP = class_getMethodImplementation(class, origSel);
-        if (origIMP != NULL) {
-            method_exchangeImplementations(origMethod, altMethod);
-        }
-        
-        origSel = @selector(viewDidLoad);
-        altSel = @selector(swizzle_viewDidLoad);
-        origMethod = class_getInstanceMethod(class, origSel);
-        altMethod = class_getInstanceMethod(class, altSel);
-        origIMP = class_getMethodImplementation(class, origSel);
-        if (origIMP != NULL) {
-            method_exchangeImplementations(origMethod, altMethod);
-        }
+        MDTransitioningMethodSwizzle([self class], @selector(viewWillDisappear:), @selector(swizzle_viewWillDisappear:));
+        MDTransitioningMethodSwizzle([self class], @selector(viewDidLoad), @selector(swizzle_viewDidLoad));
     });
 }
 

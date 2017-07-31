@@ -40,6 +40,7 @@
     } else if ([recognizer state] == UIGestureRecognizerStateChanged) {
         CGFloat progress = sqrt(pow(translation.x, 2) + pow(translation.y, 2)) / [self translation];
         progress = MIN(1.0, MAX(0.0, progress));
+        self.viewController.imageView.transform = CGAffineTransformIdentity;
         self.viewController.imageView.transform = CGAffineTransformScale(CGAffineTransformTranslate(CGAffineTransformIdentity, translation.x, translation.y), 1 - progress / 2., 1 - progress / 2.);
         self.viewController.backgroundView.alpha = (1 - progress);
     } else if ([recognizer state] == UIGestureRecognizerStateEnded || [recognizer state] == UIGestureRecognizerStateCancelled) {
@@ -49,8 +50,10 @@
         if (progress > 0.5) {
             [[self viewController] dismissViewControllerAnimated:YES completion:nil];
         } else {
-            self.viewController.backgroundView.alpha = 1.f;
-            self.viewController.imageView.transform = CGAffineTransformIdentity;
+            [UIView animateWithDuration:0.2 animations:^{
+                self.viewController.backgroundView.alpha = 1.f;
+                self.viewController.imageView.transform = CGAffineTransformIdentity;
+            }];
         }
         self.interactionInProgress = NO;
     }

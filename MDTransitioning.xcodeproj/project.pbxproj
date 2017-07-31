@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082237E01F2F426F00B9BACE /* MDTransitioning+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		082237E11F2F426F00B9BACE /* MDTransitioning+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 082237DF1F2F426F00B9BACE /* MDTransitioning+Private.m */; };
 		08283FC81F299D0D0089F6B3 /* MDImageDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 08283FC21F299D0D0089F6B3 /* MDImageDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08283FC91F299D0D0089F6B3 /* MDImageDismissInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08283FC31F299D0D0089F6B3 /* MDImageDismissInteractionController.m */; };
 		08283FCA1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 08283FC41F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDTransitioning+Private.h"; sourceTree = "<group>"; };
+		082237DF1F2F426F00B9BACE /* MDTransitioning+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDTransitioning+Private.m"; sourceTree = "<group>"; };
 		08283FC21F299D0D0089F6B3 /* MDImageDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageDismissInteractionController.h; sourceTree = "<group>"; };
 		08283FC31F299D0D0089F6B3 /* MDImageDismissInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageDismissInteractionController.m; sourceTree = "<group>"; };
 		08283FC41F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageDraggingDismissInteractionController.h; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				08283FC51F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m */,
 				08283FC61F299D0D0089F6B3 /* MDImageViewController.h */,
 				08283FC71F299D0D0089F6B3 /* MDImageViewController.m */,
+				082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */,
+				082237DF1F2F426F00B9BACE /* MDTransitioning+Private.m */,
 			);
 			path = MDTransitioning;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 				082B3A621F2989AC0046F6C6 /* MDAnimatedTransitioning.h in Headers */,
 				082B3A5E1F2989AC0046F6C6 /* MDPresentionAnimationController.h in Headers */,
 				082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h in Headers */,
+				082237E01F2F426F00B9BACE /* MDTransitioning+Private.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082237E11F2F426F00B9BACE /* MDTransitioning+Private.m in Sources */,
 				082B3A5F1F2989AC0046F6C6 /* MDPresentionAnimationController.m in Sources */,
 				082B3A611F2989AC0046F6C6 /* MDSwipeInteractionController.m in Sources */,
 				08283FC91F299D0D0089F6B3 /* MDImageDismissInteractionController.m in Sources */,

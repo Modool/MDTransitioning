@@ -1,4 +1,4 @@
-# MDTransitExtension
+# MDTransitioning
 
 [![](https://img.shields.io/travis/rust-lang/rust.svg?style=flat)](https://github.com/Modool)
 [![](https://img.shields.io/badge/language-Object--C-1eafeb.svg?style=flat)](https://developer.apple.com/Objective-C)
@@ -14,7 +14,7 @@
 
 ## How To Get Started
 
-* Download `MDTransitExtension` and try run example app
+* Download `MDTransitioning` and try run example app
 
 ## Communication
 
@@ -32,7 +32,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'MDTransitExtension', '~> 3.0'
+pod 'MDTransitioning', '~> 3.0'
 end
 
 ```
@@ -40,7 +40,7 @@ end
 * Installation with Carthage
 
 ```
-github "MDTransitExtension/MDTransitExtension" ~> 1.0
+github "MDTransitioning/MDTransitioning" ~> 1.0
 ```
 
 * Manual Import
@@ -100,4 +100,4 @@ drag “MDTransitioning” directory into your project
 
 
 ## License
-`MDTransitExtension` is released under the MIT license. See LICENSE for details.
+`MDTransitioning` is released under the MIT license. See LICENSE for details.

@@ -8,9 +8,8 @@
 
 ## Introduction
 
-- 基于转场的动画，自定义手势控制拓展
-
-- 快速集成全局手势侧滑返回，局部转场动画
+- Animation based with transtion,easy to custom gesture control by developer.
+- Quick Integrate global gesture,sideslip or local animation
 
 ## How To Get Started
 
@@ -62,20 +61,16 @@ drag “MDTransitioning” directory into your project
 	* `<MDViewControllerAnimatedTransitioning>`
 		* `<MDNavigationAnimatedTransitioning>`
 		* `<MPresentionAnimatedTransitioning>`
-
-
-
 	* MDNavigationAnimationController
 	* MDPresentionAnimationController
 
-### InteractiveTransition
+### InteractiveController
 
-* `<MDInteractionControllerDelegate>`
-	* MDSwipeInteractionController
-	* MDPopInteractionController
-
-### Transitioning
-
+* `<MDNavigationPopController>`
+* `<MDPresentionController>`
+* `<MDInteractionController>`
+* MDSwipeInteractionController
+* MDPopInteractionController
 * UIViewController+MDNavigationTransitioning.h
 * UIViewController+MDPresentionTransitioning.h
 
@@ -88,14 +83,13 @@ drag “MDTransitioning” directory into your project
 	* MDImageDraggingDismissInteractionController
 * MDImageViewController
 	
-
 ## Usage
 
 * 暂无
 
 ## Update History
 
-* 暂无
+* 2017.7.30 Add README and adjust project class name.
 
 
 

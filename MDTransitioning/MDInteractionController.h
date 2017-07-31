@@ -22,6 +22,15 @@
 
 @end
 
+@protocol MDPresentionController <NSObject>
+
+@optional
+@property (nonatomic, strong) id<MDInteractionController> presentionInteractiveController;
+
+- (id<MPresentionAnimatedTransitioning>)animationForPresentionOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
+
+@end
+
 @protocol MDInteractionController <NSObject>
 
 @property (nonatomic, weak, readonly) UIViewController *viewController;

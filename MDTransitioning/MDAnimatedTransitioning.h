@@ -35,11 +35,4 @@ typedef NS_ENUM(NSInteger, MDPresentionAnimatedOperation) {
 
 @end
 
-@protocol MDPresentionController <NSObject>
 
-@optional
-@property (nonatomic, strong) id<MDInteractionController> presentionInteractiveController;
-
-- (id<MPresentionAnimatedTransitioning>)animationForPresentionOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
-
-@end

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
-#import "MDAnimatedTransitioning.h"
+#import "MDInteractionController.h"
 
 @interface UIViewController (MDPresentionTransitioning)<MDPresentionController>
 

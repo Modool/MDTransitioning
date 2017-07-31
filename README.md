@@ -8,8 +8,8 @@
 
 ## Introduction
 
-- Animation based with transtion,easy to custom gesture control by developer.
-- Quick Integrate global gesture,sideslip or local animation
+- Animation based with transtion, easy to custom gesture control by developer.
+- Quick Integrate global gesture, sideslip or local animation
 
 ## How To Get Started
 
@@ -61,31 +61,31 @@ drag “MDTransitioning” directory into your project
 	* `<MDViewControllerAnimatedTransitioning>`
 		* `<MDNavigationAnimatedTransitioning>`
 		* `<MPresentionAnimatedTransitioning>`
-	* MDNavigationAnimationController
-	* MDPresentionAnimationController
+	* `MDNavigationAnimationController`
+	* `MDPresentionAnimationController`
 
 ### InteractiveController
 
 * `<MDNavigationPopController>`
 * `<MDPresentionController>`
 * `<MDInteractionController>`
-* MDSwipeInteractionController
-* MDPopInteractionController
-* UIViewController+MDNavigationTransitioning.h
-* UIViewController+MDPresentionTransitioning.h
+* `MDSwipeInteractionController`
+* `MDPopInteractionController`
+* `UIViewController+MDNavigationTransitioning`
+* `UIViewController+MDPresentionTransitioning`
 
 ### ImageViewController
 	
-* AnimatedTransitioning
-	* MDImageZoomAnimationController
-* InteractiveTransition
-	* MDImageDismissInteractionController
-	* MDImageDraggingDismissInteractionController
-* MDImageViewController
+* `AnimatedTransitioning`
+	* `MDImageZoomAnimationController`
+* `InteractiveTransition`
+	* `MDImageDismissInteractionController`
+	* `MDImageDraggingDismissInteractionController`
+* `MDImageViewController`
 	
 ## Usage
 
-* 暂无
+* Demo RYI 
 
 ## Update History
 

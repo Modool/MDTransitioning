@@ -424,7 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.MDTransitioning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -507,6 +507,7 @@
 				083D02551F30645300D1E530 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

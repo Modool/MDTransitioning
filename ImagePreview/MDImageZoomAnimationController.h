@@ -5,8 +5,7 @@
 //  Copyright © 2017年 markejave. All rights reserved.
 //
 
-#import "MDAnimatedTransitioning.h"
-#import "MDSwipeInteractionController.h"
+#import <MDTransitioning/MDTransitioning.h>
 
 // Image zoom custom transition.
 @interface MDImageZoomAnimationController : NSObject <UIViewControllerAnimatedTransitioning>

@@ -9,14 +9,6 @@
 /* Begin PBXBuildFile section */
 		082237E01F2F426F00B9BACE /* MDTransitioning+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		082237E11F2F426F00B9BACE /* MDTransitioning+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 082237DF1F2F426F00B9BACE /* MDTransitioning+Private.m */; };
-		08283FC81F299D0D0089F6B3 /* MDImageDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 08283FC21F299D0D0089F6B3 /* MDImageDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		08283FC91F299D0D0089F6B3 /* MDImageDismissInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08283FC31F299D0D0089F6B3 /* MDImageDismissInteractionController.m */; };
-		08283FCA1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 08283FC41F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		08283FCB1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08283FC51F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m */; };
-		08283FCC1F299D0D0089F6B3 /* MDImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 08283FC61F299D0D0089F6B3 /* MDImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		08283FCD1F299D0D0089F6B3 /* MDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08283FC71F299D0D0089F6B3 /* MDImageViewController.m */; };
-		082B3A571F2989AC0046F6C6 /* MDImageZoomAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A441F2989AC0046F6C6 /* MDImageZoomAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		082B3A581F2989AC0046F6C6 /* MDImageZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A451F2989AC0046F6C6 /* MDImageZoomAnimationController.m */; };
 		082B3A591F2989AC0046F6C6 /* MDInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A461F2989AC0046F6C6 /* MDInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A5A1F2989AC0046F6C6 /* MDNavigationAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A471F2989AC0046F6C6 /* MDNavigationAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A5B1F2989AC0046F6C6 /* MDNavigationAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A481F2989AC0046F6C6 /* MDNavigationAnimationController.m */; };
@@ -34,20 +26,22 @@
 		082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */; };
 		082B3A681F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A691F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */; };
+		083D02561F30646900D1E530 /* MDTransitioning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082E67B31F275AF4003775A7 /* MDTransitioning.framework */; };
+		083D02641F3065EC00D1E530 /* MDImageDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 083D02391F30643F00D1E530 /* MDImageDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		083D02651F3065EC00D1E530 /* MDImageDismissInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D023A1F30643F00D1E530 /* MDImageDismissInteractionController.m */; };
+		083D02661F3065EC00D1E530 /* MDImageDraggingDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 083D023B1F30643F00D1E530 /* MDImageDraggingDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		083D02671F3065EC00D1E530 /* MDImageDraggingDismissInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D023C1F30643F00D1E530 /* MDImageDraggingDismissInteractionController.m */; };
+		083D02681F3065EC00D1E530 /* MDImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 083D023D1F30643F00D1E530 /* MDImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		083D02691F3065EC00D1E530 /* MDImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D023E1F30643F00D1E530 /* MDImageViewController.m */; };
+		083D026A1F3065EC00D1E530 /* MDImageZoomAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 083D023F1F30643F00D1E530 /* MDImageZoomAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		083D026B1F3065EC00D1E530 /* MDImageZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02401F30643F00D1E530 /* MDImageZoomAnimationController.m */; };
+		083D026C1F3065EC00D1E530 /* MDTransitioning+ImagePreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 083D02591F30658300D1E530 /* MDTransitioning+ImagePreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDTransitioning+Private.h"; sourceTree = "<group>"; };
 		082237DF1F2F426F00B9BACE /* MDTransitioning+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MDTransitioning+Private.m"; sourceTree = "<group>"; };
-		08283FC21F299D0D0089F6B3 /* MDImageDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageDismissInteractionController.h; sourceTree = "<group>"; };
-		08283FC31F299D0D0089F6B3 /* MDImageDismissInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageDismissInteractionController.m; sourceTree = "<group>"; };
-		08283FC41F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageDraggingDismissInteractionController.h; sourceTree = "<group>"; };
-		08283FC51F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageDraggingDismissInteractionController.m; sourceTree = "<group>"; };
-		08283FC61F299D0D0089F6B3 /* MDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageViewController.h; sourceTree = "<group>"; };
-		08283FC71F299D0D0089F6B3 /* MDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageViewController.m; sourceTree = "<group>"; };
-		082B3A441F2989AC0046F6C6 /* MDImageZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageZoomAnimationController.h; sourceTree = "<group>"; };
-		082B3A451F2989AC0046F6C6 /* MDImageZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageZoomAnimationController.m; sourceTree = "<group>"; };
 		082B3A461F2989AC0046F6C6 /* MDInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractionController.h; sourceTree = "<group>"; };
 		082B3A471F2989AC0046F6C6 /* MDNavigationAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationAnimationController.h; sourceTree = "<group>"; };
 		082B3A481F2989AC0046F6C6 /* MDNavigationAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationAnimationController.m; sourceTree = "<group>"; };
@@ -66,6 +60,16 @@
 		082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDPresentionTransitioning.h"; sourceTree = "<group>"; };
 		082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDPresentionTransitioning.m"; sourceTree = "<group>"; };
 		082E67B31F275AF4003775A7 /* MDTransitioning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTransitioning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		083D02391F30643F00D1E530 /* MDImageDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageDismissInteractionController.h; sourceTree = "<group>"; };
+		083D023A1F30643F00D1E530 /* MDImageDismissInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageDismissInteractionController.m; sourceTree = "<group>"; };
+		083D023B1F30643F00D1E530 /* MDImageDraggingDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageDraggingDismissInteractionController.h; sourceTree = "<group>"; };
+		083D023C1F30643F00D1E530 /* MDImageDraggingDismissInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageDraggingDismissInteractionController.m; sourceTree = "<group>"; };
+		083D023D1F30643F00D1E530 /* MDImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageViewController.h; sourceTree = "<group>"; };
+		083D023E1F30643F00D1E530 /* MDImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageViewController.m; sourceTree = "<group>"; };
+		083D023F1F30643F00D1E530 /* MDImageZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageZoomAnimationController.h; sourceTree = "<group>"; };
+		083D02401F30643F00D1E530 /* MDImageZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageZoomAnimationController.m; sourceTree = "<group>"; };
+		083D024E1F30645300D1E530 /* MDTransitioning_ImagePriview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTransitioning_ImagePriview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		083D02591F30658300D1E530 /* MDTransitioning+ImagePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDTransitioning+ImagePreview.h"; sourceTree = "<group>"; };
 		2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractiveTransitioning.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +78,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		083D024A1F30645300D1E530 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083D02561F30646900D1E530 /* MDTransitioning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,14 +113,6 @@
 				082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */,
 				082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */,
 				082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */,
-				082B3A441F2989AC0046F6C6 /* MDImageZoomAnimationController.h */,
-				082B3A451F2989AC0046F6C6 /* MDImageZoomAnimationController.m */,
-				08283FC21F299D0D0089F6B3 /* MDImageDismissInteractionController.h */,
-				08283FC31F299D0D0089F6B3 /* MDImageDismissInteractionController.m */,
-				08283FC41F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h */,
-				08283FC51F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m */,
-				08283FC61F299D0D0089F6B3 /* MDImageViewController.h */,
-				08283FC71F299D0D0089F6B3 /* MDImageViewController.m */,
 				082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */,
 				082237DF1F2F426F00B9BACE /* MDTransitioning+Private.m */,
 			);
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				082B3A431F2989AC0046F6C6 /* MDTransitioning */,
+				083D02381F30643F00D1E530 /* ImagePreview */,
 				082E67B41F275AF4003775A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,8 +132,25 @@
 			isa = PBXGroup;
 			children = (
 				082E67B31F275AF4003775A7 /* MDTransitioning.framework */,
+				083D024E1F30645300D1E530 /* MDTransitioning_ImagePriview.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		083D02381F30643F00D1E530 /* ImagePreview */ = {
+			isa = PBXGroup;
+			children = (
+				083D02391F30643F00D1E530 /* MDImageDismissInteractionController.h */,
+				083D023A1F30643F00D1E530 /* MDImageDismissInteractionController.m */,
+				083D023B1F30643F00D1E530 /* MDImageDraggingDismissInteractionController.h */,
+				083D023C1F30643F00D1E530 /* MDImageDraggingDismissInteractionController.m */,
+				083D023D1F30643F00D1E530 /* MDImageViewController.h */,
+				083D023E1F30643F00D1E530 /* MDImageViewController.m */,
+				083D023F1F30643F00D1E530 /* MDImageZoomAnimationController.h */,
+				083D02401F30643F00D1E530 /* MDImageZoomAnimationController.m */,
+				083D02591F30658300D1E530 /* MDTransitioning+ImagePreview.h */,
+			);
+			path = ImagePreview;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,18 +164,26 @@
 				082B3A5A1F2989AC0046F6C6 /* MDNavigationAnimationController.h in Headers */,
 				082B3A631F2989AC0046F6C6 /* MDTransitioning.h in Headers */,
 				082B3A601F2989AC0046F6C6 /* MDSwipeInteractionController.h in Headers */,
-				082B3A571F2989AC0046F6C6 /* MDImageZoomAnimationController.h in Headers */,
 				082B3A641F2989AC0046F6C6 /* MDNavigationControllerDelegate.h in Headers */,
 				2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */,
 				082B3A5C1F2989AC0046F6C6 /* MDPopInteractionController.h in Headers */,
 				082B3A591F2989AC0046F6C6 /* MDInteractionController.h in Headers */,
-				08283FCA1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.h in Headers */,
-				08283FCC1F299D0D0089F6B3 /* MDImageViewController.h in Headers */,
-				08283FC81F299D0D0089F6B3 /* MDImageDismissInteractionController.h in Headers */,
 				082B3A621F2989AC0046F6C6 /* MDAnimatedTransitioning.h in Headers */,
 				082B3A5E1F2989AC0046F6C6 /* MDPresentionAnimationController.h in Headers */,
 				082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h in Headers */,
 				082237E01F2F426F00B9BACE /* MDTransitioning+Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		083D024B1F30645300D1E530 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083D02661F3065EC00D1E530 /* MDImageDraggingDismissInteractionController.h in Headers */,
+				083D02641F3065EC00D1E530 /* MDImageDismissInteractionController.h in Headers */,
+				083D026A1F3065EC00D1E530 /* MDImageZoomAnimationController.h in Headers */,
+				083D02681F3065EC00D1E530 /* MDImageViewController.h in Headers */,
+				083D026C1F3065EC00D1E530 /* MDTransitioning+ImagePreview.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +208,24 @@
 			productReference = 082E67B31F275AF4003775A7 /* MDTransitioning.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		083D024D1F30645300D1E530 /* MDTransitioning_ImagePriview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 083D02531F30645300D1E530 /* Build configuration list for PBXNativeTarget "MDTransitioning_ImagePriview" */;
+			buildPhases = (
+				083D02491F30645300D1E530 /* Sources */,
+				083D024A1F30645300D1E530 /* Frameworks */,
+				083D024B1F30645300D1E530 /* Headers */,
+				083D024C1F30645300D1E530 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MDTransitioning_ImagePriview;
+			productName = MDTransitioning_ImagePriview;
+			productReference = 083D024E1F30645300D1E530 /* MDTransitioning_ImagePriview.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -188,6 +236,10 @@
 				ORGANIZATIONNAME = markejave;
 				TargetAttributes = {
 					082E67B21F275AF4003775A7 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					083D024D1F30645300D1E530 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
@@ -207,12 +259,20 @@
 			projectRoot = "";
 			targets = (
 				082E67B21F275AF4003775A7 /* MDTransitioning */,
+				083D024D1F30645300D1E530 /* MDTransitioning_ImagePriview */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		082E67B11F275AF4003775A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		083D024C1F30645300D1E530 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -229,15 +289,22 @@
 				082237E11F2F426F00B9BACE /* MDTransitioning+Private.m in Sources */,
 				082B3A5F1F2989AC0046F6C6 /* MDPresentionAnimationController.m in Sources */,
 				082B3A611F2989AC0046F6C6 /* MDSwipeInteractionController.m in Sources */,
-				08283FC91F299D0D0089F6B3 /* MDImageDismissInteractionController.m in Sources */,
-				08283FCD1F299D0D0089F6B3 /* MDImageViewController.m in Sources */,
-				08283FCB1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m in Sources */,
 				082B3A651F2989AC0046F6C6 /* MDNavigationControllerDelegate.m in Sources */,
 				082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m in Sources */,
-				082B3A581F2989AC0046F6C6 /* MDImageZoomAnimationController.m in Sources */,
 				082B3A5B1F2989AC0046F6C6 /* MDNavigationAnimationController.m in Sources */,
 				082B3A691F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m in Sources */,
 				082B3A5D1F2989AC0046F6C6 /* MDPopInteractionController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		083D02491F30645300D1E530 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				083D026B1F3065EC00D1E530 /* MDImageZoomAnimationController.m in Sources */,
+				083D02651F3065EC00D1E530 /* MDImageDismissInteractionController.m in Sources */,
+				083D02671F3065EC00D1E530 /* MDImageDraggingDismissInteractionController.m in Sources */,
+				083D02691F3065EC00D1E530 /* MDImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +447,38 @@
 			};
 			name = Release;
 		};
+		083D02541F30645300D1E530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.markejave.MDTransitioning-ImagePriview";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		083D02551F30645300D1E530 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.markejave.MDTransitioning-ImagePriview";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -400,6 +499,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		083D02531F30645300D1E530 /* Build configuration list for PBXNativeTarget "MDTransitioning_ImagePriview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				083D02541F30645300D1E530 /* Debug */,
+				083D02551F30645300D1E530 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,7 @@
 //
 
 #import <MDTransitioning/MDTransitioning.h>
+#import <MDTransitioning_ImagePriview/MDTransitioning+ImagePreview.h>
 #import "MDViewController.h"
 #import "MDPresentedViewController.h"
 
@@ -17,6 +18,13 @@
 @end
 
 @implementation MDViewController
+
+- (instancetype)init{
+    if (self = [super init]) {
+        self.allowPopInteractive = NO;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,5 +60,6 @@
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<MDViewControllerAnimatedTransitioning>)animator;{
     return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 }
+
 
 @end

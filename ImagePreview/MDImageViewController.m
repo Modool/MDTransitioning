@@ -9,7 +9,6 @@
 #import "MDImageViewController.h"
 #import "MDImageDismissInteractionController.h"
 #import "MDImageDraggingDismissInteractionController.h"
-#import "UIViewController+MDPresentionTransitioning.h"
 
 @interface MDImageViewController ()<UIScrollViewDelegate>
 

@@ -8,7 +8,10 @@
 
 #import <objc/runtime.h>
 #import "UIViewController+MDPresentionTransitioning.h"
+#import "MDTransitioning+Private.h"
 #import "MDPresentionAnimationController.h"
+
+MDTransitioningLoadCategory(UIViewController_MDPresentionTransitioning)
 
 @implementation UIViewController (MDPresentionTransitioning)
 

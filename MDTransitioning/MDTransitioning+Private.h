@@ -9,4 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
+#ifndef MDTransitioningLoadCategory
+#define MDTransitioningLoadCategory(UNIQUE_NAME) @interface FORCELOAD_##UNIQUE_NAME :NSObject @end @implementation FORCELOAD_##UNIQUE_NAME @end
+#endif
+
 extern void MDTransitioningMethodSwizzle(Class class, SEL origSel, SEL altSel);

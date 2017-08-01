@@ -11,6 +11,8 @@
 #import "MDPopInteractionController.h"
 #import "MDNavigationAnimationController.h"
 
+MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
+
 @implementation UIViewController (MDNavigationTransitioning)
 
 + (void)load {

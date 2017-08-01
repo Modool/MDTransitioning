@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     
     UINavigationController *navigationController = (id)[[self window] rootViewController];
-    navigationController.delegate = [UINavigationControllerDelegate defaultDelegate];
+    navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];
     
     return YES;
 }

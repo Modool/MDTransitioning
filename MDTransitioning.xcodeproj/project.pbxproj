@@ -28,32 +28,14 @@
 		082B3A611F2989AC0046F6C6 /* MDSwipeInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A4E1F2989AC0046F6C6 /* MDSwipeInteractionController.m */; };
 		082B3A621F2989AC0046F6C6 /* MDAnimatedTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A4F1F2989AC0046F6C6 /* MDAnimatedTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A631F2989AC0046F6C6 /* MDTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A501F2989AC0046F6C6 /* MDTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		082B3A641F2989AC0046F6C6 /* UINavigationControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A511F2989AC0046F6C6 /* UINavigationControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		082B3A651F2989AC0046F6C6 /* UINavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A521F2989AC0046F6C6 /* UINavigationControllerDelegate.m */; };
+		082B3A641F2989AC0046F6C6 /* MDNavigationControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A511F2989AC0046F6C6 /* MDNavigationControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		082B3A651F2989AC0046F6C6 /* MDNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A521F2989AC0046F6C6 /* MDNavigationControllerDelegate.m */; };
 		082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */; };
 		082B3A681F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		082B3A691F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */; };
-		082DA8AF1F28475700DD4BA3 /* MDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082DA8AE1F28475700DD4BA3 /* MDViewController.m */; };
-		082DA8CD1F28764D00DD4BA3 /* MDPresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 082DA8CC1F28764D00DD4BA3 /* MDPresentedViewController.m */; };
-		082E67D31F275B17003775A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 082E67D21F275B17003775A7 /* main.m */; };
-		082E67D61F275B17003775A7 /* MDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 082E67D51F275B17003775A7 /* MDAppDelegate.m */; };
-		082E67DC1F275B17003775A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DA1F275B17003775A7 /* Main.storyboard */; };
-		082E67DE1F275B17003775A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DD1F275B17003775A7 /* Assets.xcassets */; };
-		082E67E11F275B17003775A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 082E67DF1F275B17003775A7 /* LaunchScreen.storyboard */; };
-		082E67FB1F2830FB003775A7 /* MDTransitioning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 082E67B31F275AF4003775A7 /* MDTransitioning.framework */; };
 		2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		082E67F91F2830F6003775A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 082E67AA1F275AF4003775A7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 082E67B21F275AF4003775A7;
-			remoteInfo = MDTransitioning;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		082237DE1F2F426F00B9BACE /* MDTransitioning+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MDTransitioning+Private.h"; sourceTree = "<group>"; };
@@ -77,25 +59,13 @@
 		082B3A4E1F2989AC0046F6C6 /* MDSwipeInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSwipeInteractionController.m; sourceTree = "<group>"; };
 		082B3A4F1F2989AC0046F6C6 /* MDAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAnimatedTransitioning.h; sourceTree = "<group>"; };
 		082B3A501F2989AC0046F6C6 /* MDTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTransitioning.h; sourceTree = "<group>"; };
-		082B3A511F2989AC0046F6C6 /* UINavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerDelegate.h; sourceTree = "<group>"; };
-		082B3A521F2989AC0046F6C6 /* UINavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerDelegate.m; sourceTree = "<group>"; };
+		082B3A511F2989AC0046F6C6 /* MDNavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationControllerDelegate.h; sourceTree = "<group>"; };
+		082B3A521F2989AC0046F6C6 /* MDNavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationControllerDelegate.m; sourceTree = "<group>"; };
 		082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDNavigationTransitioning.h"; sourceTree = "<group>"; };
 		082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDNavigationTransitioning.m"; sourceTree = "<group>"; };
 		082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MDPresentionTransitioning.h"; sourceTree = "<group>"; };
 		082B3A561F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MDPresentionTransitioning.m"; sourceTree = "<group>"; };
-		082DA8AD1F28475700DD4BA3 /* MDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDViewController.h; sourceTree = "<group>"; };
-		082DA8AE1F28475700DD4BA3 /* MDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDViewController.m; sourceTree = "<group>"; };
-		082DA8CB1F28764D00DD4BA3 /* MDPresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPresentedViewController.h; sourceTree = "<group>"; };
-		082DA8CC1F28764D00DD4BA3 /* MDPresentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPresentedViewController.m; sourceTree = "<group>"; };
 		082E67B31F275AF4003775A7 /* MDTransitioning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTransitioning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		082E67CF1F275B17003775A7 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		082E67D21F275B17003775A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		082E67D41F275B17003775A7 /* MDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDAppDelegate.h; sourceTree = "<group>"; };
-		082E67D51F275B17003775A7 /* MDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDAppDelegate.m; sourceTree = "<group>"; };
-		082E67DB1F275B17003775A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		082E67DD1F275B17003775A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		082E67E01F275B17003775A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		082E67E21F275B17003775A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractiveTransitioning.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,14 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		082E67CC1F275B17003775A7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				082E67FB1F2830FB003775A7 /* MDTransitioning.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +95,8 @@
 				082B3A4E1F2989AC0046F6C6 /* MDSwipeInteractionController.m */,
 				082B3A491F2989AC0046F6C6 /* MDPopInteractionController.h */,
 				082B3A4A1F2989AC0046F6C6 /* MDPopInteractionController.m */,
-				082B3A511F2989AC0046F6C6 /* UINavigationControllerDelegate.h */,
-				082B3A521F2989AC0046F6C6 /* UINavigationControllerDelegate.m */,
+				082B3A511F2989AC0046F6C6 /* MDNavigationControllerDelegate.h */,
+				082B3A521F2989AC0046F6C6 /* MDNavigationControllerDelegate.m */,
 				082B3A531F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h */,
 				082B3A541F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m */,
 				082B3A551F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.h */,
@@ -157,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				082B3A431F2989AC0046F6C6 /* MDTransitioning */,
-				082E67D01F275B17003775A7 /* Demo */,
 				082E67B41F275AF4003775A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,35 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				082E67B31F275AF4003775A7 /* MDTransitioning.framework */,
-				082E67CF1F275B17003775A7 /* Demo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		082E67D01F275B17003775A7 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				082E67D41F275B17003775A7 /* MDAppDelegate.h */,
-				082E67D51F275B17003775A7 /* MDAppDelegate.m */,
-				082DA8AD1F28475700DD4BA3 /* MDViewController.h */,
-				082DA8AE1F28475700DD4BA3 /* MDViewController.m */,
-				082DA8CB1F28764D00DD4BA3 /* MDPresentedViewController.h */,
-				082DA8CC1F28764D00DD4BA3 /* MDPresentedViewController.m */,
-				082E67DA1F275B17003775A7 /* Main.storyboard */,
-				082E67DD1F275B17003775A7 /* Assets.xcassets */,
-				082E67DF1F275B17003775A7 /* LaunchScreen.storyboard */,
-				082E67E21F275B17003775A7 /* Info.plist */,
-				082E67D11F275B17003775A7 /* Supporting Files */,
-			);
-			path = Demo;
-			sourceTree = "<group>";
-		};
-		082E67D11F275B17003775A7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				082E67D21F275B17003775A7 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,7 +143,7 @@
 				082B3A631F2989AC0046F6C6 /* MDTransitioning.h in Headers */,
 				082B3A601F2989AC0046F6C6 /* MDSwipeInteractionController.h in Headers */,
 				082B3A571F2989AC0046F6C6 /* MDImageZoomAnimationController.h in Headers */,
-				082B3A641F2989AC0046F6C6 /* UINavigationControllerDelegate.h in Headers */,
+				082B3A641F2989AC0046F6C6 /* MDNavigationControllerDelegate.h in Headers */,
 				2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */,
 				082B3A5C1F2989AC0046F6C6 /* MDPopInteractionController.h in Headers */,
 				082B3A591F2989AC0046F6C6 /* MDInteractionController.h in Headers */,
@@ -244,24 +178,6 @@
 			productReference = 082E67B31F275AF4003775A7 /* MDTransitioning.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		082E67CE1F275B17003775A7 /* Demo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 082E67EE1F275B18003775A7 /* Build configuration list for PBXNativeTarget "Demo" */;
-			buildPhases = (
-				082E67CB1F275B17003775A7 /* Sources */,
-				082E67CC1F275B17003775A7 /* Frameworks */,
-				082E67CD1F275B17003775A7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				082E67FA1F2830F6003775A7 /* PBXTargetDependency */,
-			);
-			name = Demo;
-			productName = Demo;
-			productReference = 082E67CF1F275B17003775A7 /* Demo.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -272,10 +188,6 @@
 				ORGANIZATIONNAME = markejave;
 				TargetAttributes = {
 					082E67B21F275AF4003775A7 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-					};
-					082E67CE1F275B17003775A7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
@@ -295,7 +207,6 @@
 			projectRoot = "";
 			targets = (
 				082E67B21F275AF4003775A7 /* MDTransitioning */,
-				082E67CE1F275B17003775A7 /* Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -305,16 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		082E67CD1F275B17003775A7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				082E67E11F275B17003775A7 /* LaunchScreen.storyboard in Resources */,
-				082E67DE1F275B17003775A7 /* Assets.xcassets in Resources */,
-				082E67DC1F275B17003775A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +232,7 @@
 				08283FC91F299D0D0089F6B3 /* MDImageDismissInteractionController.m in Sources */,
 				08283FCD1F299D0D0089F6B3 /* MDImageViewController.m in Sources */,
 				08283FCB1F299D0D0089F6B3 /* MDImageDraggingDismissInteractionController.m in Sources */,
-				082B3A651F2989AC0046F6C6 /* UINavigationControllerDelegate.m in Sources */,
+				082B3A651F2989AC0046F6C6 /* MDNavigationControllerDelegate.m in Sources */,
 				082B3A671F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.m in Sources */,
 				082B3A581F2989AC0046F6C6 /* MDImageZoomAnimationController.m in Sources */,
 				082B3A5B1F2989AC0046F6C6 /* MDNavigationAnimationController.m in Sources */,
@@ -340,45 +241,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		082E67CB1F275B17003775A7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				082DA8AF1F28475700DD4BA3 /* MDViewController.m in Sources */,
-				082E67D61F275B17003775A7 /* MDAppDelegate.m in Sources */,
-				082E67D31F275B17003775A7 /* main.m in Sources */,
-				082DA8CD1F28764D00DD4BA3 /* MDPresentedViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		082E67FA1F2830F6003775A7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 082E67B21F275AF4003775A7 /* MDTransitioning */;
-			targetProxy = 082E67F91F2830F6003775A7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		082E67DA1F275B17003775A7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				082E67DB1F275B17003775A7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		082E67DF1F275B17003775A7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				082E67E01F275B17003775A7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		082E67B91F275AF4003775A7 /* Debug */ = {
@@ -489,9 +352,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.MDTransitioning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -505,33 +370,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.MDTransitioning;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		082E67EF1F275B18003775A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.Demo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		082E67F01F275B18003775A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.markejave.Demo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
@@ -552,15 +395,6 @@
 			buildConfigurations = (
 				082E67BC1F275AF4003775A7 /* Debug */,
 				082E67BD1F275AF4003775A7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		082E67EE1F275B18003775A7 /* Build configuration list for PBXNativeTarget "Demo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				082E67EF1F275B18003775A7 /* Debug */,
-				082E67F01F275B18003775A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 //
-//  UINavigationControllerDelegate.m
+//  MDNavigationControllerDelegate.m
 //  MDTransitioning
 //
 //  Created by Jave on 2017/7/26.
@@ -8,7 +8,7 @@
 
 #import <objc/runtime.h>
 
-#import "UINavigationControllerDelegate.h"
+#import "MDNavigationControllerDelegate.h"
 #import "MDNavigationAnimationController.h"
 #import "MDInteractionController.h"
 #import "UIViewController+MDNavigationTransitioning.h"
@@ -35,13 +35,13 @@
 
 @end
 
-@implementation UINavigationControllerDelegate
+@implementation MDNavigationControllerDelegate
 
 + (instancetype)defaultDelegate;{
-    static UINavigationControllerDelegate *delegate = nil;
+    static MDNavigationControllerDelegate *delegate = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        delegate = [UINavigationControllerDelegate new];
+        delegate = [MDNavigationControllerDelegate new];
     });
     return delegate;
 }

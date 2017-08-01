@@ -25,12 +25,12 @@
     [self swizzle_viewDidLoad];
     
     if ([self allowPopInteractive] &&
-        ![self allowCustomePopInteractive] &&
+        ![self allowCustomPopInteractive] &&
         [self navigationController] != nil &&
         [self navigationController] == [self parentViewController] &&
         [[[self navigationController] viewControllers] firstObject] != self) {
         
-        self.interactiveController = [self requirePopInteractionController];
+        self.interactionController = [self requirePopInteractionController];
     }
 }
 
@@ -65,21 +65,21 @@
     return [allowPopInteractiveAssociatedObject boolValue];
 }
 
-- (void)setAllowCustomePopInteractive:(BOOL)allowCustomePopInteractive{
-    objc_setAssociatedObject(self, @selector(allowCustomePopInteractive), @(allowCustomePopInteractive), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setAllowCustomPopInteractive:(BOOL)allowCustomPopInteractive{
+    objc_setAssociatedObject(self, @selector(allowCustomPopInteractive), @(allowCustomPopInteractive), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)allowCustomePopInteractive{
-    return [objc_getAssociatedObject(self, @selector(allowCustomePopInteractive)) boolValue];
+- (BOOL)allowCustomPopInteractive{
+    return [objc_getAssociatedObject(self, @selector(allowCustomPopInteractive)) boolValue];
 }
 
-- (id<MDInteractionController>)interactiveController{
-    return objc_getAssociatedObject(self, @selector(interactiveController));
+- (id<MDInteractionController>)interactionController{
+    return objc_getAssociatedObject(self, @selector(interactionController));
 }
 
-- (void)setInteractiveController:(id<MDInteractionController>)interactiveController{
-    if ([self interactiveController] != interactiveController) {
-        objc_setAssociatedObject(self, @selector(interactiveController), interactiveController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setInteractionController:(id<MDInteractionController>)interactionController{
+    if ([self interactionController] != interactionController) {
+        objc_setAssociatedObject(self, @selector(interactionController), interactionController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 

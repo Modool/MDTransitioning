@@ -123,8 +123,8 @@
 			children = (
 				082B3A501F2989AC0046F6C6 /* MDTransitioning.h */,
 				082B3A4F1F2989AC0046F6C6 /* MDAnimatedTransitioning.h */,
-				082B3A461F2989AC0046F6C6 /* MDInteractionController.h */,
 				2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */,
+				082B3A461F2989AC0046F6C6 /* MDInteractionController.h */,
 				082B3A471F2989AC0046F6C6 /* MDNavigationAnimationController.h */,
 				082B3A481F2989AC0046F6C6 /* MDNavigationAnimationController.m */,
 				082B3A4B1F2989AC0046F6C6 /* MDPresentionAnimationController.h */,

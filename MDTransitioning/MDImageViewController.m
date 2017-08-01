@@ -9,8 +9,9 @@
 #import "MDImageViewController.h"
 #import "MDImageDismissInteractionController.h"
 #import "MDImageDraggingDismissInteractionController.h"
+#import "UIViewController+MDPresentionTransitioning.h"
 
-@interface MDImageViewController ()<UIScrollViewDelegate, MDPresentionController>
+@interface MDImageViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *backgroundView;
 
@@ -60,11 +61,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.presentionInteractiveController = [MDImageDismissInteractionController interactionControllerWithViewController:self];
+//    self.presentionInteractionController = [MDImageDismissInteractionController interactionControllerWithViewController:self];
     MDImageDraggingDismissInteractionController *interactionController = [MDImageDraggingDismissInteractionController interactionControllerWithViewController:self];
     interactionController.translation = 200.f;
     
-    self.presentionInteractiveController = interactionController;
+    self.presentionInteractionController = interactionController;
     
     [[self singleTapGestureRecognizer] requireGestureRecognizerToFail:[self doubleTapGestureRecognizer]];
 }

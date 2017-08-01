@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MDSwipeInteractionController.h"
 
+// The controller of pop interaction.
 @interface MDPopInteractionController : MDSwipeInteractionController
 
-@property (nonatomic, assign) CGFloat horizontalOffset; // Default is 20.f.
+// The horizontal offset is left edge of content view, default is 20.f.
+@property (nonatomic, assign) CGFloat horizontalOffset;
 
 @end

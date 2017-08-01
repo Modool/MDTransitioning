@@ -21,6 +21,9 @@
 @end
 
 @implementation MDSwipeInteractionController
+@synthesize enable = _enable;
+@synthesize allowSwipe = _allowSwipe, progress = _progress;
+@synthesize begin = _begin, end = _end, update = _update;
 
 - (instancetype)init {
     return nil;

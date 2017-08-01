@@ -54,7 +54,7 @@
 
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                          interactionControllerForAnimationController:(MDNavigationAnimationController *)animationController {
-    return [[[animationController fromViewController] interactiveController] interactiveTransition];
+    return [[[animationController fromViewController] interactionController] interactiveTransition];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -63,4 +63,5 @@
                                                  toViewController:(UIViewController *)toViewController {
     return [fromViewController animationForNavigationOperation:operation fromViewController:fromViewController toViewController:toViewController];
 }
+
 @end

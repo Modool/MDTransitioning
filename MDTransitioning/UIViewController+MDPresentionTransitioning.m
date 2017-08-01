@@ -12,12 +12,12 @@
 
 @implementation UIViewController (MDPresentionTransitioning)
 
-- (void)setPresentionInteractiveController:(id<MDInteractionController>)presentionInteractiveController{
-    objc_setAssociatedObject(self, @selector(presentionInteractiveController), presentionInteractiveController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setPresentionInteractionController:(id<MDInteractionController>)presentionInteractionController{
+    objc_setAssociatedObject(self, @selector(presentionInteractionController), presentionInteractionController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (id<MDInteractionController>)presentionInteractiveController{
-    return objc_getAssociatedObject(self, @selector(presentionInteractiveController));
+- (id<MDInteractionController>)presentionInteractionController{
+    return objc_getAssociatedObject(self, @selector(presentionInteractionController));
 }
 
 - (id<MPresentionAnimatedTransitioning>)animationForPresentionOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{

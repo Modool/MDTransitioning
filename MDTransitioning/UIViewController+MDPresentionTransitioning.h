@@ -8,6 +8,7 @@
 
 #import "MDInteractionController.h"
 
+// The default implementation of MDPresentionController.
 @interface UIViewController (MDPresentionTransitioning)<MDPresentionController>
 
 @end

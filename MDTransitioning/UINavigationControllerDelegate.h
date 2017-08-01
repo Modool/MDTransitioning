@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// The default delegate of UINavigationControllerDelegate, to provide default implementation.
 @interface UINavigationControllerDelegate : NSObject<UINavigationControllerDelegate>
 
 + (instancetype)defaultDelegate;

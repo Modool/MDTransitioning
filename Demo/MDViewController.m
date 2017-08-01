@@ -50,7 +50,7 @@
 }
 
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<MDViewControllerAnimatedTransitioning>)animator;{
-    return [[[animator fromViewController] presentionInteractiveController] interactiveTransition];
+    return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 }
 
 @end

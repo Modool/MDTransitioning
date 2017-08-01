@@ -8,6 +8,7 @@
 
 #import "MDInteractionController.h"
 
+// The default implementation of MDNavigationPopController.
 @interface UIViewController (MDNavigationTransitioning)<MDNavigationPopController>
 
 @end

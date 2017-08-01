@@ -27,7 +27,7 @@
 * Installation with CocoaPods
 
 ```
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Modool/cocoapods-specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do

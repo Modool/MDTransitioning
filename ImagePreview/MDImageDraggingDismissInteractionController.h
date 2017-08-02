@@ -22,6 +22,7 @@
 
 @interface MDImageDraggingDismissInteractionController : MDSwipeInteractionController
 
-@property (nonatomic, assign) CGFloat translation; // Default is controller.view.width / 3.f.
+// The max distance of dragging translation, default is controller.view.width / 3.f.
+@property (nonatomic, assign) CGFloat translation;
 
 @end

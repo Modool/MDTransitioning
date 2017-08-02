@@ -102,7 +102,6 @@ MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
 }
 
 - (id<MDNavigationAnimatedTransitioning>)animationForNavigationOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{
-    if (operation == UINavigationControllerOperationPush) return nil;
     return [[MDNavigationAnimationController alloc] initWithOperation:operation fromViewController:fromViewController toViewController:toViewController];
 }
 

@@ -22,6 +22,7 @@
 #import <MDTransitioning_ImagePriview/MDTransitioning+ImagePreview.h>
 #import "MDViewController.h"
 #import "MDPresentedViewController.h"
+#import "MDCustomViewController.h"
 
 @interface MDViewController () <MDImageZoomViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
@@ -57,6 +58,11 @@
     presentViewController.transitioningDelegate = self;
     
     [self presentViewController:presentViewController animated:YES completion:nil];
+}
+
+- (IBAction)didClickCustomPush:(id)sender {
+    MDCustomViewController *viewController = [MDCustomViewController new];
+    [[self navigationController] pushViewController:viewController animated:YES];
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate

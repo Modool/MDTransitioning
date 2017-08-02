@@ -27,6 +27,12 @@
 
 @implementation MDCustomViewController
 
+- (void)loadView{
+    [super loadView];
+    
+    self.view.backgroundColor = [UIColor blueColor];
+}
+
 #pragma mark - MDNavigationPopController
 
 - (id<MDNavigationAnimatedTransitioning>)animationForNavigationOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{

@@ -20,6 +20,12 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UINavigationController (MDPushAnimation)
+
+@property (nonatomic, assign) BOOL allowPushAnimation;
+
+@end
+
 // The default delegate of UINavigationControllerDelegate, to provide default implementation.
 @interface MDNavigationControllerDelegate : NSObject<UINavigationControllerDelegate>
 

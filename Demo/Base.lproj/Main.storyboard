@@ -85,6 +85,14 @@
                                     <action selector="didClickPresent:" destination="4pl-yu-QBT" eventType="touchUpInside" id="LYd-Z7-3QA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="di8-5U-McK">
+                                <rect key="frame" x="121" y="544" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="push custom"/>
+                                <connections>
+                                    <action selector="didClickCustomPush:" destination="4pl-yu-QBT" eventType="touchUpInside" id="gfc-Hb-Anr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

@@ -32,6 +32,7 @@
     // Override point for customization after application launch.
     
     UINavigationController *navigationController = (id)[[self window] rootViewController];
+    navigationController.allowPushAnimation = YES;
     navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];
     
     return YES;

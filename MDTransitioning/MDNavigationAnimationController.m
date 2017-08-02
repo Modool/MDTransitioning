@@ -50,7 +50,7 @@
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return [self duration];
+    return [self operation] == UINavigationControllerOperationPush ? 0.25f : [self duration];
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
@@ -66,48 +66,57 @@
     UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
-    
-    [[transitionContext containerView] addSubview:[fromViewController snapshot]];
-    fromViewController.view.hidden = YES;
-    
     CGRect frame = [transitionContext finalFrameForViewController:toViewController];
+    
+    UIView *fromSnapshot = [fromViewController snapshot];
+    UIView *fromOverlayerView = [[UIView alloc] initWithFrame:[fromSnapshot bounds]];
+    fromOverlayerView.alpha = 0;
+    fromOverlayerView.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
+    
+    fromViewController.view.hidden = YES;
     toViewController.view.frame = CGRectOffset(frame, CGRectGetWidth(frame), 0);
+    
+    [fromSnapshot addSubview:fromOverlayerView];
+    [[transitionContext containerView] addSubview:fromSnapshot];
     [[transitionContext containerView] addSubview:[toViewController view]];
     
     [UIView animateWithDuration:duration
                           delay:0.f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         fromViewController.snapshot.alpha = 0.f;
-                         fromViewController.snapshot.frame = CGRectInset([[fromViewController view] frame], 20, 20);
+                         fromOverlayerView.alpha = 1.;
+                         fromSnapshot.frame = CGRectOffset([[fromViewController view] frame], -CGRectGetWidth([[fromViewController view] frame]) / 2., 0);
                          toViewController.view.frame = CGRectOffset([[toViewController view] frame], -CGRectGetWidth([[toViewController view] frame]), 0);
                      }
                      completion:^(BOOL finished) {
                          fromViewController.view.hidden = NO;
-                         [[fromViewController snapshot] removeFromSuperview];
                          
-                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                         [fromSnapshot removeFromSuperview];
+                         [fromOverlayerView removeFromSuperview];
+                         
+                         [transitionContext completeTransition:YES];
                      }];
 }
 
 - (void)animatePopTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
     NSTimeInterval duration = [self transitionDuration:transitionContext];
+    
+    CGRect initialFrame = [[fromViewController view] frame];
+    CGRect finalFrame = [[toViewController view] frame];
     
     UIView *fromSnapshot = [fromViewController snapshot];
     UIView *toSnapshot = [toViewController snapshot];
-    
-    fromSnapshot.frame = [[fromViewController view] frame];
-    toSnapshot.frame = [[toViewController view] frame];
+
+    fromSnapshot.frame = initialFrame;
+    toSnapshot.frame = CGRectOffset(finalFrame, -CGRectGetWidth(finalFrame) / 2., 0);
     
     UIView *toOverlayerView = [[UIView alloc] initWithFrame:[toSnapshot bounds]];
     toOverlayerView.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
     
-    CGAffineTransform transformer = CGAffineTransformMakeTranslation(CGRectGetWidth([[toViewController view] bounds]), 0);
-    toSnapshot.transform = CGAffineTransformMakeTranslation(-CGRectGetWidth([[toViewController view] bounds]) / 2., 0);
     toViewController.view.hidden = YES;
+    fromViewController.view.hidden = YES;
     
     [toSnapshot addSubview:toOverlayerView];
     [[transitionContext containerView] addSubview:[toViewController view]];
@@ -119,16 +128,16 @@
                           delay:0.0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         fromViewController.view.transform = transformer;
-                         fromSnapshot.transform = transformer;
                          toOverlayerView.alpha = 0;
-                         toSnapshot.transform = CGAffineTransformIdentity;
+                         toSnapshot.frame = finalFrame;
+                         fromSnapshot.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
                      }
                      completion:^(BOOL finished) {
+                         toSnapshot.frame = finalFrame;
+                         fromSnapshot.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
+                         fromViewController.view.frame = initialFrame;
+                         
                          toViewController.view.hidden = NO;
-                         fromViewController.view.transform = CGAffineTransformIdentity;
-                         fromSnapshot.transform = CGAffineTransformIdentity;
-                         toSnapshot.transform = CGAffineTransformIdentity;
                          
                          [fromSnapshot removeFromSuperview];
                          [toSnapshot removeFromSuperview];
@@ -136,6 +145,8 @@
                          // Reset toViewController's `snapshot` to nil
                          if (![transitionContext transitionWasCancelled]) {
                              toViewController.snapshot = nil;
+                         } else {
+                             fromViewController.view.hidden = NO;
                          }
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                      }];

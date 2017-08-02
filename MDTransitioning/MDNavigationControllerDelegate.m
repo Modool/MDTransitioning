@@ -45,6 +45,14 @@
     [self swizzle_pushViewController:viewController animated:animated];
 }
 
+- (BOOL)allowPushAnimation{
+    return [objc_getAssociatedObject(self, @selector(allowPushAnimation)) boolValue];
+}
+
+- (void)setAllowPushAnimation:(BOOL)allowPushAnimation{
+    objc_setAssociatedObject(self, @selector(allowPushAnimation), @(allowPushAnimation), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 @end
 
 @implementation MDNavigationControllerDelegate
@@ -73,7 +81,9 @@
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
                                                fromViewController:(UIViewController *)fromViewController
                                                  toViewController:(UIViewController *)toViewController {
-    return [fromViewController animationForNavigationOperation:operation fromViewController:fromViewController toViewController:toViewController];
+    if (operation == UINavigationControllerOperationPush && ![navigationController allowPushAnimation]) return nil;
+    UIViewController *displayingViewController = operation == UINavigationControllerOperationPush ? toViewController : fromViewController;
+    return [displayingViewController animationForNavigationOperation:operation fromViewController:fromViewController toViewController:toViewController];
 }
 
 @end

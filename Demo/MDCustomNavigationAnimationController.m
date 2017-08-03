@@ -37,20 +37,16 @@
 
     CGRect initialFrame = [[fromViewController view] frame];
     CGRect finalFrame = [transitionContext finalFrameForViewController:toViewController];
+    UINavigationBar *navigationBar = [[fromViewController navigationController] navigationBar];
+    CGRect navigationBarFrame = [navigationBar frame];
     
-    [[transitionContext containerView] addSubview:[toViewController view]];
-    
-    UIView *toNavigationBarSnapshot = [[[fromViewController navigationController] view] resizableSnapshotViewFromRect:CGRectMake(0, 0, CGRectGetWidth(initialFrame), 64) afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
-    CGRect toNavigationBarFrame = [toNavigationBarSnapshot frame];
-    
-    toNavigationBarSnapshot.frame = CGRectOffset(toNavigationBarFrame, CGRectGetWidth(finalFrame), 0);
+    navigationBar.frame = CGRectOffset(navigationBarFrame, CGRectGetWidth(navigationBarFrame), 0);
     toViewController.view.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
     
     [[transitionContext containerView] addSubview:[fromViewController snapshot]];
-    [[transitionContext containerView] addSubview:toNavigationBarSnapshot];
-    [[transitionContext containerView] sendSubviewToBack:[fromViewController snapshot]];
+    [[transitionContext containerView] addSubview:[toViewController view]];
+    
     fromViewController.view.hidden = YES;
-    fromViewController.navigationController.navigationBar.hidden = YES;
     UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor blackColor];
     
     [UIView animateWithDuration:duration
@@ -60,18 +56,18 @@
                          fromViewController.snapshot.alpha = 0.5;
                          fromViewController.snapshot.frame = CGRectInset(initialFrame, 20, 20);
                          toViewController.view.frame = finalFrame;
-                         toNavigationBarSnapshot.frame = toNavigationBarFrame;
+                         navigationBar.frame = navigationBarFrame;
                      }
                      completion:^(BOOL finished) {
                          fromViewController.view.hidden = NO;
                          fromViewController.snapshot.frame = CGRectInset(initialFrame, 20, 20);
                          
                          toViewController.view.frame = finalFrame;
-                         toViewController.navigationController.navigationBar.hidden = NO;
+                         navigationBar.frame = navigationBarFrame;
+                         
                          UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor whiteColor];
                          
                          [[fromViewController snapshot] removeFromSuperview];
-                         [toNavigationBarSnapshot removeFromSuperview];
                          
                          [transitionContext completeTransition:YES];
                      }];

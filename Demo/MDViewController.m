@@ -79,5 +79,4 @@
     return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 }
 
-
 @end

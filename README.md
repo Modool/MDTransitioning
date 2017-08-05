@@ -17,9 +17,7 @@
 
 ## Communication
 
-* QQ群：<img src="./images/qq.png" width=200>
-* 微信群：<img src="./images/wechat.jpeg" width=200>
-* Github：<img src="./images/github.png" width=200>
+<img src="https://github.com/Modool/Resources/blob/master/images/social/qq_1000.png?raw=true" width=200><img style="margin:0px 50px 0px 50px" src="https://github.com/Modool/Resources/blob/master/images/social/wechat_1000.png?raw=true" width=200><img src="https://github.com/Modool/Resources/blob/master/images/social/github_1000.png?raw=true" width=200>
 
 ## Installation
 

@@ -36,10 +36,12 @@
 }
 
 - (void)swizzle_pushViewController:(UIViewController*)viewController animated:(BOOL)animated{
-    self.view.userInteractionEnabled = NO;
-    
-    if ([self topViewController] && ![[self topViewController] snapshot]) {
-        self.topViewController.snapshot = [[self view] snapshotViewAfterScreenUpdates:NO];
+    if ([self delegate] == [MDNavigationControllerDelegate defaultDelegate]) {
+        self.view.userInteractionEnabled = NO;
+        
+        if ([self topViewController] && ![[self topViewController] snapshot]) {
+            self.topViewController.snapshot = [[self view] snapshotViewAfterScreenUpdates:NO];
+        }
     }
     
     [self swizzle_pushViewController:viewController animated:animated];

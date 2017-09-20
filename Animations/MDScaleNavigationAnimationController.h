@@ -20,6 +20,6 @@
 
 #import <MDTransitioning/MDTransitioning.h>
 
-@interface MDCustomNavigationAnimationController : MDNavigationAnimationController
+@interface MDScaleNavigationAnimationController : MDNavigationAnimationController
 
 @end

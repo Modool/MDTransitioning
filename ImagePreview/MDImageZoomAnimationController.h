@@ -30,7 +30,7 @@
 @property (nonatomic, assign) BOOL hideReferenceImageViewWhenZoomIn; // Default is YES.
 
 // Initializes the receiver with the specified reference image view to other image view.
-- (id)initWithReferenceImageView:(UIImageView *)referenceImageView;
+- (instancetype)initWithReferenceImageView:(UIImageView *)referenceImageView;
 
 @end
 

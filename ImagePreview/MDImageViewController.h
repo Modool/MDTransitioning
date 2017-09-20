@@ -42,9 +42,9 @@
 @property (nonatomic, copy, readonly) NSURL *imageURL;
 
 // Initializes the receiver with the specified image.
-- (id)initWithImage:(UIImage *)image;
+- (instancetype)initWithImage:(UIImage *)image;
 
 // Initializes the receiver with the specified image URL and placeholder.
-- (id)initWithImageURL:(NSURL *)imageURL placeholderImage:(UIImage *)placeholderImage;
+- (instancetype)initWithImageURL:(NSURL *)imageURL placeholderImage:(UIImage *)placeholderImage;
 
 @end

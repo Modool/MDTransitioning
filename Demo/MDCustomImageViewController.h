@@ -18,8 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import <MDTransitioning_ImagePriview/MDTransitioning+ImagePreview.h>
 
-@interface MDViewController : UIViewController
+@interface MDCustomImageViewController : MDImageViewController
 
 @end

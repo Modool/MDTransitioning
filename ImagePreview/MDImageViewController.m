@@ -43,11 +43,11 @@
 
 @implementation MDImageViewController
 
-- (id)initWithImage:(UIImage *)image;{
+- (instancetype)initWithImage:(UIImage *)image;{
     return [self initWithImageURL:nil placeholderImage:image];
 }
 
-- (id)initWithImageURL:(NSURL *)imageURL placeholderImage:(UIImage *)placeholderImage;{
+- (instancetype)initWithImageURL:(NSURL *)imageURL placeholderImage:(UIImage *)placeholderImage;{
     if (self = [super init]) {
         self.imageURL = imageURL;
         self.image = placeholderImage;

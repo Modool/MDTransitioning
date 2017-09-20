@@ -18,9 +18,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import "MDCustomNavigationAnimationController.h"
+#import "MDScaleNavigationAnimationController.h"
 
-@implementation MDCustomNavigationAnimationController
+@implementation MDScaleNavigationAnimationController
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     if ([self operation] == UINavigationControllerOperationPush) {

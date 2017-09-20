@@ -18,25 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#import "MDCustomViewController.h"
-#import <MDTransitioning/MDScaleNavigationAnimationController.h>
+#import <UIKit/UIKit.h>
 
-@interface MDCustomViewController ()
-
-@end
-
-@implementation MDCustomViewController
-
-- (void)loadView{
-    [super loadView];
-    
-    self.view.backgroundColor = [UIColor blueColor];
-}
-
-#pragma mark - MDNavigationPopController
-
-- (id<MDNavigationAnimatedTransitioning>)animationForNavigationOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{
-    return [[MDScaleNavigationAnimationController alloc] initWithOperation:operation fromViewController:fromViewController toViewController:toViewController];
-}
+@interface MDPresentionControlViewController : UIViewController
 
 @end

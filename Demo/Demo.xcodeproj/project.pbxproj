@@ -13,13 +13,16 @@
 		083D021D1F3057F400D1E530 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02121F3057F400D1E530 /* main.m */; };
 		083D021E1F3057F400D1E530 /* MDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02141F3057F400D1E530 /* MDAppDelegate.m */; };
 		083D021F1F3057F400D1E530 /* MDPresentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02161F3057F400D1E530 /* MDPresentedViewController.m */; };
-		083D02201F3057F400D1E530 /* MDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02181F3057F400D1E530 /* MDViewController.m */; };
-		083D022E1F30604900D1E530 /* MDCustomNavigationAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D022D1F30604900D1E530 /* MDCustomNavigationAnimationController.m */; };
+		083D02201F3057F400D1E530 /* MDPresentionControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02181F3057F400D1E530 /* MDPresentionControlViewController.m */; };
 		083D02311F30626D00D1E530 /* MDCustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D02301F30626D00D1E530 /* MDCustomViewController.m */; };
 		08555F3D1F31775600591B10 /* MDTransitioning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08555F3C1F31775600591B10 /* MDTransitioning.framework */; };
 		08555F3E1F31775600591B10 /* MDTransitioning.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 08555F3C1F31775600591B10 /* MDTransitioning.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08555F401F31775600591B10 /* MDTransitioning_ImagePriview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08555F3F1F31775600591B10 /* MDTransitioning_ImagePriview.framework */; };
 		08555F411F31775600591B10 /* MDTransitioning_ImagePriview.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 08555F3F1F31775600591B10 /* MDTransitioning_ImagePriview.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0856B4AA1F72CBDE00905F3A /* MDCustomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4A91F72CBDE00905F3A /* MDCustomImageViewController.m */; };
+		0856B4AD1F72D06300905F3A /* MDVerticalSwipPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4AC1F72D06300905F3A /* MDVerticalSwipPopViewController.m */; };
+		0856B4B01F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4AF1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m */; };
+		0856B4B31F72D2AC00905F3A /* MDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4B21F72D2AC00905F3A /* MDRootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,14 +51,20 @@
 		083D02141F3057F400D1E530 /* MDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAppDelegate.m; sourceTree = "<group>"; };
 		083D02151F3057F400D1E530 /* MDPresentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPresentedViewController.h; sourceTree = "<group>"; };
 		083D02161F3057F400D1E530 /* MDPresentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPresentedViewController.m; sourceTree = "<group>"; };
-		083D02171F3057F400D1E530 /* MDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDViewController.h; sourceTree = "<group>"; };
-		083D02181F3057F400D1E530 /* MDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDViewController.m; sourceTree = "<group>"; };
-		083D022C1F30604900D1E530 /* MDCustomNavigationAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomNavigationAnimationController.h; sourceTree = "<group>"; };
-		083D022D1F30604900D1E530 /* MDCustomNavigationAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomNavigationAnimationController.m; sourceTree = "<group>"; };
+		083D02171F3057F400D1E530 /* MDPresentionControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPresentionControlViewController.h; sourceTree = "<group>"; };
+		083D02181F3057F400D1E530 /* MDPresentionControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPresentionControlViewController.m; sourceTree = "<group>"; };
 		083D022F1F30626D00D1E530 /* MDCustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomViewController.h; sourceTree = "<group>"; };
 		083D02301F30626D00D1E530 /* MDCustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomViewController.m; sourceTree = "<group>"; };
 		08555F3C1F31775600591B10 /* MDTransitioning.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDTransitioning.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		08555F3F1F31775600591B10 /* MDTransitioning_ImagePriview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MDTransitioning_ImagePriview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0856B4A81F72CBDE00905F3A /* MDCustomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCustomImageViewController.h; sourceTree = "<group>"; };
+		0856B4A91F72CBDE00905F3A /* MDCustomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomImageViewController.m; sourceTree = "<group>"; };
+		0856B4AB1F72D06300905F3A /* MDVerticalSwipPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDVerticalSwipPopViewController.h; sourceTree = "<group>"; };
+		0856B4AC1F72D06300905F3A /* MDVerticalSwipPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDVerticalSwipPopViewController.m; sourceTree = "<group>"; };
+		0856B4AE1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDVerticalSwipPopInteractionController.h; sourceTree = "<group>"; };
+		0856B4AF1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDVerticalSwipPopInteractionController.m; sourceTree = "<group>"; };
+		0856B4B11F72D2AC00905F3A /* MDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRootViewController.h; sourceTree = "<group>"; };
+		0856B4B21F72D2AC00905F3A /* MDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +92,20 @@
 				083D02121F3057F400D1E530 /* main.m */,
 				083D02131F3057F400D1E530 /* MDAppDelegate.h */,
 				083D02141F3057F400D1E530 /* MDAppDelegate.m */,
-				083D02171F3057F400D1E530 /* MDViewController.h */,
-				083D02181F3057F400D1E530 /* MDViewController.m */,
-				083D02151F3057F400D1E530 /* MDPresentedViewController.h */,
-				083D02161F3057F400D1E530 /* MDPresentedViewController.m */,
+				0856B4B11F72D2AC00905F3A /* MDRootViewController.h */,
+				0856B4B21F72D2AC00905F3A /* MDRootViewController.m */,
+				083D02171F3057F400D1E530 /* MDPresentionControlViewController.h */,
+				083D02181F3057F400D1E530 /* MDPresentionControlViewController.m */,
 				083D022F1F30626D00D1E530 /* MDCustomViewController.h */,
 				083D02301F30626D00D1E530 /* MDCustomViewController.m */,
-				083D022C1F30604900D1E530 /* MDCustomNavigationAnimationController.h */,
-				083D022D1F30604900D1E530 /* MDCustomNavigationAnimationController.m */,
+				0856B4A81F72CBDE00905F3A /* MDCustomImageViewController.h */,
+				0856B4A91F72CBDE00905F3A /* MDCustomImageViewController.m */,
+				0856B4AE1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.h */,
+				0856B4AF1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m */,
+				0856B4AB1F72D06300905F3A /* MDVerticalSwipPopViewController.h */,
+				0856B4AC1F72D06300905F3A /* MDVerticalSwipPopViewController.m */,
+				083D02151F3057F400D1E530 /* MDPresentedViewController.h */,
+				083D02161F3057F400D1E530 /* MDPresentedViewController.m */,
 				083D017D1F30577E00D1E530 /* Products */,
 				083D02211F30585000D1E530 /* Frameworks */,
 			);
@@ -184,12 +199,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0856B4AA1F72CBDE00905F3A /* MDCustomImageViewController.m in Sources */,
 				083D021D1F3057F400D1E530 /* main.m in Sources */,
-				083D022E1F30604900D1E530 /* MDCustomNavigationAnimationController.m in Sources */,
-				083D02201F3057F400D1E530 /* MDViewController.m in Sources */,
+				083D02201F3057F400D1E530 /* MDPresentionControlViewController.m in Sources */,
 				083D021F1F3057F400D1E530 /* MDPresentedViewController.m in Sources */,
 				083D02311F30626D00D1E530 /* MDCustomViewController.m in Sources */,
+				0856B4B31F72D2AC00905F3A /* MDRootViewController.m in Sources */,
 				083D021E1F3057F400D1E530 /* MDAppDelegate.m in Sources */,
+				0856B4B01F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m in Sources */,
+				0856B4AD1F72D06300905F3A /* MDVerticalSwipPopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

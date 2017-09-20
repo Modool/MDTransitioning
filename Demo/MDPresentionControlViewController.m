@@ -19,18 +19,17 @@
 // SOFTWARE.
 
 #import <MDTransitioning/MDTransitioning.h>
-#import <MDTransitioning_ImagePriview/MDTransitioning+ImagePreview.h>
-#import "MDViewController.h"
+#import "MDPresentionControlViewController.h"
 #import "MDPresentedViewController.h"
-#import "MDCustomViewController.h"
+#import "MDCustomImageViewController.h"
 
-@interface MDViewController () <MDImageZoomViewControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface MDPresentionControlViewController () <MDImageZoomViewControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
-@implementation MDViewController
+@implementation MDPresentionControlViewController
 
 - (instancetype)init{
     if (self = [super init]) {
@@ -39,48 +38,28 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)loadView{
+    [super loadView];
+    
+    self.view.backgroundColor = [UIColor brownColor];
 }
 
 #pragma mark - actions
 
 - (IBAction)didClickImageButton:(id)sender {
+//    MDCustomImageViewController *imageViewController = [[MDCustomImageViewController alloc] initWithImage:[[self imageView] image]];
+    
     MDImageViewController *imageViewController = [[MDImageViewController alloc] initWithImage:[[self imageView] image]];
-    imageViewController.transitioningDelegate = self;
+    imageViewController.transitioningDelegate = [MDPresentionControllerDelegate delegateWithReferenceViewController:self];
     
     [self presentViewController:imageViewController animated:YES completion:nil];
 }
 
 - (IBAction)didClickPresent:(id)sender {
     MDPresentedViewController *presentViewController = [MDPresentedViewController new];
-    presentViewController.transitioningDelegate = self;
+    presentViewController.transitioningDelegate = [MDPresentionControllerDelegate delegateWithReferenceViewController:self];
     
     [self presentViewController:presentViewController animated:YES completion:nil];
-}
-
-- (IBAction)didClickCustomPush:(id)sender {
-    MDCustomViewController *viewController = [MDCustomViewController new];
-    [[self navigationController] pushViewController:viewController animated:YES];
-}
-
-#pragma mark - UIViewControllerTransitioningDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(MDImageViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    return [presented animationForPresentionOperation:MDPresentionAnimatedOperationPresent fromViewController:self toViewController:presented];
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(MDImageViewController *)dismissed {
-    return [dismissed animationForPresentionOperation:MDPresentionAnimatedOperationDismiss fromViewController:dismissed toViewController:self];
-}
-
-//- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <MDViewControllerAnimatedTransitioning>)animator;{
-//    return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
-//}
-
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<MDViewControllerAnimatedTransitioning>)animator;{
-    return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 }
 
 @end

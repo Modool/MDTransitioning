@@ -75,6 +75,10 @@
     return [dismissed animationForPresentionOperation:MDPresentionAnimatedOperationDismiss fromViewController:dismissed toViewController:self];
 }
 
+//- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <MDViewControllerAnimatedTransitioning>)animator;{
+//    return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
+//}
+
 - (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<MDViewControllerAnimatedTransitioning>)animator;{
     return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 }

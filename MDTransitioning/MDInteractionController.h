@@ -21,6 +21,50 @@
 #import "MDAnimatedTransitioning.h"
 #import "MDInteractiveTransitioning.h"
 
+// This is interaction controller control, control interaction of gesture
+// and progress of interactive transition, the gesture will be added in view of view controller,
+// Needs to care conflict for gestures if overrides.
+@protocol MDInteractionController <NSObject>
+
+// The view controller with gesture.
+@property (nonatomic, weak, readonly) UIViewController *viewController;
+
+// The interactive transition, control progress animation.
+@property (nonatomic, strong, readonly) id<MDPercentDrivenInteractiveTransitioning> interactiveTransition;
+
+// The current interaction state.
+@property (nonatomic, assign, readonly) BOOL interactionInProgress;
+
+// To control ability of gesture.
+@property (nonatomic, assign) BOOL enable;
+
+// To control ability of gesture dynamic.
+@property (nonatomic, copy) CGFloat (^allowSwipe)(CGPoint location, CGPoint velocity);
+
+// To provide progress with location, translation and velocity.
+@property (nonatomic, copy) CGFloat (^progress)(CGPoint location, CGPoint translation, CGPoint velocity);
+
+// It be called after begginning of gesture.
+@property (nonatomic, copy) void (^begin)(); // Default is called requireInteractiveTransition.
+
+// It be called after end of gesture.
+@property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, BOOL finished);
+
+// It be called after updating progress of gesture.
+@property (nonatomic, copy) void (^update)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, CGFloat progress);
+
+/**
+ Require an interactive transition base on percent driven.
+ 
+ @return an instance base on protocol MDPercentDrivenInteractiveTransitioning, default is UIPercentDrivenInteractiveTransition.
+ */
+- (id<MDPercentDrivenInteractiveTransitioning>)requireInteractiveTransition;
+
++ (instancetype)interactionControllerWithViewController:(UIViewController *)viewController;
+- (instancetype)initWithViewController:(UIViewController *)viewController;
+
+@end
+
 // This is navigation controller with pop interaction, contain an interaction controler
 // and animation provider.
 @protocol MDNavigationPopController <NSObject>
@@ -73,49 +117,5 @@
  @return    an instance of animated transitioning, default is MDPresentionAnimationController.
  */
 - (id<MPresentionAnimatedTransitioning>)animationForPresentionOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
-
-@end
-
-// This is interaction controller control, control interaction of gesture
-// and progress of interactive transition, the gesture will be added in view of view controller,
-// Needs to care conflict for gestures if overrides.
-@protocol MDInteractionController <NSObject>
-
-// The view controller with gesture.
-@property (nonatomic, weak, readonly) UIViewController *viewController;
-
-// The interactive transition, control progress animation.
-@property (nonatomic, strong, readonly) id<MDPercentDrivenInteractiveTransitioning> interactiveTransition;
-
-// The current interaction state.
-@property (nonatomic, assign, readonly) BOOL interactionInProgress;
-
-// To control ability of gesture.
-@property (nonatomic, assign) BOOL enable;
-
-// To control ability of gesture dynamic.
-@property (nonatomic, copy) CGFloat (^allowSwipe)(CGPoint location, CGPoint velocity);
-
-// To provide progress with location, translation and velocity.
-@property (nonatomic, copy) CGFloat (^progress)(CGPoint location, CGPoint translation, CGPoint velocity);
-
-// It be called after begginning of gesture.
-@property (nonatomic, copy) void (^begin)(); // Default is called requireInteractiveTransition.
-
-// It be called after end of gesture.
-@property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, BOOL finished);
-
-// It be called after updating progress of gesture.
-@property (nonatomic, copy) void (^update)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, CGFloat progress);
-
-/**
- Require an interactive transition base on percent driven.
- 
- @return an instance base on protocol MDPercentDrivenInteractiveTransitioning, default is UIPercentDrivenInteractiveTransition.
- */
-- (id<MDPercentDrivenInteractiveTransitioning>)requireInteractiveTransition;
-
-+ (instancetype)interactionControllerWithViewController:(UIViewController *)viewController;
-- (instancetype)initWithViewController:(UIViewController *)viewController;
 
 @end

@@ -24,7 +24,7 @@
 
 @interface MDNavigationAnimationController ()
 
-@property (nonatomic, assign) UINavigationControllerOperation operation;
+@property (nonatomic, assign) UINavigationControllerOperation navigationControllerOperation;
 @property (nonatomic, weak) UIViewController *fromViewController;
 @property (nonatomic, weak) UIViewController *toViewController;
 
@@ -42,7 +42,7 @@
     self = [super init];
     if (self) {
         self.duration = 0.25;
-        self.operation = operation;
+        self.navigationControllerOperation = operation;
         self.fromViewController = fromViewController;
         self.toViewController = toViewController;
     }
@@ -50,11 +50,11 @@
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return [self operation] == UINavigationControllerOperationPush ? 0.25f : [self duration];
+    return [self navigationControllerOperation] == UINavigationControllerOperationPush ? 0.25f : [self duration];
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    if ([self operation] == UINavigationControllerOperationPush) {
+    if ([self navigationControllerOperation] == UINavigationControllerOperationPush) {
         [self animatePushTransition:transitionContext];
     } else {
         [self animatePopTransition:transitionContext];

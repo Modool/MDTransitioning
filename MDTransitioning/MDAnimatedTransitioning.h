@@ -25,6 +25,9 @@
 // This is baseic protocol of animated transitioning, extend to access view controllers in transition view.
 @protocol MDViewControllerAnimatedTransitioning<UIViewControllerAnimatedTransitioning>
 
+// The duration of animation.
+@property (nonatomic, assign) NSTimeInterval duration;
+
 // Access appearing view controller in transition view.
 @property (nonatomic, weak, readonly) UIViewController *fromViewController;
 
@@ -37,7 +40,7 @@
 @protocol MDNavigationAnimatedTransitioning <MDViewControllerAnimatedTransitioning>
 
 // Access operation, push or pop.
-@property (nonatomic, assign, readonly) UINavigationControllerOperation operation;
+@property (nonatomic, assign, readonly) UINavigationControllerOperation navigationControllerOperation;
 
 @end
 
@@ -52,7 +55,7 @@ typedef NS_ENUM(NSInteger, MDPresentionAnimatedOperation) {
 @protocol MPresentionAnimatedTransitioning <MDViewControllerAnimatedTransitioning>
 
 // Access operation, present or dismiss.
-@property (nonatomic, assign, readonly) MDPresentionAnimatedOperation operation;
+@property (nonatomic, assign, readonly) MDPresentionAnimatedOperation presentionAnimatedOperation;
 
 @end
 

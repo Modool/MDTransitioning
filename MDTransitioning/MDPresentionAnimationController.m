@@ -23,7 +23,7 @@
 
 @interface MDPresentionAnimationController ()
 
-@property (nonatomic, assign) MDPresentionAnimatedOperation operation;
+@property (nonatomic, assign) MDPresentionAnimatedOperation presentionAnimatedOperation;
 @property (nonatomic, weak) UIViewController *fromViewController;
 @property (nonatomic, weak) UIViewController *toViewController;
 
@@ -43,7 +43,7 @@
         NSParameterAssert(operation != MDPresentionAnimatedOperationNone);
         
         self.duration = 0.25;
-        self.operation = operation;
+        self.presentionAnimatedOperation = operation;
         self.fromViewController = fromViewController;
         self.toViewController = toViewController;
     }
@@ -55,7 +55,7 @@
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    if ([self operation] == MDPresentionAnimatedOperationPresent) {
+    if ([self presentionAnimatedOperation] == MDPresentionAnimatedOperationPresent) {
         [self animatePresentTransition:transitionContext];
     } else {
         [self animateDismissTransition:transitionContext];

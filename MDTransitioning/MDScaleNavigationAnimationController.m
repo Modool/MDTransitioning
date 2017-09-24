@@ -23,7 +23,7 @@
 @implementation MDScaleNavigationAnimationController
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    if ([self operation] == UINavigationControllerOperationPush) {
+    if ([self navigationControllerOperation] == UINavigationControllerOperationPush) {
         [self customAnimatePushTransition:transitionContext];
     } else {
         [self customAnimatePopTransition:transitionContext];

@@ -48,11 +48,11 @@
     return [dismissed animationForPresentionOperation:MDPresentionAnimatedOperationDismiss fromViewController:dismissed toViewController:[self referenceViewController]];
 }
 
-//- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <MDPresentionControlViewControllerAnimatedTransitioning>)animator;{
+//- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <MDViewControllerAnimatedTransitioning>)animator;{
 //    return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 //}
 
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<MDPresentionControlViewControllerAnimatedTransitioning>)animator;{
+- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<MDViewControllerAnimatedTransitioning>)animator;{
     return [[[animator fromViewController] presentionInteractionController] interactiveTransition];
 }
 

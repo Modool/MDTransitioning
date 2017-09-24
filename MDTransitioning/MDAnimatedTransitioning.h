@@ -42,6 +42,17 @@
 // Access operation, push or pop.
 @property (nonatomic, assign, readonly) UINavigationControllerOperation navigationControllerOperation;
 
+/**
+ The designated initializer. If you subclass MDNavigationAnimationController, you must call the super implementation of this
+ method.
+ 
+ @param operation   navigation controller operation, push or pop.
+ @param fromViewController  view controller appearing.
+ @param toViewController    view controller will be appearing.
+ @return    an instance of MDNavigationAnimationController or sub class.
+ */
+- (instancetype)initWithOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
+
 @end
 
 // Enum of presention operations, present and dismiss.
@@ -56,6 +67,17 @@ typedef NS_ENUM(NSInteger, MDPresentionAnimatedOperation) {
 
 // Access operation, present or dismiss.
 @property (nonatomic, assign, readonly) MDPresentionAnimatedOperation presentionAnimatedOperation;
+
+/**
+ The designated initializer. If you subclass MDNavigationAnimationController, you must call the super implementation of this
+ method.
+ 
+ @param operation   presention controller operation, present or dismiss.
+ @param fromViewController  view controller appearing.
+ @param toViewController    view controller will be appearing.
+ @return    an instance of MDPresentionAnimationController or sub class.
+ */
+- (instancetype)initWithOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
 
 @end
 

@@ -73,7 +73,7 @@
     
     [UIView animateWithDuration:duration
                           delay:0.0
-                        options:UIViewAnimationOptionCurveEaseOut
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
                          toViewController.view.frame = CGRectOffset([[toViewController view] frame], 0, -CGRectGetHeight(frame));
                      }

@@ -55,6 +55,11 @@
     [self presentViewController:imageViewController animated:YES completion:nil];
 }
 
+- (IBAction)didClickSystemPresent:(id)sender {
+    MDPresentedViewController *presentViewController = [MDPresentedViewController new];
+    [self presentViewController:presentViewController animated:YES completion:nil];
+}
+
 - (IBAction)didClickPresent:(id)sender {
     MDPresentedViewController *presentViewController = [MDPresentedViewController new];
     presentViewController.transitioningDelegate = [MDPresentionControllerDelegate delegateWithReferenceViewController:self];

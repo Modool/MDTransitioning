@@ -35,7 +35,7 @@ FOUNDATION_EXPORT const unsigned char MDTransitioningVersionString[];
 #import <MDTransitioning/MDNavigationAnimationController.h>
 #import <MDTransitioning/MDPresentionAnimationController.h>
 #import <MDTransitioning/MDPopInteractionController.h>
+#import <MDTransitioning/MDVerticalSwipDismissInteractionController.h>
 #import <MDTransitioning/UIViewController+MDNavigationTransitioning.h>
 #import <MDTransitioning/UIViewController+MDPresentionTransitioning.h>
-
 #import <MDTransitioning/MDScaleNavigationAnimationController.h>

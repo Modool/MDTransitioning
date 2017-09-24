@@ -18,6 +18,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#import <MDTransitioning/MDTransitioning.h>
 #import "MDPresentedViewController.h"
 
 @interface MDPresentedViewController ()
@@ -39,12 +40,16 @@
     [dismissButton addTarget:self action:@selector(didClickDismiss:) forControlEvents:UIControlEventTouchUpInside];
     
     [[self view] addSubview:dismissButton];
+    
+    MDVerticalSwipDismissInteractionController *interactionController = [MDVerticalSwipDismissInteractionController interactionControllerWithViewController:self];
+    interactionController.verticalOffset = 200.f;
+    
+    self.presentionInteractionController = interactionController;
 }
 
 #pragma mark - actions
 
 - (IBAction)didClickDismiss:(id)sender{
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

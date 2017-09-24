@@ -19,7 +19,6 @@
 // SOFTWARE.
 
 #import "MDAppDelegate.h"
-#import <MDTransitioning/MDTransitioning.h>
 
 @interface MDAppDelegate ()
 
@@ -30,10 +29,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    UINavigationController *navigationController = (id)[[self window] rootViewController];
-    navigationController.allowPushAnimation = YES;
-    navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];
     
     return YES;
 }

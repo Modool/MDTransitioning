@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XDV-4t-E3r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XDV-4t-E3r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
             <objects>
                 <navigationController id="XDV-4t-E3r" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gdY-py-J4y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -40,15 +40,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp0-bY-OaI">
                                 <rect key="frame" x="96" y="162" width="142" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="next"/>
+                                <state key="normal" title="system push"/>
                                 <connections>
-                                    <segue destination="JuW-8J-I90" kind="show" id="dia-sj-RDL"/>
+                                    <action selector="didClickSystemPush:" destination="kFO-mu-RnR" eventType="touchUpInside" id="Jya-am-yrP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tw6-co-9fZ">
                                 <rect key="frame" x="96" y="250" width="142" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="noraml push"/>
+                                <state key="normal" title="custom normal push"/>
                                 <connections>
                                     <action selector="didClickNormalPush:" destination="kFO-mu-RnR" eventType="touchUpInside" id="x0b-S4-yZH"/>
                                 </connections>
@@ -64,7 +64,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fo-g3-6MY">
                                 <rect key="frame" x="96" y="399" width="142" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="vertical push"/>
+                                <state key="normal" title="vertical pop"/>
                                 <connections>
                                     <action selector="didClickVerticalPush:" destination="kFO-mu-RnR" eventType="touchUpInside" id="wiT-Kb-Jyk"/>
                                 </connections>
@@ -81,7 +81,7 @@
         <!--Presention Control View Controller-->
         <scene sceneID="vwr-sA-w6e">
             <objects>
-                <viewController id="JuW-8J-I90" customClass="MDPresentionControlViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MDPresentionControlViewController" id="JuW-8J-I90" customClass="MDPresentionControlViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fi5-AR-8ta"/>
                         <viewControllerLayoutGuide type="bottom" id="hAh-DK-Bfb"/>
@@ -94,12 +94,13 @@
                                 <rect key="frame" x="0.0" y="81" width="252" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOn-Rr-1LS">
-                                <rect key="frame" x="85" y="370" width="136" height="89"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtg-jz-BmN">
+                                <rect key="frame" x="85" y="335" width="136" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="present"/>
+                                <state key="normal" title="system present"/>
                                 <connections>
-                                    <action selector="didClickPresent:" destination="JuW-8J-I90" eventType="touchUpInside" id="isS-Ar-9gi"/>
+                                    <action selector="didClickPresent:" destination="JuW-8J-I90" eventType="touchUpInside" id="dhH-Qp-KLF"/>
+                                    <action selector="didClickSystemPresent:" destination="JuW-8J-I90" eventType="touchUpInside" id="lSp-G1-gnG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSP-1v-Ghz">
@@ -108,6 +109,14 @@
                                 <connections>
                                     <action selector="didClickImageButton:" destination="JuW-8J-I90" eventType="touchUpInside" id="7ic-IY-0I9"/>
                                     <action selector="didClickPresent:" destination="JuW-8J-I90" eventType="touchUpInside" id="C2b-jC-qV5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOn-Rr-1LS">
+                                <rect key="frame" x="85" y="432" width="136" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="custom present"/>
+                                <connections>
+                                    <action selector="didClickPresent:" destination="JuW-8J-I90" eventType="touchUpInside" id="isS-Ar-9gi"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -41,6 +41,8 @@
 		0856B4A01F72C00800905F3A /* MDPresentionControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B49E1F72C00800905F3A /* MDPresentionControllerDelegate.m */; };
 		0856B4A61F72C8B700905F3A /* MDScaleNavigationAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0856B4A41F72C8B700905F3A /* MDScaleNavigationAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0856B4A71F72C8B700905F3A /* MDScaleNavigationAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4A51F72C8B700905F3A /* MDScaleNavigationAnimationController.m */; };
+		086916461F778B7A008D34E3 /* MDVerticalSwipDismissInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086916441F778B79008D34E3 /* MDVerticalSwipDismissInteractionController.m */; };
+		086916471F778B7A008D34E3 /* MDVerticalSwipDismissInteractionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 086916451F778B79008D34E3 /* MDVerticalSwipDismissInteractionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2F703AC71F2ED36A00309C93 /* MDInteractiveTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		0856B49E1F72C00800905F3A /* MDPresentionControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPresentionControllerDelegate.m; sourceTree = "<group>"; };
 		0856B4A41F72C8B700905F3A /* MDScaleNavigationAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDScaleNavigationAnimationController.h; sourceTree = "<group>"; };
 		0856B4A51F72C8B700905F3A /* MDScaleNavigationAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDScaleNavigationAnimationController.m; sourceTree = "<group>"; };
+		086916441F778B79008D34E3 /* MDVerticalSwipDismissInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDVerticalSwipDismissInteractionController.m; sourceTree = "<group>"; };
+		086916451F778B79008D34E3 /* MDVerticalSwipDismissInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDVerticalSwipDismissInteractionController.h; sourceTree = "<group>"; };
 		2F703AC61F2ED36A00309C93 /* MDInteractiveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDInteractiveTransitioning.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,8 @@
 				082B3A4E1F2989AC0046F6C6 /* MDSwipeInteractionController.m */,
 				082B3A491F2989AC0046F6C6 /* MDPopInteractionController.h */,
 				082B3A4A1F2989AC0046F6C6 /* MDPopInteractionController.m */,
+				086916451F778B79008D34E3 /* MDVerticalSwipDismissInteractionController.h */,
+				086916441F778B79008D34E3 /* MDVerticalSwipDismissInteractionController.m */,
 				082B3A511F2989AC0046F6C6 /* MDNavigationControllerDelegate.h */,
 				082B3A521F2989AC0046F6C6 /* MDNavigationControllerDelegate.m */,
 				0856B49D1F72C00800905F3A /* MDPresentionControllerDelegate.h */,
@@ -197,6 +203,7 @@
 				082B3A5E1F2989AC0046F6C6 /* MDPresentionAnimationController.h in Headers */,
 				082B3A661F2989AC0046F6C6 /* UIViewController+MDNavigationTransitioning.h in Headers */,
 				082237E01F2F426F00B9BACE /* MDTransitioning+Private.h in Headers */,
+				086916471F778B7A008D34E3 /* MDVerticalSwipDismissInteractionController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +329,7 @@
 				082B3A5B1F2989AC0046F6C6 /* MDNavigationAnimationController.m in Sources */,
 				082B3A691F2989AC0046F6C6 /* UIViewController+MDPresentionTransitioning.m in Sources */,
 				082B3A5D1F2989AC0046F6C6 /* MDPopInteractionController.m in Sources */,
+				086916461F778B7A008D34E3 /* MDVerticalSwipDismissInteractionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

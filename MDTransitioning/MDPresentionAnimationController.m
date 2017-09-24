@@ -35,15 +35,13 @@
     return nil;
 }
 
-- (instancetype)initWithOperation:(MDPresentionAnimatedOperation)operation
-               fromViewController:(UIViewController *)fromViewController
-                 toViewController:(UIViewController *)toViewController {
+- (instancetype)initWithPresentionAnimatedOperation:(MDPresentionAnimatedOperation)presentionAnimatedOperation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController {
     self = [super init];
     if (self) {
-        NSParameterAssert(operation != MDPresentionAnimatedOperationNone);
+        NSParameterAssert(presentionAnimatedOperation != MDPresentionAnimatedOperationNone);
         
         self.duration = 0.25;
-        self.presentionAnimatedOperation = operation;
+        self.presentionAnimatedOperation = presentionAnimatedOperation;
         self.fromViewController = fromViewController;
         self.toViewController = toViewController;
     }

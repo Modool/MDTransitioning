@@ -31,12 +31,12 @@
  The designated initializer. If you subclass MDNavigationAnimationController, you must call the super implementation of this
  method.
  
- @param operation   presention controller operation, present or dismiss.
+ @param presentionAnimatedOperation   presention controller operation, present or dismiss.
  @param fromViewController  view controller appearing.
  @param toViewController    view controller will be appearing.
  @return    an instance of MDPresentionAnimationController or sub class.
  */
-- (instancetype)initWithOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
+- (instancetype)initWithPresentionAnimatedOperation:(MDPresentionAnimatedOperation)presentionAnimatedOperation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;
 
 - (instancetype)init DEPRECATED_MSG_ATTRIBUTE(" Use initWithOperation:fromViewController:toViewController: instead");
 

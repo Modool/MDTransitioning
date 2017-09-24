@@ -36,13 +36,11 @@
     return nil;
 }
 
-- (instancetype)initWithOperation:(UINavigationControllerOperation)operation
-               fromViewController:(UIViewController *)fromViewController
-                 toViewController:(UIViewController *)toViewController {
+- (instancetype)initWithNavigationControllerOperation:(UINavigationControllerOperation)navigationControllerOperation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController {
     self = [super init];
     if (self) {
         self.duration = 0.25;
-        self.navigationControllerOperation = operation;
+        self.navigationControllerOperation = navigationControllerOperation;
         self.fromViewController = fromViewController;
         self.toViewController = toViewController;
     }

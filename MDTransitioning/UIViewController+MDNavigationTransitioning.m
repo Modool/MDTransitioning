@@ -102,7 +102,7 @@ MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
 }
 
 - (id<MDNavigationAnimatedTransitioning>)animationForNavigationOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{
-    return [[MDNavigationAnimationController alloc] initWithOperation:operation fromViewController:fromViewController toViewController:toViewController];
+    return [[MDNavigationAnimationController alloc] initWithNavigationControllerOperation:operation fromViewController:fromViewController toViewController:toViewController];
 }
 
 @end

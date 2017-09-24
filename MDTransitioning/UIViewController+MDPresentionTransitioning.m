@@ -36,7 +36,7 @@ MDTransitioningLoadCategory(UIViewController_MDPresentionTransitioning)
 }
 
 - (id<MPresentionAnimatedTransitioning>)animationForPresentionOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{
-    return [[MDPresentionAnimationController alloc] initWithOperation:operation fromViewController:fromViewController toViewController:toViewController];
+    return [[MDPresentionAnimationController alloc] initWithPresentionAnimatedOperation:operation fromViewController:fromViewController toViewController:toViewController];
 }
 
 @end

@@ -45,7 +45,7 @@
 @property (nonatomic, copy) CGFloat (^progress)(CGPoint location, CGPoint translation, CGPoint velocity);
 
 // It be called after begginning of gesture.
-@property (nonatomic, copy) void (^begin)(); // Default is called requireInteractiveTransition.
+@property (nonatomic, copy) void (^begin)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition); // Default is called requireInteractiveTransition.
 
 // It be called after end of gesture.
 @property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, BOOL finished);

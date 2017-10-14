@@ -12,7 +12,7 @@
 
 为了方便集成，我们也提供了很多套可选的动画方案，比如传统的侧滑、缩放、图片预览等等。
 
-####iOS7 以前
+###iOS7 以前
 
 在 iOS7 以前，系统不支持手势右划返回的，只能实现一些过度动画，如以下方案：
 
@@ -64,11 +64,11 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 ```
 所以对于`Present`、`Dismiss`来说，尚且还是可以实现，而对于`Push` 和 `Pop`的定制非常困难，就更不要说针对转场来进行交互控制。
 
-####iOS7 以后
+###iOS7 以后
 
 在 iOS7 以后，系统针对交互转场这方面出现了很大变化，不仅支持了手势交互，还提供了一套标准的转场协议和动画协议。
 
-#####默认交互方案
+####默认交互方案
 
 首先，我们来看下 `Push` 和 `Pop`，在我们不去实现任何交互，以及任何动画的时候，系统所提供给我们的交互方案：
 
@@ -106,7 +106,7 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 }
 
 ```
-#####默认动画方案
+###默认动画方案
 
 * `UIViewControllerAnimatedTransitioning`    
 	动画协议：当`Push`或者`Pop`动作发生后，会通过代理获取到该协议的具体动画实例。
@@ -155,7 +155,7 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 * 不可以针对每个Controller转场控制的
 * 对第三方动画和交互控制器的集成相对复杂
 
-######所有我们准备提供一套完整的可扩展方案来解决这几个问题
+###所有我们准备提供一套完整的可扩展方案来解决这几个问题
 
 ### Why `MDTransitioning`?
 
@@ -166,9 +166,9 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 *  动画：到哪里去，就由谁提供
 *  控制：谁触发，就由谁维护
 
-####类关系
+###类关系
 
-#####动画类
+###动画类
 
 
 * MDViewControllerAnimatedTransitioning
@@ -187,7 +187,7 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 * `MDPresentionAnimationController`      
 	基于`MPresentionAnimatedTransitioning `协议的默认实现，默认实现`Present `和`Dismiss `动画，呈现方式和系统保持一致
 			
-#####交互驱动类
+###交互驱动类
 
 * `MDPercentDrivenInteractiveTransitioning`        
 	基于系统UIViewControllerInteractiveTransitioning协议的再次封装，定义驱动所需的常规方法			
@@ -195,7 +195,7 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 * `UIPercentDrivenInteractiveTransition`       
 	系统提供的默认百分比驱动器，以便后期对驱动的扩展
 
-#####交互控制类
+###交互控制类
 
 * `MDInteractionController` 			
 	交互控制协议，负责控制交互的生命周期，手势变化，以及转场触发和进度维护		
@@ -212,7 +212,7 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 * `<MDPresentionController>`        
 	`Present`、`Dismiss`动作控制器，默认由`UIViewController`实现，负责控制Presention交互的加载条件、初始化、以及手势依赖的`UIView`
 
-####优点
+###优点
 
 * 提供一套默认的方案，和系统效果保持一致
 * 提供所有定制方案的底层类，轻轻松松就能完成自定义交互和动画的集成
@@ -223,7 +223,7 @@ iOS7以前，没有为`Controller` 提供 `transitioningDelegate`
 
 ****
 
-#### 案例一
+### 案例一
 
 * `MDNavigationControllerDelegate `        
 为了方便接入，我们提供了默认的`Pop`和`Push`代理实现，只需要下面一行代码，就可以实现对系统转场的替换。
@@ -240,7 +240,7 @@ navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate]
 
 <img src="https://github.com/Modool/MDTransitioning/blob/master/snapshots/custom_push.gif?raw=true" width=320>
 
-#### 案例二
+### 案例二
 
 * `MDPresentionControllerDelegate `        
 当然对于`Present`和`Dismiss`我们也提供了默认的代理实现，同样只需要下面一行代码对系统转场的替换。
@@ -255,7 +255,7 @@ viewController.transitioningDelegate = [MDPresentionControllerDelegate delegateW
 <img src="https://github.com/Modool/MDTransitioning/blob/master/snapshots/system_present.gif?raw=true" width=320> 
 <img src="https://github.com/Modool/MDTransitioning/blob/master/snapshots/custom_present.gif?raw=true" width=320>
 
-#####为某个`View Contorller`定制一个缩放的`Pop`动画，但`Push`动画用默认的
+### 为某个`View Contorller`定制一个缩放的`Pop`动画，但`Push`动画用默认的
 
 ```
 // Code here
@@ -270,8 +270,8 @@ viewController.transitioningDelegate = [MDPresentionControllerDelegate delegateW
 
 ```
 
-#### 案例三
-#####因为水平pop是默认实现的，所以我们调整一下，为某个`View Contorller`定制一个垂直滑动的`Pop`手势交互，虽然有点变态，但是这仅为测试
+### 案例三
+### 因为水平pop是默认实现的，所以我们调整一下，为某个`View Contorller`定制一个垂直滑动的`Pop`手势交互，虽然有点变态，但是这仅为测试
 
 ```
 // Code here
@@ -285,9 +285,9 @@ viewController.transitioningDelegate = [MDPresentionControllerDelegate delegateW
   
 <img src="https://github.com/Modool/MDTransitioning/blob/master/snapshots/scale_push.gif?raw=true" width=320>
 
-#### 案例四
+### 案例四
 
-#####为某个`View Contorller`定制一个图片放大的`Present`动画，但`Dismiss`动画用默认抽屉式的
+#### 为某个`View Contorller`定制一个图片放大的`Present`动画，但`Dismiss`动画用默认抽屉式的
 
 ```
 // Code here
@@ -303,9 +303,9 @@ viewController.transitioningDelegate = [MDPresentionControllerDelegate delegateW
 }
 
 ```
-#### 案例五
+### 案例五
 
-#####图片预览器，为某个`View Contorller`定制一个图片缩小的`Dismiss`手势交互
+### 图片预览器，为某个`View Contorller`定制一个图片缩小的`Dismiss`手势交互
 
 ```
 // Code here

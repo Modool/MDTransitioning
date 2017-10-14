@@ -94,5 +94,5 @@ drag “MDTransitioning” directory into your project
 
 ## Article
 
-Article support if you want to see more extension or demo. <a href=https://github.com/Modool/MDTransitioning/blob/master/MDTransitioning.md>goto</a>.
+Article support if you want to see more extension or demo. <a href=https://github.com/Modool/MDTransitioning/blob/master/MDTransitioning.md>Go</a>.
 

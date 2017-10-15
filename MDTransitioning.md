@@ -327,7 +327,8 @@ viewController.transitioningDelegate = [MDPresentionControllerDelegate delegateW
 
 ### 动画和交互太少怎么办？
 
-配合<a href='https://github.com/ColinEberhardt/VCTransitionsLibrary'>CE系列</a>的动画和交互一起使用。
+配合<a href='https://github.com/ColinEberhardt/VCTransitionsLibrary'>CE系列</a>的动画和交互一起使用，我们提供CE的扩展方案<a href='https://github.com/Modool/MDTransitioning-VCTransitionsLibrary'>MDTransitioning-VCTransitionsLibrary</a>.
+
 
 ## 联系方式
 

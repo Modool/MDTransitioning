@@ -45,7 +45,9 @@
 
 @interface MDImageZoomAnimationController ()
 
-@property (nonatomic, assign) MDPresentionAnimatedOperation operation;
+@property (nonatomic, assign) NSTimeInterval duration;
+
+@property (nonatomic, assign) MDPresentionAnimatedOperation presentionAnimatedOperation;
 
 @property (nonatomic, weak) UIViewController<MDImageZoomViewControllerDelegate> *fromViewController;
 @property (nonatomic, weak) UIViewController<MDImageZoomViewControllerDelegate> *toViewController;
@@ -69,9 +71,9 @@
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    if ([self operation] == MDPresentionAnimatedOperationPresent) {
+    if ([self presentionAnimatedOperation] == MDPresentionAnimatedOperationPresent) {
         [self animateZoomInTransition:transitionContext];
-    } else if ([self operation] == MDPresentionAnimatedOperationDismiss) {
+    } else if ([self presentionAnimatedOperation] == MDPresentionAnimatedOperationDismiss) {
         [self animateZoomOutTransition:transitionContext];
     }
 }
@@ -200,20 +202,24 @@
 
 @implementation MDImageZoomAnimationController (MPresentionAnimatedTransitioning)
 
-+ (id<MPresentionAnimatedTransitioning>)animationForPresentOperation:(MDPresentionAnimatedOperation)operation fromViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)fromViewController toViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)toViewController;{
-    NSParameterAssert(operation != MDPresentionAnimatedOperationNone);
++ (id<MPresentionAnimatedTransitioning>)animationForPresentOperation:(MDPresentionAnimatedOperation)presentionAnimatedOperation fromViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)fromViewController toViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)toViewController;{
+    return [[self alloc] initWithPresentionAnimatedOperation:presentionAnimatedOperation fromViewController:fromViewController toViewController:toViewController];
+}
+
+- (instancetype)initWithPresentionAnimatedOperation:(MDPresentionAnimatedOperation)presentionAnimatedOperation fromViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)fromViewController toViewController:(UIViewController<MDImageZoomViewControllerDelegate> *)toViewController;{
+    
+    NSParameterAssert(presentionAnimatedOperation != MDPresentionAnimatedOperationNone);
     NSParameterAssert([fromViewController respondsToSelector:@selector(imageView)]);
     NSParameterAssert([toViewController respondsToSelector:@selector(imageView)]);
     
-    UIImageView *referenceImageView = operation == MDPresentionAnimatedOperationPresent ? [fromViewController imageView] : [toViewController imageView];
-    
-    MDImageZoomAnimationController *controller = [[MDImageZoomAnimationController alloc] initWithReferenceImageView:referenceImageView];
-    controller.operation = operation;
-    controller.fromViewController = fromViewController;
-    controller.toViewController = toViewController;
-    controller.hideReferenceImageViewWhenZoomIn = YES;
-    
-    return controller;
+    UIImageView *referenceImageView = presentionAnimatedOperation == MDPresentionAnimatedOperationPresent ? [fromViewController imageView] : [toViewController imageView];
+    if (self = [self initWithReferenceImageView:referenceImageView]) {
+        self.presentionAnimatedOperation = presentionAnimatedOperation;
+        self.fromViewController = fromViewController;
+        self.toViewController = toViewController;
+        self.hideReferenceImageViewWhenZoomIn = YES;
+    }
+    return self;
 }
 
 @end

@@ -36,7 +36,7 @@
 #pragma mark - MDNavigationPopController
 
 - (id<MDNavigationAnimatedTransitioning>)animationForNavigationOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController;{
-    return [[MDScaleNavigationAnimationController alloc] initWithOperation:operation fromViewController:fromViewController toViewController:toViewController];
+    return [[MDScaleNavigationAnimationController alloc] initWithNavigationControllerOperation:operation fromViewController:fromViewController toViewController:toViewController];
 }
 
 @end

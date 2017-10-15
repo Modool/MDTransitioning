@@ -29,7 +29,7 @@
         
         __block __weak id weak_self = self;
         self.translation = CGRectGetWidth([[viewController view] bounds]) / 3.;
-        self.begin = ^{
+        self.begin = ^(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition){
             [viewController dismissViewControllerAnimated:YES completion:nil];
         };
         self.allowSwipe = ^CGFloat(CGPoint location, CGPoint velocity) {

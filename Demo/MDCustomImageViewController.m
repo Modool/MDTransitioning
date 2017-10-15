@@ -31,7 +31,7 @@
         controller.hideReferenceImageViewWhenZoomIn = NO;
         return controller;
     } else {
-        return [[MDPresentionAnimationController alloc] initWithOperation:operation fromViewController:fromViewController toViewController:toViewController];
+        return [[MDPresentionAnimationController alloc] initWithPresentionAnimatedOperation:operation fromViewController:fromViewController toViewController:toViewController];
     }
 }
 

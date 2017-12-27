@@ -15,10 +15,6 @@
 
 * Download `MDTransitioning` and try run example app
 
-## Communication
-
-<img src="https://github.com/Modool/Resources/blob/master/images/social/qq_300.png?raw=true" width=200><img style="margin:0px 50px 0px 50px" src="https://github.com/Modool/Resources/blob/master/images/social/wechat_300.png?raw=true" width=200><img src="https://github.com/Modool/Resources/blob/master/images/social/github_300.png?raw=true" width=200>
-
 ## Installation
 
 
@@ -96,3 +92,6 @@ drag “MDTransitioning” directory into your project
 
 Article support if you want to see more extension or demo. <a href=https://github.com/Modool/MDTransitioning/blob/master/MDTransitioning.md>Go</a>.
 
+## Communication
+
+<img src="https://github.com/Modool/Resources/blob/master/images/social/qq_300.png?raw=true" width=200><img style="margin:0px 50px 0px 50px" src="https://github.com/Modool/Resources/blob/master/images/social/wechat_300.png?raw=true" width=200><img src="https://github.com/Modool/Resources/blob/master/images/social/github_300.png?raw=true" width=200>

@@ -44,13 +44,13 @@
 // To provide progress with location, translation and velocity.
 @property (nonatomic, copy) CGFloat (^progress)(CGPoint location, CGPoint translation, CGPoint velocity);
 
-// It be called after begginning of gesture.
+// It‘s called after begginning of gesture.
 @property (nonatomic, copy) void (^begin)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition); // Default is called requireInteractiveTransition.
 
-// It be called after end of gesture.
+// It‘s called after end of gesture.
 @property (nonatomic, copy) void (^end)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, BOOL finished);
 
-// It be called after updating progress of gesture.
+// It‘s called after updating progress of gesture.
 @property (nonatomic, copy) void (^update)(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition, CGFloat progress);
 
 /**

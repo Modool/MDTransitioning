@@ -14,14 +14,16 @@
 
 @interface MDRootViewController ()
 
+@property (nonatomic, strong) UIColor *backgroundColor;
+
 @end
 
 @implementation MDRootViewController
 
-- (void)loadView{
-    [super loadView];
+- (void)viewDidLoad{
+    [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor yellowColor];
+    if ([self backgroundColor]) self.view.backgroundColor = [UIColor brownColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +33,7 @@
 
 - (IBAction)didClickSystemPush:(id)sender {
     MDPresentionControlViewController * presentControlViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MDPresentionControlViewController"];
+    presentControlViewController.allowPopInteractive = NO;
     
     self.navigationController.delegate = nil;
     [[self navigationController] pushViewController:presentControlViewController animated:YES];
@@ -38,6 +41,7 @@
 
 - (IBAction)didClickNormalPush:(id)sender {
     MDRootViewController *viewController = [MDRootViewController new];
+    viewController.backgroundColor = [UIColor brownColor];
     
     self.navigationController.allowPushAnimation = YES;
     self.navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];

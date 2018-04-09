@@ -23,20 +23,13 @@
 #import "MDPresentedViewController.h"
 #import "MDCustomImageViewController.h"
 
-@interface MDPresentionControlViewController () <MDImageZoomViewControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface MDPresentionControlViewController () <MDImageZoomViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
 @implementation MDPresentionControlViewController
-
-- (instancetype)init{
-    if (self = [super init]) {
-        self.allowPopInteractive = NO;
-    }
-    return self;
-}
 
 - (void)loadView{
     [super loadView];

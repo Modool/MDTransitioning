@@ -48,7 +48,7 @@
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    return [self navigationControllerOperation] == UINavigationControllerOperationPush ? 0.25f : [self duration];
+    return [self navigationControllerOperation] == UINavigationControllerOperationPush ? 0.35f : [self duration];
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {

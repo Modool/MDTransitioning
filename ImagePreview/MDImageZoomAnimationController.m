@@ -20,11 +20,9 @@
 
 #import "MDImageZoomAnimationController.h"
 
-@implementation UIImage (AspectFit)
-
-- (CGRect)aspectFitRectForSize:(CGSize)size {
+CGRect MDImageZoomAnimationControllerAspectFitRectForSize(UIImage *image, CGSize size){
     CGFloat targetAspect = size.width / size.height;
-    CGFloat sourceAspect = self.size.width / self.size.height;
+    CGFloat sourceAspect = image.size.width / image.size.height;
     CGRect rect = CGRectZero;
     
     if (targetAspect > sourceAspect) {
@@ -40,8 +38,6 @@
     
     return rect;
 }
-
-@end
 
 @interface MDImageZoomAnimationController ()
 
@@ -65,47 +61,49 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *viewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *viewController = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
     return [viewController isBeingPresented] ? 0.5 : 0.25;
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitioning {
     if ([self presentionAnimatedOperation] == MDPresentionAnimatedOperationPresent) {
-        [self animateZoomInTransition:transitionContext];
+        [self zoomInTransitioning:transitioning];
     } else if ([self presentionAnimatedOperation] == MDPresentionAnimatedOperationDismiss) {
-        [self animateZoomOutTransition:transitionContext];
+        [self zoomOutTransitioning:transitioning];
     }
 }
 
-- (void)animateZoomInTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)zoomInTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
     // Get the view controllers participating in the transition
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController<MDImageZoomViewControllerDelegate> *toViewController = (id)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *fromViewController = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController<MDImageZoomViewControllerDelegate> *toViewController = (id)[transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
     NSAssert([toViewController conformsToProtocol:@protocol(MDImageZoomViewControllerDelegate)], @"*** toViewController must conforms to protocol for YRImageViewController!");
     
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+    UIView *containerView = [transitioning containerView];
     UIColor *windowBackgroundColor = [window backgroundColor];
     
     window.backgroundColor = [UIColor blackColor];
     // Create a temporary view for the zoom in transition and set the initial frame based
     // on the reference image view
-    UIImageView *transitionView = [[UIImageView alloc] initWithImage:[[self referenceImageView] image]];
-    transitionView.contentMode = UIViewContentModeScaleAspectFill;
-    transitionView.clipsToBounds = YES;
-    transitionView.frame = [[transitionContext containerView] convertRect:[[self referenceImageView] bounds]
-                                                                 fromView:[self referenceImageView]];
-    [[transitionContext containerView] addSubview:transitionView];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[[self referenceImageView] image]];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.frame = [containerView convertRect:[[self referenceImageView] bounds] fromView:[self referenceImageView]];
+    [containerView addSubview:imageView];
+    [containerView sendSubviewToBack:[fromViewController view]];
     
     // Compute the final frame for the temporary view
-    CGRect finalFrame = [transitionContext finalFrameForViewController:toViewController];
-    CGRect transitionViewFinalFrame = [[[self referenceImageView] image] aspectFitRectForSize:finalFrame.size];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGRect transitionViewFinalFrame = MDImageZoomAnimationControllerAspectFitRectForSize([[self referenceImageView] image], finalFrame.size);
     
     if ([self hideReferenceImageViewWhenZoomIn]) {
         self.referenceImageView.hidden = YES;
     }
     // Perform the transition using a spring motion effect
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     
     [UIView animateWithDuration:duration
                           delay:0
@@ -114,68 +112,75 @@
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          fromViewController.view.alpha = 0;
-                         transitionView.frame = transitionViewFinalFrame;
+                         imageView.frame = transitionViewFinalFrame;
                      }
                      completion:^(BOOL finished) {
                          window.backgroundColor = windowBackgroundColor;
                          fromViewController.view.alpha = 1;
                          
-                         if ([transitionContext transitionWasCancelled] && [self hideReferenceImageViewWhenZoomIn]) {
+                         if ([transitioning transitionWasCancelled] && [self hideReferenceImageViewWhenZoomIn]) {
                              self.referenceImageView.hidden = NO;
                          }
                          
-                         [transitionView removeFromSuperview];
-                         [[transitionContext containerView] addSubview:[toViewController view]];
-                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                         [imageView removeFromSuperview];
+                         
+                         if (![transitioning transitionWasCancelled]) {
+                             [containerView addSubview:[toViewController view]];
+                         }
+                         
+                         [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];
 }
 
-- (void)animateZoomOutTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)zoomOutTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
     // Get the view controllers participating in the transition
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    UIViewController<MDImageZoomViewControllerDelegate> *fromViewController = (id)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController<MDImageZoomViewControllerDelegate> *fromViewController = (id)[transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
     NSAssert([fromViewController conformsToProtocol:@protocol(MDImageZoomViewControllerDelegate)], @"*** fromViewController must conforms to protocol for YRImageViewController!");
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    
+    UIView *containerView = [transitioning containerView];
     UIColor *windowBackgroundColor = [window backgroundColor];
     
     // The toViewController view will fade in during the transition
-    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
+    toViewController.view.frame = [transitioning finalFrameForViewController:toViewController];
+    
     if ([fromViewController modalPresentationStyle] == UIModalPresentationNone) {
         toViewController.view.alpha = 0;
         window.backgroundColor = [UIColor blackColor];
         
-        [[transitionContext containerView] addSubview:[toViewController view]];
-        [[transitionContext containerView] sendSubviewToBack:[toViewController view]];
+        [containerView addSubview:[toViewController view]];
+        [containerView sendSubviewToBack:[toViewController view]];
     }
     // Compute the initial frame for the temporary view based on the image view
     // of the YRImageViewController
-    CGRect transitionViewInitialFrame = [[[fromViewController imageView] image] aspectFitRectForSize:[[fromViewController imageView] bounds].size];
-    transitionViewInitialFrame = [[transitionContext containerView] convertRect:transitionViewInitialFrame
-                                                                       fromView:[fromViewController imageView]];
+    UIImageView *referenceImageView = [self referenceImageView];
+    UIImageView *fromReferenceImageView = [fromViewController imageView];
+    CGRect transitionViewInitialFrame = MDImageZoomAnimationControllerAspectFitRectForSize([fromReferenceImageView image], [fromReferenceImageView bounds].size);
+    transitionViewInitialFrame = [containerView convertRect:transitionViewInitialFrame fromView:fromReferenceImageView];
     
     // Compute the final frame for the temporary view based on the reference
     // image view
-    CGRect transitionViewFinalFrame = [[transitionContext containerView] convertRect:[[self referenceImageView] bounds]
-                                                                            fromView:[self referenceImageView]];
+    CGRect transitionViewFinalFrame = [containerView convertRect:[referenceImageView bounds] fromView:referenceImageView];
     
     // Create a temporary view for the zoom out transition based on the image
     // view controller contents
-    UIImageView *transitionView = [[UIImageView alloc] initWithImage:[[fromViewController imageView] image]];
-    transitionView.contentMode = UIViewContentModeScaleAspectFill;
-    transitionView.layer.cornerRadius = [[[self referenceImageView] layer] cornerRadius];
-    transitionView.layer.borderWidth = [[[self referenceImageView] layer] borderWidth];
-    transitionView.layer.borderColor = [[[self referenceImageView] layer] borderColor];
-    transitionView.clipsToBounds = YES;
-    transitionView.frame = transitionViewInitialFrame;
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[fromReferenceImageView image]];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.layer.cornerRadius = [[referenceImageView layer] cornerRadius];
+    imageView.layer.borderWidth = [[referenceImageView layer] borderWidth];
+    imageView.layer.borderColor = [[referenceImageView layer] borderColor];
+    imageView.clipsToBounds = YES;
+    imageView.frame = transitionViewInitialFrame;
     
-    [[transitionContext containerView] addSubview:transitionView];
+    [containerView addSubview:imageView];
     
-    fromViewController.imageView.hidden = YES;
+    fromReferenceImageView.hidden = YES;
     if ([self hideReferenceImageViewWhenZoomIn]) {
-        self.referenceImageView.hidden = YES;
+        referenceImageView.hidden = YES;
     }
     // Perform the transition
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     
     [UIView animateWithDuration:duration
                           delay:0
@@ -183,18 +188,20 @@
                      animations:^{
                          toViewController.view.alpha = 1.f;
                          fromViewController.view.alpha = 0.f;
-                         transitionView.frame = transitionViewFinalFrame;
+                         imageView.frame = transitionViewFinalFrame;
                      } completion:^(BOOL finished) {
                          if ([self hideReferenceImageViewWhenZoomIn]) {
-                             self.referenceImageView.hidden = NO;
+                             referenceImageView.hidden = NO;
                          }
                          window.backgroundColor = windowBackgroundColor;
-                         if ([transitionContext transitionWasCancelled]) {
-                             fromViewController.imageView.hidden = NO;
+                         [imageView removeFromSuperview];
+                         
+                         if ([transitioning transitionWasCancelled]) {
+                             fromReferenceImageView.hidden = NO;
                              fromViewController.view.alpha = 1.f;
+                             [[toViewController view] removeFromSuperview];
                          }
-                         [transitionView removeFromSuperview];
-                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                         [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];
 }
 

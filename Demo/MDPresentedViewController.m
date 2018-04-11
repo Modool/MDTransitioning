@@ -41,10 +41,12 @@
     
     [[self view] addSubview:dismissButton];
     
-    MDVerticalSwipDismissInteractionController *interactionController = [MDVerticalSwipDismissInteractionController interactionControllerWithViewController:self];
-    interactionController.verticalOffset = 200.f;
-    
-    self.presentionInteractionController = interactionController;
+    if ([self transitioningDelegate]) {
+        MDVerticalSwipDismissInteractionController *interactionController = [MDVerticalSwipDismissInteractionController interactionControllerWithViewController:self];
+        interactionController.verticalTranslation = CGRectGetHeight([[self view] bounds]);
+        
+        self.presentionInteractionController = interactionController;
+    }
 }
 
 #pragma mark - actions

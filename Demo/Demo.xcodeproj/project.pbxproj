@@ -21,7 +21,6 @@
 		08555F411F31775600591B10 /* MDTransitioning_ImagePriview.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 08555F3F1F31775600591B10 /* MDTransitioning_ImagePriview.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0856B4AA1F72CBDE00905F3A /* MDCustomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4A91F72CBDE00905F3A /* MDCustomImageViewController.m */; };
 		0856B4AD1F72D06300905F3A /* MDVerticalSwipPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4AC1F72D06300905F3A /* MDVerticalSwipPopViewController.m */; };
-		0856B4B01F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4AF1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m */; };
 		0856B4B31F72D2AC00905F3A /* MDRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0856B4B21F72D2AC00905F3A /* MDRootViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +60,6 @@
 		0856B4A91F72CBDE00905F3A /* MDCustomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCustomImageViewController.m; sourceTree = "<group>"; };
 		0856B4AB1F72D06300905F3A /* MDVerticalSwipPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDVerticalSwipPopViewController.h; sourceTree = "<group>"; };
 		0856B4AC1F72D06300905F3A /* MDVerticalSwipPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDVerticalSwipPopViewController.m; sourceTree = "<group>"; };
-		0856B4AE1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDVerticalSwipPopInteractionController.h; sourceTree = "<group>"; };
-		0856B4AF1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDVerticalSwipPopInteractionController.m; sourceTree = "<group>"; };
 		0856B4B11F72D2AC00905F3A /* MDRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRootViewController.h; sourceTree = "<group>"; };
 		0856B4B21F72D2AC00905F3A /* MDRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,8 +97,6 @@
 				083D02301F30626D00D1E530 /* MDCustomViewController.m */,
 				0856B4A81F72CBDE00905F3A /* MDCustomImageViewController.h */,
 				0856B4A91F72CBDE00905F3A /* MDCustomImageViewController.m */,
-				0856B4AE1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.h */,
-				0856B4AF1F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m */,
 				0856B4AB1F72D06300905F3A /* MDVerticalSwipPopViewController.h */,
 				0856B4AC1F72D06300905F3A /* MDVerticalSwipPopViewController.m */,
 				083D02151F3057F400D1E530 /* MDPresentedViewController.h */,
@@ -206,7 +201,6 @@
 				083D02311F30626D00D1E530 /* MDCustomViewController.m in Sources */,
 				0856B4B31F72D2AC00905F3A /* MDRootViewController.m in Sources */,
 				083D021E1F3057F400D1E530 /* MDAppDelegate.m in Sources */,
-				0856B4B01F72D0C800905F3A /* MDVerticalSwipPopInteractionController.m in Sources */,
 				0856B4AD1F72D06300905F3A /* MDVerticalSwipPopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

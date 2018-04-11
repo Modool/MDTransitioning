@@ -39,9 +39,11 @@
 
 #pragma mark - actions
 
+- (IBAction)didClickBackButton:(id)sender {
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
 - (IBAction)didClickImageButton:(id)sender {
-//    MDCustomImageViewController *imageViewController = [[MDCustomImageViewController alloc] initWithImage:[[self imageView] image]];
-    
     MDImageViewController *imageViewController = [[MDImageViewController alloc] initWithImage:[[self imageView] image]];
     imageViewController.transitioningDelegate = [MDPresentionControllerDelegate delegateWithReferenceViewController:self];
     

@@ -8,7 +8,6 @@
 
 #import <MDTransitioning/MDTransitioning.h>
 #import "MDVerticalSwipPopViewController.h"
-#import "MDVerticalSwipPopInteractionController.h"
 
 @interface MDVerticalSwipPopViewController ()
 

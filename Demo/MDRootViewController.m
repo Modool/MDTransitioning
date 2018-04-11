@@ -24,6 +24,8 @@
     [super viewDidLoad];
     
     if ([self backgroundColor]) self.view.backgroundColor = [UIColor brownColor];
+    
+//    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,16 +34,18 @@
 }
 
 - (IBAction)didClickSystemPush:(id)sender {
-    MDPresentionControlViewController * presentControlViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MDPresentionControlViewController"];
-    presentControlViewController.allowPopInteractive = NO;
+    MDPresentionControlViewController * viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"MDPresentionControlViewController"];
+    viewController.allowPopInteractive = NO;
+    viewController.hidesBottomBarWhenPushed = YES;
     
     self.navigationController.delegate = nil;
-    [[self navigationController] pushViewController:presentControlViewController animated:YES];
+    [[self navigationController] pushViewController:viewController animated:YES];
 }
 
 - (IBAction)didClickNormalPush:(id)sender {
     MDRootViewController *viewController = [MDRootViewController new];
     viewController.backgroundColor = [UIColor brownColor];
+    viewController.hidesBottomBarWhenPushed = YES;
     
     self.navigationController.allowPushAnimation = YES;
     self.navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];
@@ -51,6 +55,7 @@
 
 - (IBAction)didClickScalePush:(id)sender {
     MDCustomViewController *viewController = [MDCustomViewController new];
+    viewController.hidesBottomBarWhenPushed = YES;
     
     self.navigationController.allowPushAnimation = YES;
     self.navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];
@@ -60,6 +65,7 @@
 
 - (IBAction)didClickVerticalPush:(id)sender {
     MDVerticalSwipPopViewController *viewController = [MDVerticalSwipPopViewController new];
+    viewController.hidesBottomBarWhenPushed = YES;
     
     self.navigationController.allowPushAnimation = YES;
     self.navigationController.delegate = [MDNavigationControllerDelegate defaultDelegate];

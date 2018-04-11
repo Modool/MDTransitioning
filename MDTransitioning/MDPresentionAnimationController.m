@@ -48,59 +48,67 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitioning {
     return [self duration];
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitioning {
     if ([self presentionAnimatedOperation] == MDPresentionAnimatedOperationPresent) {
-        [self animatePresentTransition:transitionContext];
+        [self presentTransitioning:transitioning];
     } else {
-        [self animateDismissTransition:transitionContext];
+        [self dismissTransitioning:transitioning];
     }
 }
 
-- (void)animatePresentTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+- (void)presentTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *fromViewController   = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController   = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+    CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGRect destination = CGRectOffset(initialFrame, 0, -CGRectGetHeight(finalFrame));
     
-    CGRect frame = [transitionContext finalFrameForViewController:toViewController];
-    toViewController.view.frame = CGRectOffset(frame, 0, CGRectGetHeight(frame));
-    [[transitionContext containerView] addSubview:[toViewController view]];
+    toViewController.view.frame = CGRectOffset(finalFrame, 0, CGRectGetHeight(finalFrame));
+    [[transitioning containerView] addSubview:[toViewController view]];
     
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     [UIView animateWithDuration:duration
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         toViewController.view.frame = CGRectOffset([[toViewController view] frame], 0, -CGRectGetHeight(frame));
+                         toViewController.view.frame = destination;
                      }
                      completion:^(BOOL finished) {
-                         [transitionContext completeTransition:YES];
+                         [transitioning completeTransition:YES];
                      }];
 }
 
-- (void)animateDismissTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+- (void)dismissTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *fromViewController = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController   = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+    CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGRect destination = CGRectOffset(initialFrame, 0, CGRectGetHeight(finalFrame));
     
-    CGRect frame = [transitionContext finalFrameForViewController:toViewController];
-    fromViewController.view.frame = frame;
+    [[transitioning containerView] addSubview:[toViewController view]];
+    [[transitioning containerView] sendSubviewToBack:[toViewController view]];
     
-    [[transitionContext containerView] addSubview:[toViewController view]];
-    [[transitionContext containerView] sendSubviewToBack:[toViewController view]];
-    
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     [UIView animateWithDuration:duration
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         fromViewController.view.frame = CGRectOffset(frame, 0, CGRectGetHeight(frame));
+                         fromViewController.view.frame = destination;
                      }
                      completion:^(BOOL finished) {
-                         fromViewController.view.frame = frame;
-                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                         fromViewController.view.frame = initialFrame;
+                         
+                         if ([transitioning transitionWasCancelled]) {
+                             [[toViewController view] removeFromSuperview];
+                         }
+                         
+                         [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];
 }
 

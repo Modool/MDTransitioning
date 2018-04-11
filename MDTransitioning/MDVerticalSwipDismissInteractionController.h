@@ -1,16 +1,13 @@
 //
 //  MDVerticalSwipDismissInteractionController.h
-//  Demo
+//  MDTransitioning
 //
-//  Created by Jave on 2017/9/24.
-//  Copyright © 2017年 markejave. All rights reserved.
+//  Created by xulinfeng on 2018/4/11.
+//  Copyright © 2018年 markejave. All rights reserved.
 //
 
-#import "MDSwipeInteractionController.h"
+#import "MDVerticalSwipInteractionController.h"
 
-@interface MDVerticalSwipDismissInteractionController : MDSwipeInteractionController
-
-// The vertical offset is top edge of content view, default is 20.f.
-@property (nonatomic, assign) CGFloat verticalOffset;
+@interface MDVerticalSwipDismissInteractionController : MDVerticalSwipInteractionController
 
 @end

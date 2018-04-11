@@ -22,101 +22,159 @@
 
 @implementation MDScaleNavigationAnimationController
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    if ([self navigationControllerOperation] == UINavigationControllerOperationPush) {
-        [self customAnimatePushTransition:transitionContext];
-    } else {
-        [self customAnimatePopTransition:transitionContext];
+- (instancetype)initWithNavigationControllerOperation:(UINavigationControllerOperation)navigationControllerOperation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController{
+    if (self = [super initWithNavigationControllerOperation:navigationControllerOperation fromViewController:fromViewController toViewController:toViewController]) {
+        self.scaleOffset = CGSizeMake(20, 20);
+        self.transitionBackgroundColor = [UIColor blackColor];
+    }
+    return self;
+}
+
+- (void)setTransitionBackgroundColor:(UIColor *)transitionBackgroundColor{
+    _transitionBackgroundColor = transitionBackgroundColor;
+    
+    self.pushTransitionBackgroundColor = transitionBackgroundColor;
+    self.popTransitionBackgroundColor = transitionBackgroundColor;
+}
+
+- (void)setPushTransitionBackgroundColor:(UIColor *)pushTransitionBackgroundColor{
+    if (_pushTransitionBackgroundColor != pushTransitionBackgroundColor) {
+        _pushTransitionBackgroundColor = pushTransitionBackgroundColor;
+        
+        if (_pushTransitionBackgroundColor != _transitionBackgroundColor) {
+            _transitionBackgroundColor = nil;
+        }
     }
 }
 
-- (void)customAnimatePushTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+- (void)setPopTransitionBackgroundColor:(UIColor *)popTransitionBackgroundColor{
+    if (_popTransitionBackgroundColor != popTransitionBackgroundColor) {
+        _popTransitionBackgroundColor = popTransitionBackgroundColor;
+        
+        if (popTransitionBackgroundColor != _transitionBackgroundColor) {
+            _transitionBackgroundColor = nil;
+        }
+    }
+}
 
-    CGRect initialFrame = [[fromViewController view] frame];
-    CGRect finalFrame = [transitionContext finalFrameForViewController:toViewController];
+- (void)pushTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *fromViewController = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController   = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
+    
+    NSTimeInterval duration = [self transitionDuration:transitioning];
+    
+    CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGAffineTransform fromViewDestinationTransform = CGAffineTransformScale(CGAffineTransformIdentity, 1 - self.scaleOffset.width / CGRectGetWidth(initialFrame), 1 - self.scaleOffset.height / CGRectGetHeight(initialFrame));
+    
+    UIView *overlayer = [[UIView alloc] initWithFrame:(CGRect){0, 0, initialFrame.size}];
+    overlayer.alpha = 0;
+    overlayer.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
+    
+    UIView *fromView = [self isSnapshotEnabled] ? [fromViewController snapshot] : [fromViewController view];
+    fromViewController.view.hidden = [self isSnapshotEnabled];
+    
     UINavigationBar *navigationBar = [[fromViewController navigationController] navigationBar];
     CGRect navigationBarFrame = [navigationBar frame];
     
     navigationBar.frame = CGRectOffset(navigationBarFrame, CGRectGetWidth(navigationBarFrame), 0);
     toViewController.view.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
     
-    [[transitionContext containerView] addSubview:[fromViewController snapshot]];
-    [[transitionContext containerView] addSubview:[toViewController view]];
+    [fromView addSubview:overlayer];
+    [[transitioning containerView] addSubview:fromView];
+    [[transitioning containerView] addSubview:[toViewController view]];
     
-    fromViewController.view.hidden = YES;
-    UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor blackColor];
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    UIColor *backgroundColor = [window backgroundColor];
     
+    window.backgroundColor = self.pushTransitionBackgroundColor;
     [UIView animateWithDuration:duration
-                          delay:0.0
+                          delay:0.f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         fromViewController.snapshot.alpha = 0.5;
-                         fromViewController.snapshot.frame = CGRectInset(initialFrame, 20, 20);
+                         overlayer.alpha = 1.f;
+                         fromView.transform = fromViewDestinationTransform;
                          toViewController.view.frame = finalFrame;
                          navigationBar.frame = navigationBarFrame;
                      }
                      completion:^(BOOL finished) {
-                         fromViewController.view.hidden = NO;
-                         fromViewController.snapshot.frame = CGRectInset(initialFrame, 20, 20);
-                         
-                         toViewController.view.frame = finalFrame;
+                         fromView.transform = CGAffineTransformIdentity;
                          navigationBar.frame = navigationBarFrame;
+                         toViewController.view.frame = finalFrame;
+                         fromViewController.view.frame = initialFrame;
                          
-                         UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor whiteColor];
+                         fromViewController.view.hidden = NO;
+                         window.backgroundColor = backgroundColor;
                          
-                         [[fromViewController snapshot] removeFromSuperview];
+                         [fromView removeFromSuperview];
+                         [overlayer removeFromSuperview];
                          
-                         [transitionContext completeTransition:YES];
+                         [transitioning completeTransition:YES];
                      }];
 }
 
-- (void)customAnimatePopTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+- (void)popTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *fromViewController = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController   = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     
-    CGRect initialFrame = [[fromViewController view] frame];
-    CGRect finalFrame = [transitionContext finalFrameForViewController:toViewController];
+    CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGRect fromViewDestination = CGRectOffset(initialFrame, CGRectGetWidth(initialFrame), 0);
+    CGAffineTransform toViewOriginTransform = CGAffineTransformScale(CGAffineTransformIdentity, 1 - self.scaleOffset.width / CGRectGetWidth(finalFrame), 1 - self.scaleOffset.height / CGRectGetHeight(finalFrame));
     
-    toViewController.view.hidden = YES;
-    toViewController.snapshot.alpha = 0.5;
-    toViewController.snapshot.frame = CGRectInset(finalFrame, 20, 20);
+    UIView *overlayer = [[UIView alloc] initWithFrame:(CGRect){0, 0, initialFrame.size}];
+    overlayer.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
     
-    fromViewController.navigationController.navigationBar.hidden = YES;
-    UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor blackColor];
+    UIView *fromView = [self isSnapshotEnabled] ? [fromViewController snapshot] : [fromViewController view];
+    fromViewController.view.hidden = [self isSnapshotEnabled];
     
-    [[fromViewController view] addSubview:[fromViewController snapshot]];
-    [[transitionContext containerView] addSubview:[toViewController view]];
-    [[transitionContext containerView] addSubview:[toViewController snapshot]];
-    [[transitionContext containerView] sendSubviewToBack:[toViewController snapshot]];
+    UIView *toView = [self isSnapshotEnabled] ? [toViewController snapshot] : [toViewController view];
+    
+    [toView addSubview:overlayer];
+    [[transitioning containerView] addSubview:[toViewController view]];
+    [[transitioning containerView] addSubview:toView];
+    [[transitioning containerView] addSubview:fromView];
+    [[transitioning containerView] bringSubviewToFront:fromView];
+    
+    toView.transform = toViewOriginTransform;
+    toViewController.view.hidden = [self isSnapshotEnabled];
+    
+    UINavigationBar *navigationBar = [[fromViewController navigationController] navigationBar];
+    navigationBar.hidden = YES;
+    
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    UIColor *backgroundColor = [window backgroundColor];
+    
+    window.backgroundColor = self.popTransitionBackgroundColor;
     
     [UIView animateWithDuration:duration
                           delay:0.0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         fromViewController.view.frame = CGRectOffset(initialFrame, CGRectGetWidth(initialFrame), 0);
-                         toViewController.snapshot.alpha = 1.0;
-                         toViewController.snapshot.frame = finalFrame;
+                         overlayer.alpha = 0.f;
+                         fromView.frame = fromViewDestination;
+                         toView.transform = CGAffineTransformIdentity;
                      }
                      completion:^(BOOL finished) {
+                         toView.transform = CGAffineTransformIdentity;
+                         toViewController.view.frame = finalFrame;
+                         fromViewController.view.frame = initialFrame;
+                         
+                         navigationBar.hidden = NO;
+                         fromViewController.view.hidden = NO;
                          toViewController.view.hidden = NO;
-                         toViewController.navigationController.navigationBar.hidden = NO;
-                         UIApplication.sharedApplication.delegate.window.backgroundColor = [UIColor whiteColor];
+                         window.backgroundColor = backgroundColor;
                          
-                         [[fromViewController snapshot] removeFromSuperview];
-                         [[toViewController snapshot] removeFromSuperview];
+                         if ([self isSnapshotEnabled]) [toView removeFromSuperview];
+                         [fromView removeFromSuperview];
+                         [overlayer removeFromSuperview];
                          
-                         // Reset toViewController's `snapshot` to nil
-                         if (![transitionContext transitionWasCancelled]) {
-                             toViewController.snapshot = nil;
+                         if ([transitioning transitionWasCancelled]) {
+                             [[toViewController view] removeFromSuperview];
                          }
-                         
-                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                         [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];
-
 }
 
 @end

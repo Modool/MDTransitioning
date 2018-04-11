@@ -27,6 +27,9 @@
 // The duration of animation, default is 0.25f.
 @property (nonatomic, assign) CGFloat duration;
 
+// The duration of animation, default is 0.25f.
+@property (nonatomic, assign, getter=isSnapshotEnabled) BOOL snapshotEnable;
+
 /**
  The designated initializer. If you subclass MDNavigationAnimationController, you must call the super implementation of this
  method.

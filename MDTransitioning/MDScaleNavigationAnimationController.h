@@ -22,4 +22,16 @@
 
 @interface MDScaleNavigationAnimationController : MDNavigationAnimationController
 
+// The offset to scale based on transition view frame.
+@property (nonatomic, assign) CGSize scaleOffset;
+
+// The background color of transion view  will be changed, both push and pop.
+@property (nonatomic, strong) UIColor *transitionBackgroundColor;
+
+// The background color of transion view when pushing.
+@property (nonatomic, strong) UIColor *pushTransitionBackgroundColor;
+
+// The background color of transion view when popping.
+@property (nonatomic, strong) UIColor *popTransitionBackgroundColor;
+
 @end

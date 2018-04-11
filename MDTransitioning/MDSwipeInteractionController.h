@@ -24,6 +24,6 @@
 // The controller of swipe interaction.
 @interface MDSwipeInteractionController : NSObject<MDInteractionController, UIGestureRecognizerDelegate>
 
-- (instancetype)init DEPRECATED_MSG_ATTRIBUTE(" Use interactionControllerWithViewController:operation: instead");
+- (instancetype)init DEPRECATED_MSG_ATTRIBUTE(" Use interactionControllerWithViewController: instead");
 
 @end

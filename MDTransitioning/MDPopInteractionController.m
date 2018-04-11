@@ -25,7 +25,7 @@
 - (instancetype)initWithViewController:(UIViewController *)viewController{
     if (self = [super initWithViewController:viewController]) {
         __block __weak id weak_self = self;
-        self.horizontalOffset = 30.f;
+        self.horizontalOffset = 20.f;
         self.begin = ^(id<MDPercentDrivenInteractiveTransitioning> interactiveTransition){
             [[viewController navigationController] popViewControllerAnimated:YES];
         };

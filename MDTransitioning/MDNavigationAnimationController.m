@@ -43,110 +43,113 @@
         self.navigationControllerOperation = navigationControllerOperation;
         self.fromViewController = fromViewController;
         self.toViewController = toViewController;
+        self.snapshotEnable = YES;
     }
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitioning {
     return [self navigationControllerOperation] == UINavigationControllerOperationPush ? 0.35f : [self duration];
 }
 
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext; {
     if ([self navigationControllerOperation] == UINavigationControllerOperationPush) {
-        [self animatePushTransition:transitionContext];
+        [self pushTransitioning:transitionContext];
     } else {
-        [self animatePopTransition:transitionContext];
+        [self popTransitioning:transitionContext];
     }
 }
 
-- (void)animatePushTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+- (void)pushTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *fromViewController = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController   = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
-    CGRect frame = [transitionContext finalFrameForViewController:toViewController];
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     
-    UIView *fromSnapshot = [fromViewController snapshot];
-    UIView *fromOverlayerView = [[UIView alloc] initWithFrame:[fromSnapshot bounds]];
-    fromOverlayerView.alpha = 0;
-    fromOverlayerView.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
+    CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGRect fromViewDestination = CGRectOffset(initialFrame, -CGRectGetWidth(initialFrame) / 2., 0);
     
-    fromViewController.view.hidden = YES;
-    toViewController.view.frame = CGRectOffset(frame, CGRectGetWidth(frame), 0);
+    UIView *overlayer = [[UIView alloc] initWithFrame:(CGRect){0, 0, initialFrame.size}];
+    overlayer.alpha = 0;
+    overlayer.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
     
-    [fromSnapshot addSubview:fromOverlayerView];
-    [[transitionContext containerView] addSubview:fromSnapshot];
-    [[transitionContext containerView] addSubview:[toViewController view]];
+    UIView *fromView = [self isSnapshotEnabled] ? [fromViewController snapshot] : [fromViewController view];
+    
+    fromViewController.view.hidden = [self isSnapshotEnabled];
+    toViewController.view.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
+    
+    [fromView addSubview:overlayer];
+    [[transitioning containerView] addSubview:fromView];
+    [[transitioning containerView] addSubview:[toViewController view]];
     
     [UIView animateWithDuration:duration
                           delay:0.f
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         fromOverlayerView.alpha = 1.;
-                         fromSnapshot.frame = CGRectOffset([[fromViewController view] frame], -CGRectGetWidth([[fromViewController view] frame]) / 2., 0);
-                         toViewController.view.frame = CGRectOffset([[toViewController view] frame], -CGRectGetWidth([[toViewController view] frame]), 0);
+                         overlayer.alpha = 1.f;
+                         fromView.frame = fromViewDestination;
+                         toViewController.view.frame = finalFrame;
                      }
                      completion:^(BOOL finished) {
+                         toViewController.view.frame = finalFrame;
+                         fromViewController.view.frame = initialFrame;
                          fromViewController.view.hidden = NO;
                          
-                         [fromSnapshot removeFromSuperview];
-                         [fromOverlayerView removeFromSuperview];
+                         [fromView removeFromSuperview];
+                         [overlayer removeFromSuperview];
                          
-                         [transitionContext completeTransition:YES];
+                         [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];
 }
 
-- (void)animatePopTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
+- (void)popTransitioning:(id<UIViewControllerContextTransitioning>)transitioning {
+    UIViewController *fromViewController = [transitioning viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController   = [transitioning viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    CGRect initialFrame = [[fromViewController view] frame];
-    CGRect finalFrame = [[toViewController view] frame];
+    NSTimeInterval duration = [self transitionDuration:transitioning];
     
-    UIView *fromSnapshot = [fromViewController snapshot];
-    UIView *toSnapshot = [toViewController snapshot];
-
-    fromSnapshot.frame = initialFrame;
-    toSnapshot.frame = CGRectOffset(finalFrame, -CGRectGetWidth(finalFrame) / 2., 0);
+    CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
+    CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
+    CGRect toViewOrigin = CGRectOffset(finalFrame, -CGRectGetWidth(finalFrame) / 2., 0);;
+    CGRect fromViewDestination = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
     
-    UIView *toOverlayerView = [[UIView alloc] initWithFrame:[toSnapshot bounds]];
-    toOverlayerView.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
+    toViewController.view.frame = toViewOrigin;
+    fromViewController.view.hidden = [self isSnapshotEnabled];
     
-    toViewController.view.hidden = YES;
-    fromViewController.view.hidden = YES;
+    UIView *fromView = [self isSnapshotEnabled] ? [fromViewController snapshot] : [fromViewController view];
+    fromView.frame = initialFrame;
     
-    [toSnapshot addSubview:toOverlayerView];
-    [[transitionContext containerView] addSubview:[toViewController view]];
-    [[transitionContext containerView] addSubview:toSnapshot];
-    [[transitionContext containerView] addSubview:fromSnapshot];
-    [[transitionContext containerView] sendSubviewToBack:toSnapshot];
+    UIView *overlayer = [[UIView alloc] initWithFrame:(CGRect){0, 0, finalFrame.size}];
+    overlayer.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
+    
+    [[toViewController view] addSubview:overlayer];
+    [[transitioning containerView] addSubview:[toViewController view]];
+    [[transitioning containerView] addSubview:fromView];
+    [[transitioning containerView] bringSubviewToFront:fromView];
     
     [UIView animateWithDuration:duration
                           delay:0.0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         toOverlayerView.alpha = 0;
-                         toSnapshot.frame = finalFrame;
-                         fromSnapshot.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
+                         overlayer.alpha = 0;
+                         fromView.frame = fromViewDestination;
+                         toViewController.view.frame = finalFrame;
                      }
                      completion:^(BOOL finished) {
-                         toSnapshot.frame = finalFrame;
-                         fromSnapshot.frame = CGRectOffset(finalFrame, CGRectGetWidth(finalFrame), 0);
+                         toViewController.view.frame = finalFrame;
                          fromViewController.view.frame = initialFrame;
+                         fromViewController.view.hidden = NO;
                          
-                         toViewController.view.hidden = NO;
-                         
-                         [fromSnapshot removeFromSuperview];
-                         [toSnapshot removeFromSuperview];
-                         [toOverlayerView removeFromSuperview];
+                         [fromView removeFromSuperview];
+                         [overlayer removeFromSuperview];
                          // Reset toViewController's `snapshot` to nil
-                         if (![transitionContext transitionWasCancelled]) {
-                             toViewController.snapshot = nil;
+                         if ([transitioning transitionWasCancelled]) {
+                             [[toViewController view] removeFromSuperview];
                          } else {
-                             fromViewController.view.hidden = NO;
+                             toViewController.snapshot = nil;
                          }
-                         [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+                         [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];
 }
 

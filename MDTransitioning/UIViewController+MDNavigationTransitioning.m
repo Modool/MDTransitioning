@@ -41,6 +41,7 @@ MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
     if ([self allowPopInteractive] &&
         ![self allowCustomPopInteractive] &&
         [self navigationController] != nil &&
+        [[self navigationController] delegate] != nil &&
         [self navigationController] == [self parentViewController] &&
         [[[self navigationController] viewControllers] firstObject] != self) {
         

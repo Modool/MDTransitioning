@@ -25,7 +25,7 @@
     
     if ([self backgroundColor]) self.view.backgroundColor = [UIColor brownColor];
     
-//    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

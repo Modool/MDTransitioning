@@ -66,9 +66,9 @@
     
     CGRect initialFrame = [transitioning initialFrameForViewController:fromViewController];
     CGRect finalFrame = [transitioning finalFrameForViewController:toViewController];
-    CGRect destination = CGRectOffset(initialFrame, 0, -CGRectGetHeight(finalFrame));
+    CGRect origin = CGRectOffset(initialFrame, 0, CGRectGetHeight(finalFrame));
     
-    toViewController.view.frame = CGRectOffset(finalFrame, 0, CGRectGetHeight(finalFrame));
+    toViewController.view.frame = origin;
     [[transitioning containerView] addSubview:[toViewController view]];
     
     NSTimeInterval duration = [self transitionDuration:transitioning];
@@ -76,7 +76,7 @@
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         toViewController.view.frame = destination;
+                         toViewController.view.frame = finalFrame;
                      }
                      completion:^(BOOL finished) {
                          [transitioning completeTransition:YES];

@@ -71,8 +71,8 @@
     overlayer.alpha = 0;
     overlayer.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
     
-    UIView *fromView = [self isSnapshotEnabled] ? [fromViewController snapshot] : [fromViewController view];
-    fromViewController.view.hidden = [self isSnapshotEnabled];
+    UIView *fromView = [fromViewController snapshot];
+    fromViewController.view.hidden = YES;
     
     UINavigationBar *navigationBar = [[fromViewController navigationController] navigationBar];
     CGRect navigationBarFrame = [navigationBar frame];
@@ -87,6 +87,10 @@
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     UIColor *backgroundColor = [window backgroundColor];
     
+    UITabBar *tabBar = fromViewController.tabBarController.tabBar;
+    BOOL tabBarHidden = tabBar.hidden;
+    
+    tabBar.hidden = YES;
     window.backgroundColor = self.pushTransitionBackgroundColor;
     [UIView animateWithDuration:duration
                           delay:0.f
@@ -103,7 +107,9 @@
                          toViewController.view.frame = finalFrame;
                          fromViewController.view.frame = initialFrame;
                          
+                         tabBar.hidden = tabBarHidden;
                          fromViewController.view.hidden = NO;
+                         
                          window.backgroundColor = backgroundColor;
                          
                          [fromView removeFromSuperview];
@@ -126,10 +132,10 @@
     UIView *overlayer = [[UIView alloc] initWithFrame:(CGRect){0, 0, initialFrame.size}];
     overlayer.backgroundColor = [UIColor colorWithWhite:0 alpha:.2f];
     
-    UIView *fromView = [self isSnapshotEnabled] ? [fromViewController snapshot] : [fromViewController view];
-    fromViewController.view.hidden = [self isSnapshotEnabled];
+    UIView *fromView = [fromViewController snapshot];
+    fromViewController.view.hidden = YES;
     
-    UIView *toView = [self isSnapshotEnabled] ? [toViewController snapshot] : [toViewController view];
+    UIView *toView = [toViewController snapshot];
     
     [toView addSubview:overlayer];
     [[transitioning containerView] addSubview:[toViewController view]];
@@ -138,9 +144,15 @@
     [[transitioning containerView] bringSubviewToFront:fromView];
     
     toView.transform = toViewOriginTransform;
-    toViewController.view.hidden = [self isSnapshotEnabled];
+    toViewController.view.hidden = YES;
     
-    UINavigationBar *navigationBar = [[fromViewController navigationController] navigationBar];
+    UITabBar *tabBar = fromViewController.tabBarController.tabBar;
+    UINavigationBar *navigationBar = fromViewController.navigationController.navigationBar;
+    
+    BOOL tabBarHidden = tabBar.hidden;
+    BOOL navigationBarHidden = navigationBar.hidden;
+    
+    tabBar.hidden = YES;
     navigationBar.hidden = YES;
     
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
@@ -161,17 +173,20 @@
                          toViewController.view.frame = finalFrame;
                          fromViewController.view.frame = initialFrame;
                          
-                         navigationBar.hidden = NO;
-                         fromViewController.view.hidden = NO;
-                         toViewController.view.hidden = NO;
                          window.backgroundColor = backgroundColor;
                          
-                         if ([self isSnapshotEnabled]) [toView removeFromSuperview];
-                         [fromView removeFromSuperview];
+                         tabBar.hidden = tabBarHidden;
+                         navigationBar.hidden = navigationBarHidden;
+                         toViewController.view.hidden = NO;
+                         fromViewController.view.hidden = NO;
+                         
                          [overlayer removeFromSuperview];
+                         [toView removeFromSuperview];
                          
                          if ([transitioning transitionWasCancelled]) {
                              [[toViewController view] removeFromSuperview];
+                         } else {
+                             [fromView removeFromSuperview];
                          }
                          [transitioning completeTransition:![transitioning transitionWasCancelled]];
                      }];

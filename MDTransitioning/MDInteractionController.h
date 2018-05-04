@@ -71,6 +71,7 @@
 
 // Snapshot is created before view controller is disappearing.
 @property (nonatomic, strong) UIView *snapshot;
+@property (nonatomic, strong) UIView *navigationBarSnapshot;
 
 // Interaction controller control both geture and transitioning progress.
 @property (nonatomic, strong) id<MDInteractionController> interactionController;

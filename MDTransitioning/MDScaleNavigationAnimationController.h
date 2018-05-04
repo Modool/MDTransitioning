@@ -22,6 +22,8 @@
 
 @interface MDScaleNavigationAnimationController : MDNavigationAnimationController
 
+@property (nonatomic, assign, getter=isSnapshotEnabled) BOOL snapshotEnable NS_UNAVAILABLE;
+
 // The offset to scale based on transition view frame.
 @property (nonatomic, assign) CGSize scaleOffset;
 

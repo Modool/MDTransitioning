@@ -25,18 +25,41 @@
 
 MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
 
+@implementation UINavigationController (MDNavigationTransitioning)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        MDTransitioningMethodSwizzle([self class], @selector(pushViewController:animated:), @selector(MDNavigationTransitioning_pushViewController:animated:));
+    });
+}
+
+- (void)MDNavigationTransitioning_pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    UIViewController<MDNavigationPopController> *topViewController = (UIViewController<MDNavigationPopController> *)[self topViewController];
+    if (topViewController.tabBarController) {
+        topViewController.snapshot = [topViewController.tabBarController.view snapshotViewAfterScreenUpdates:NO];
+    } else {
+        topViewController.snapshot = [self.view snapshotViewAfterScreenUpdates:NO];
+    }
+    if (!self.navigationBarHidden) topViewController.navigationBarSnapshot = [self.navigationBar snapshotViewAfterScreenUpdates:NO];
+    
+    [self MDNavigationTransitioning_pushViewController:viewController animated:animated];
+}
+
+@end
+
 @implementation UIViewController (MDNavigationTransitioning)
 
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        MDTransitioningMethodSwizzle([self class], @selector(viewWillDisappear:), @selector(swizzle_viewWillDisappear:));
-        MDTransitioningMethodSwizzle([self class], @selector(viewDidLoad), @selector(swizzle_viewDidLoad));
+        MDTransitioningMethodSwizzle([self class], @selector(viewDidLoad), @selector(MDNavigationTransitioning_viewDidLoad));
+        MDTransitioningMethodSwizzle([self class], @selector(viewWillDisappear:), @selector(MDNavigationTransitioning_viewWillDisappear:));
     });
 }
 
-- (void)swizzle_viewDidLoad{
-    [self swizzle_viewDidLoad];
+- (void)MDNavigationTransitioning_viewDidLoad{
+    [self MDNavigationTransitioning_viewDidLoad];
     
     if ([self allowPopInteractive] &&
         ![self allowCustomPopInteractive] &&
@@ -49,11 +72,15 @@ MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
     }
 }
 
-- (void)swizzle_viewWillDisappear:(BOOL)animated {
-    [self swizzle_viewWillDisappear:animated];
+- (void)MDNavigationTransitioning_viewWillDisappear:(BOOL)animated {
+    [self MDNavigationTransitioning_viewWillDisappear:animated];
     // Being popped, take a snapshot
     if ([self isMovingFromParentViewController]) {
         self.snapshot = [[[self navigationController] view] snapshotViewAfterScreenUpdates:NO];
+        
+        if (!self.navigationController.navigationBarHidden) {
+            self.navigationBarSnapshot = [[[self navigationController] navigationBar] snapshotViewAfterScreenUpdates:NO];
+        }
     }
 }
 
@@ -62,8 +89,18 @@ MDTransitioningLoadCategory(UIViewController_MDNavigationTransitioning)
 }
 
 - (void)setSnapshot:(UIView *)snapshot{
-    if ([self snapshot] != snapshot) {
+    if (self.snapshot != snapshot) {
         objc_setAssociatedObject(self, @selector(snapshot), snapshot, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+
+- (UIView *)navigationBarSnapshot{
+    return objc_getAssociatedObject(self, @selector(navigationBarSnapshot));
+}
+
+- (void)setNavigationBarSnapshot:(UIView *)navigationBarSnapshot{
+    if (self.navigationBarSnapshot != navigationBarSnapshot) {
+        objc_setAssociatedObject(self, @selector(navigationBarSnapshot), navigationBarSnapshot, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 

@@ -25,7 +25,7 @@ source 'https://github.com/Modool/cocoapods-specs.git'
 platform :ios, '8.0'
 
 target 'TargetName' do
-pod 'MDTransitioning', '~> 1.0.1'
+pod 'MDTransitioning', '~> 1.0.2'
 end
 
 ```
@@ -33,7 +33,7 @@ end
 * Installation with Carthage
 
 ```
-github "Modool/MDTransitioning" ~> 1.0.1
+github "Modool/MDTransitioning" ~> 1.0.2
 ```
 
 * Manual Import

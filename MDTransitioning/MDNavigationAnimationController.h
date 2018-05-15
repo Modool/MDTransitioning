@@ -25,7 +25,7 @@
 @interface MDNavigationAnimationController : NSObject<MDNavigationAnimatedTransitioning>
 
 // The duration of animation, default is 0.25f.
-@property (nonatomic, assign) CGFloat duration;
+@property (nonatomic, assign) NSTimeInterval duration;
 
 // The duration of animation, default is 0.25f.
 @property (nonatomic, assign, getter=isSnapshotEnabled) BOOL snapshotEnable;

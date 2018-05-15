@@ -25,7 +25,7 @@
 @interface MDPresentionAnimationController : NSObject<MPresentionAnimatedTransitioning>
 
 // The duration of animation, default is 0.25f.
-@property (nonatomic, assign) CGFloat duration; // Default is 0.25f.
+@property (nonatomic, assign) NSTimeInterval duration; // Default is 0.25f.
 
 /**
  The designated initializer. If you subclass MDNavigationAnimationController, you must call the super implementation of this

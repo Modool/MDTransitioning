@@ -21,6 +21,7 @@
 #import "MDScaleNavigationAnimationController.h"
 
 @implementation MDScaleNavigationAnimationController
+@dynamic snapshotEnable;
 
 - (instancetype)initWithNavigationControllerOperation:(UINavigationControllerOperation)navigationControllerOperation fromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController{
     if (self = [super initWithNavigationControllerOperation:navigationControllerOperation fromViewController:fromViewController toViewController:toViewController]) {
